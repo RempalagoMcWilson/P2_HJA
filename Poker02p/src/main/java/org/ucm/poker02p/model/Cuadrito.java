@@ -25,9 +25,11 @@ public class Cuadrito extends JButton{
         this.color = color;
         setColorMio(color);
         //boton.setFont(Font.TYPE1_FONT);
-        setSize(new Dimension(30, 30));
-        setText(mano.toString());
-        this.setFont(new Font("arial", Font.PLAIN, 15));
+        setSize(new Dimension(40, 40));
+        setMargin(new java.awt.Insets(0,0,0,0));
+        this.setFont(new Font("arial", Font.PLAIN, 17));
+        setText(mano.toString());//mano.toString()
+        
         setVisible(true);
         this.addActionListener(new ActionListener(){
             @Override

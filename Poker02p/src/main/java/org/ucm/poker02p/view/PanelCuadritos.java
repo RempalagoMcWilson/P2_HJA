@@ -20,7 +20,7 @@ public class PanelCuadritos extends JPanel implements Observer{
     
     public PanelCuadritos() {
         matrizC = new Cuadrito[13][13];
-        setSize(new Dimension(390, 390));
+        setSize(new Dimension(520, 520));
         iniMatriz();
         //meteMatriz();
         setBackground(Color.WHITE);
@@ -45,7 +45,7 @@ public class PanelCuadritos extends JPanel implements Observer{
                 
                 add(matrizC[i-1][j-1]);
                 
-                matrizC[i-1][j-1].setLocation(390 - 30*i, 390 - 30*j);
+                matrizC[i-1][j-1].setLocation(520 - 40*i, 520 - 40*j);
                 
             }
         }
