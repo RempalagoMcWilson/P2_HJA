@@ -4,10 +4,17 @@
  */
 package org.ucm.poker02p.control;
 
+import org.ucm.poker02p.model.Observer;
+import org.ucm.poker02p.model.Simulator;
+
 /**
  *
  * @author seiya
  */
 public class Controller {
+    private Simulator sim;
     
+    public void addObserver(Observer o) {
+		sim.addObserver(o);
+    }
 }
