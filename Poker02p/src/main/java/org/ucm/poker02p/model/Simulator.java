@@ -13,6 +13,7 @@ import java.util.List;
 public class Simulator {
     private List<Observer> so;
     
+    
     public void addObserver(Observer o) {
 	boolean add = true;
 	for (Observer obs : so) {

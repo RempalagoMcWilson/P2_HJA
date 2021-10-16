@@ -4,13 +4,15 @@
  */
 package org.ucm.poker02p.launcher;
 
+import org.ucm.poker02p.view.MainPanel;
+
 /**
  *
  * @author seiya
  */
 public class Main {
     public static void main(String[] args) {
-		
+		MainPanel mP = new MainPanel();
         
 	}
 }

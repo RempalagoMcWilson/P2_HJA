@@ -4,53 +4,64 @@
  */
 package org.ucm.poker02p.view;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import org.ucm.poker02p.model.Cuadrito;
+import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 
-/**
- *
- * @author seiya
- */
+
 public class PanelCuadritos extends JPanel implements Observer{
     
     private Cuadrito[][] matrizC;
     
     public PanelCuadritos() {
-        this.setBounds(1, 1, 2*13, 2*13);
+        matrizC = new Cuadrito[13][13];
+        setSize(new Dimension(390, 390));
         iniMatriz();
-        meteMatriz();
+        //meteMatriz();
+        setBackground(Color.WHITE);
+        this.setVisible(true);
+        setLocation(5, 5);
         
     }
     
     
     
     void iniMatriz(){
-        for(int i = 0; i< 13;i++){
-            for(int j = 0; j < 13; j++){
+        for(int i = 13; i > 0;i--){
+            for(int j = 13; j > 0; j--){
                 if(i == j)
-                    matrizC[i][j] = new Cuadrito(generaTexto(i,j), "amarillo");
+                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'p'), "amarillo");
                 else if(i < j)
-                    matrizC[i][j] = new Cuadrito(generaTexto(i,j), "rojo");
+                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'s'), "rojo");
                 else
-                    matrizC[i][j] = new Cuadrito(generaTexto(i,j), "azul");
-
+                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'o'), "azul");
+               
+                
+                
+                add(matrizC[i-1][j-1]);
+                
+                matrizC[i-1][j-1].setLocation(390 - 30*i, 390 - 30*j);
+                
             }
         }
+        this.updateUI();
     }
     
+    /*
     void meteMatriz(){
         for(int i = 0; i< 13;i++){
             for(int j = 0; j < 13; j++){
-                add(matrizC[i][j]);
+                
             }
             //mirar como decirle que salte de linea
         }
-    }
+    }*/
     
-    String generaTexto(int i, int j){
-        return "";
-    }
 
     @Override
     public void onRegister() {
