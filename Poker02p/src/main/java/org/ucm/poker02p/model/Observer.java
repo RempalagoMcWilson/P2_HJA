@@ -4,10 +4,12 @@
  */
 package org.ucm.poker02p.model;
 
+import java.util.ArrayList;
+
 
 public interface Observer {
     public void onRegister();
     public void onReset();
-    public void onBodyAdded();
+    public void onRangeChanged(ArrayList<Mano> lista);
     public void onAdvance();
 }

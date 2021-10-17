@@ -32,6 +32,18 @@ public class Mano {
             sol += tipo;
         escrito = sol;
     }
+
+    public char getTipo() {
+        return tipo;
+    }
+
+    public int getCarta1() {
+        return carta1;
+    }
+
+    public int getCarta2() {
+        return carta2;
+    }
     
     private String cartaAString(int carta){
         switch(carta){

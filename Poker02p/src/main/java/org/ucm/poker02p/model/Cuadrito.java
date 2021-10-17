@@ -34,19 +34,24 @@ public class Cuadrito extends JButton{
         this.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!seleccionado){
-                    setBackground(Color.green);
-                    seleccionado = true;
-                }
-                else{
-                    seleccionado = false;
-                    setColorMio(color);
-                }
+                actualizaCuadrito();
+                //llamada a controller de cuadrito cambiado
             }
         });
     }
     
-    void setColorMio(String color){
+    public void actualizaCuadrito(){
+        if(!seleccionado){
+            setBackground(Color.green);
+            seleccionado = true;
+        }
+        else{
+            seleccionado = false;
+            setColorMio(color);
+        }
+    }
+    
+    private void setColorMio(String color){
         switch(color){
                 case "rojo":{
                     setBackground(Color.red);
@@ -65,27 +70,5 @@ public class Cuadrito extends JButton{
                 }
                 break;
         }
-    }
-    
-    
-    
-//es action performed al parecer
-    /*
-    @Override
-    public void addActionListener(ActionListener l) {
-        
-        super.addActionListener(l); //To change body of generated methods, choose Tools | Templates.
-        color = "verde";
-        setBackground(Color.green);
-        this.revalidate();
-        this.repaint();
-        System.out.println("hola");
-        //llama a controller
-    }*/
-
-   
-
-    
-    
-    
+    }  
 }

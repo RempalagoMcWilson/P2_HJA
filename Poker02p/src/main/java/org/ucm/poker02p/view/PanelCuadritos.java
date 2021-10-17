@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import org.ucm.poker02p.model.Cuadrito;
 import org.ucm.poker02p.model.Mano;
@@ -19,7 +20,7 @@ public class PanelCuadritos extends JPanel implements Observer{
     private Cuadrito[][] matrizC;
     
     public PanelCuadritos() {
-        matrizC = new Cuadrito[13][13];
+        
         setSize(new Dimension(520, 520));
         iniMatriz();
         //meteMatriz();
@@ -32,6 +33,7 @@ public class PanelCuadritos extends JPanel implements Observer{
     
     
     void iniMatriz(){
+        matrizC = new Cuadrito[13][13];
         for(int i = 13; i > 0;i--){
             for(int j = 13; j > 0; j--){
                 if(i == j)
@@ -70,17 +72,20 @@ public class PanelCuadritos extends JPanel implements Observer{
 
     @Override
     public void onReset() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void onBodyAdded() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        iniMatriz();
     }
 
     @Override
     public void onAdvance() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onRangeChanged(ArrayList<Mano> lista) {
+        for(Mano manos : lista){
+            matrizC[manos.getCarta1()][manos.getCarta2()].actualizaCuadrito();
+        }
+        
     }
     
     
