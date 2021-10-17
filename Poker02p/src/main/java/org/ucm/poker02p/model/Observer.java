@@ -12,4 +12,5 @@ public interface Observer {
     public void onReset();
     public void onRangeChanged(ArrayList<Mano> lista);
     public void onAdvance();
+    public void onCuadritoChanged(Mano mano, boolean seleccionado);
 }

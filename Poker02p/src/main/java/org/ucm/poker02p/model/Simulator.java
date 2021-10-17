@@ -4,15 +4,18 @@
  */
 package org.ucm.poker02p.model;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author seiya
  */
 public class Simulator {
-    private List<Observer> so;
+    private ArrayList<Observer> so;
     
+    public Simulator() {
+        so = new ArrayList();
+    }
     
     public void addObserver(Observer o) {
 	boolean add = true;
@@ -22,6 +25,25 @@ public class Simulator {
 	}
 	if (add)
 		so.add(o);
-        o.onRegister();
+        //o.onRegister();
     }
+    public void rangeChanged(ArrayList<Mano> list){
+        for(Observer obs : so) {
+            obs.onRangeChanged(list);
+	}
+    }
+    
+    public void reset(){
+        for(Observer obs : so) {
+            obs.onReset();
+	}
+    }
+
+    public void cuadritoChanged(Mano mano, boolean seleccionado) {
+        for(Observer obs : so) {
+            obs.onCuadritoChanged(mano, seleccionado);
+	}
+    }
+
+    
 }

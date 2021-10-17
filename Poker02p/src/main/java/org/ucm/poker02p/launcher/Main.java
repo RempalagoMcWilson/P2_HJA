@@ -4,6 +4,8 @@
  */
 package org.ucm.poker02p.launcher;
 
+import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.Simulator;
 import org.ucm.poker02p.view.MainPanel;
 
 /**
@@ -12,7 +14,9 @@ import org.ucm.poker02p.view.MainPanel;
  */
 public class Main {
     public static void main(String[] args) {
-		MainPanel mP = new MainPanel();
+            Simulator sim = new Simulator();
+            Controller cntr = new Controller(sim);
+		MainPanel mP = new MainPanel(cntr);
         
 	}
 }

@@ -10,16 +10,18 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import org.ucm.poker02p.control.Controller;
 
 
 public class Cuadrito extends JButton{
     //JButton boton;
+    private static Controller ctrl;
     private Mano mano;
     private String color;
     private boolean seleccionado;
 
-    public Cuadrito(Mano mano, String color) {
-        //super(); no hace falta creo
+    public Cuadrito(Mano mano, String color,Controller ctrl) {
+        this.ctrl = ctrl;
         seleccionado = false;
         this.mano = mano;
         this.color = color;
@@ -28,6 +30,7 @@ public class Cuadrito extends JButton{
         setSize(new Dimension(40, 40));
         setMargin(new java.awt.Insets(0,0,0,0));
         this.setFont(new Font("arial", Font.PLAIN, 17));
+        this.setMinimumSize(new Dimension(40, 40));
         setText(mano.toString());//mano.toString()
         
         setVisible(true);
@@ -35,7 +38,8 @@ public class Cuadrito extends JButton{
             @Override
             public void actionPerformed(ActionEvent e) {
                 actualizaCuadrito();
-                //llamada a controller de cuadrito cambiado
+                ctrl.cuadritoChanged(mano,seleccionado);
+                
             }
         });
     }
