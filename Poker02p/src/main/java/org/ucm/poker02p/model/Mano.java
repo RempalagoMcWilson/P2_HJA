@@ -24,9 +24,14 @@ public class Mano {
     
     private void generaEscrito(){
         String sol = "";//Character auxC;
-        
-        sol += cartaAString(carta1);
-        sol += cartaAString(carta2);
+        if(carta1>=carta2){
+            sol += cartaAString(carta1);
+            sol += cartaAString(carta2);
+        }
+        else{
+            sol += cartaAString(carta2);
+            sol += cartaAString(carta1);
+        }
         //auxC = tipo;
         if(tipo != 'p')
             sol += tipo;

@@ -58,16 +58,7 @@ public class PanelCuadritos extends JPanel implements Observer{
         //this.updateUI();
     }
     
-
-    @Override
-    public void onRegister() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void onReset() {/*
-        this.removeAll();// no funciona
-        iniMatriz();*/
+    private void reset(){
         for(int i = 13; i > 0;i--){
             for(int j = 13; j > 0; j--){
                 this.remove(matrizC[i-1][j-1]);               
@@ -92,6 +83,17 @@ public class PanelCuadritos extends JPanel implements Observer{
             }
         }
     }
+    
+
+    @Override
+    public void onRegister() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onReset() {
+        reset();
+    }
 
     @Override
     public void onAdvance() {
@@ -100,23 +102,14 @@ public class PanelCuadritos extends JPanel implements Observer{
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
-        /*for(Mano manos : lista){
-            matrizC[manos.getCarta1()][manos.getCarta2()].actualizaCuadrito();
-        }*/
-        
+        reset();
+        for(Mano l : lista){
+            matrizC[l.getCarta1()][l.getCarta2()].actualizaCuadrito();
+        }
     }
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
-        for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                this.remove(matrizC[i-1][j-1]);
-                add(matrizC[i-1][j-1]);
-                
-                matrizC[i-1][j-1].setLocation(520 - 40*i, 520 - 40*j);
-                
-            }
-        }
     }
     
     

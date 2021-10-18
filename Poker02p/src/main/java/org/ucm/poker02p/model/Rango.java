@@ -77,6 +77,9 @@ public class Rango implements Observer{
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
+        parejas = new ArrayList();
+        suited = new ArrayList();
+        offSuited = new ArrayList();
         for(Mano manos : lista){
             addMano(manos);
         }

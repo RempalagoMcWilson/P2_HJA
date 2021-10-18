@@ -7,18 +7,15 @@ package org.ucm.poker02p.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-//import javax.swing.JPanel;
-import javax.swing.JTextArea;
+
+import javax.swing.JTextField;
 import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Rango;
 
-/**
- *
- * @author seiya
- */
-public class PanelRango extends JTextArea implements Observer{
+
+public class PanelRango extends JTextField implements Observer{
 
     private Rango rango;
     private Controller cntr;
@@ -43,7 +40,7 @@ public class PanelRango extends JTextArea implements Observer{
 
     @Override
     public void onReset() {
-        //this.setText(rango.toString());
+        this.setText(rango.toString());
     }
 
     @Override
@@ -59,8 +56,7 @@ public class PanelRango extends JTextArea implements Observer{
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
-        //this.setText(rango.toString());
-        //me cago en los muertos del set text
+        this.setText(rango.toString());
     }
     
 }
