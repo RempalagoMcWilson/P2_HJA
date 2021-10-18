@@ -11,12 +11,15 @@ import javax.swing.JSlider;
 import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
+import org.ucm.poker02p.model.Ranking;
 
 
 public class SliderPorcentaje extends JSlider implements Observer{
     private Controller ctrl;
+    private Ranking rank;
 
     public SliderPorcentaje(Controller ctrl) {
+        rank = new Ranking();
         this.ctrl = ctrl;
         ctrl.addObserver(this);
         setSize(new Dimension(510, 33));//37 520
@@ -25,6 +28,8 @@ public class SliderPorcentaje extends JSlider implements Observer{
         this.setVisible(true);
         this.setValue(0);
         setEnabled(false);
+        
+        //hacer aqui el listener
         
     }
 
