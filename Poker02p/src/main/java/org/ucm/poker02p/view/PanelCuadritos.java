@@ -92,7 +92,16 @@ public class PanelCuadritos extends JPanel implements Observer{
 
     @Override
     public void onReset() {
-        reset();
+        
+        if(!matrizC[0][0].isEnabled()){
+            reset();
+            for(int i = 13; i > 0;i--){
+            for(int j = 13; j > 0; j--){
+                matrizC[i-1][j-1].setEnabled(false);               
+            }
+        }
+        }
+        else reset();
     }
 
     @Override
@@ -110,6 +119,34 @@ public class PanelCuadritos extends JPanel implements Observer{
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
+    }
+
+    @Override
+    public void activaRanking(boolean activaRanking) {
+        reset();
+        if(activaRanking){
+            for(int i = 13; i > 0;i--){
+            for(int j = 13; j > 0; j--){
+                matrizC[i-1][j-1].setEnabled(false);               
+            }
+        }
+        }
+        else{
+            for(int i = 13; i > 0;i--){
+            for(int j = 13; j > 0; j--){
+                matrizC[i-1][j-1].setEnabled(true);               
+            }
+        }
+        }
+        
+    }
+
+    @Override
+    public void onRankingChanged(ArrayList<Mano> lista) {
+        reset();
+        for(Mano l : lista){
+            matrizC[l.getCarta1()-2][l.getCarta2()-2].actualizaCuadrito();
+        }
     }
     
     

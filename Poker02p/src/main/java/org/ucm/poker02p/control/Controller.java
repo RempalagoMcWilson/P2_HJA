@@ -33,4 +33,8 @@ public class Controller {
     public void cuadritoChanged(Mano mano, boolean seleccionado) {
         sim.cuadritoChanged(mano, seleccionado);
     }
+
+    public void activaRanking(boolean rankingActivado) {
+        sim.activaRanking(rankingActivado);
+    }
 }

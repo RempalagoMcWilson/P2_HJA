@@ -7,45 +7,39 @@ package org.ucm.poker02p.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-
-import javax.swing.JTextField;
+import javax.swing.JSlider;
 import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
-import org.ucm.poker02p.model.Rango;
 
 
-public class PanelRango extends JTextField implements Observer{
+public class SliderPorcentaje extends JSlider implements Observer{
+    private Controller ctrl;
 
-    private Rango rango;
-    private Controller cntr;
-    public PanelRango(Controller cntr) {
-        
-        
-        rango = new Rango(cntr);
-        cntr.addObserver(this);
-        setSize(new Dimension(360, 90));
-        setLocation(5, 5);
+    public SliderPorcentaje(Controller ctrl) {
+        this.ctrl = ctrl;
+        ctrl.addObserver(this);
+        setSize(new Dimension(510, 33));//37 520
+        setLocation(5, 4);
         setBackground(Color.WHITE);
         this.setVisible(true);
-        this.setText(rango.toString());
+        this.setValue(0);
+        setEnabled(false);
         
     }
-    
-    
+
     @Override
     public void onRegister() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public void onReset() {
-        this.setText(rango.toString());
+        this.setValue(0);
     }
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
-        this.setText(rango.toString());
         
     }
 
@@ -56,17 +50,18 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
-        this.setText(rango.toString());
+        
     }
 
     @Override
-    public void activaRanking(boolean activaRanking) {
-        this.setText(rango.toString());
+    public void activaRanking(boolean rankingActivado) {
+        if(rankingActivado) setEnabled(true);
+        else setEnabled(false);
     }
 
     @Override
     public void onRankingChanged(ArrayList<Mano> lista) {
-        this.setText(rango.toString());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

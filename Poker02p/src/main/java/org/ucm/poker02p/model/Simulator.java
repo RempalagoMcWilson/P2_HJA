@@ -45,5 +45,11 @@ public class Simulator {
 	}
     }
 
+    public void activaRanking(boolean rankingActivado) {
+        for(Observer obs : so) {
+            obs.activaRanking(rankingActivado);
+	}
+    }
+
     
 }

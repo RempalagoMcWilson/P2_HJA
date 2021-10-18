@@ -98,5 +98,22 @@ public class Rango implements Observer{
         else
             removeMano(mano);
     }
+
+    @Override
+    public void activaRanking(boolean activaRanking) {
+        parejas = new ArrayList();
+        suited = new ArrayList();
+        offSuited = new ArrayList();
+    }
+
+    @Override
+    public void onRankingChanged(ArrayList<Mano> lista) {
+        parejas = new ArrayList();
+        suited = new ArrayList();
+        offSuited = new ArrayList();
+        for(Mano manos : lista){
+            addMano(manos);
+        }
+    }
     
 }

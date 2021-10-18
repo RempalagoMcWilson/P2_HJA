@@ -7,32 +7,31 @@ package org.ucm.poker02p.view;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.ArrayList;
-
 import javax.swing.JTextField;
 import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
-import org.ucm.poker02p.model.Rango;
 
 
-public class PanelRango extends JTextField implements Observer{
+public class PanelPorcentaje  extends JTextField implements Observer{
+    private Double porcentaje;
+    private Controller ctrl;
+    private final double TOTAL = 169;
+    private double actuales;
 
-    private Rango rango;
-    private Controller cntr;
-    public PanelRango(Controller cntr) {
+    public PanelPorcentaje(Controller ctrl) {
         
-        
-        rango = new Rango(cntr);
-        cntr.addObserver(this);
-        setSize(new Dimension(360, 90));
-        setLocation(5, 5);
+        actuales = 0;
+        this.ctrl = ctrl;
+        porcentaje = 0.0;
+        ctrl.addObserver(this);
+        setSize(new Dimension(80, 35));
+        setLocation(1, 1);
         setBackground(Color.WHITE);
         this.setVisible(true);
-        this.setText(rango.toString());
-        
+        this.setText(porcentaje.toString());
     }
-    
-    
+
     @Override
     public void onRegister() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -40,13 +39,16 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onReset() {
-        this.setText(rango.toString());
+        porcentaje = 0.0;actuales = 0;
+        this.setText(porcentaje.toString());
     }
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
-        this.setText(rango.toString());
-        
+        actuales = lista.size();
+        porcentaje = (100 * (actuales / TOTAL));
+        porcentaje = Math.floor(porcentaje * 100) / 100;
+        this.setText(porcentaje.toString());
     }
 
     @Override
@@ -56,17 +58,25 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
-        this.setText(rango.toString());
+        
+        if(seleccionado)
+            actuales++;
+        else
+            actuales--;
+        porcentaje = (100 * (actuales / TOTAL));
+        porcentaje = Math.floor(porcentaje * 100) / 100;
+        this.setText(porcentaje.toString());
     }
 
     @Override
     public void activaRanking(boolean activaRanking) {
-        this.setText(rango.toString());
+        porcentaje = 0.0;actuales = 0;
+        this.setText(porcentaje.toString());
     }
 
     @Override
     public void onRankingChanged(ArrayList<Mano> lista) {
-        this.setText(rango.toString());
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
