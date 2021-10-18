@@ -14,6 +14,7 @@ public class MainPanel extends javax.swing.JFrame {
      * Creates new form MainPanel
      */
     public MainPanel(Controller cntr) {
+        //setLocationRelativeTo(null);
         this.cntr = cntr;
         initComponents();
         this.setVisible(true);

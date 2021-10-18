@@ -104,7 +104,7 @@ public class PanelCuadritos extends JPanel implements Observer{
     public void onRangeChanged(ArrayList<Mano> lista) {
         reset();
         for(Mano l : lista){
-            matrizC[l.getCarta1()][l.getCarta2()].actualizaCuadrito();
+            matrizC[l.getCarta1()-2][l.getCarta2()-2].actualizaCuadrito();
         }
     }
 

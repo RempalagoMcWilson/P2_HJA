@@ -22,8 +22,10 @@ public class MeterRangoFrame extends javax.swing.JFrame {
      * Creates new form MeterRangoFrame
      */
     public MeterRangoFrame(Controller ctrl, JFrame mainPanel) {
+        //setLocationRelativeTo(null);
         this.mainPanel = mainPanel;
-        mainPanel.setVisible(false);
+        //mainPanel.setVisible(false);
+        mainPanel.setEnabled(false);
         this.ctrl = ctrl;
         trMano = new TraduceMano();
         initComponents();
@@ -44,6 +46,7 @@ public class MeterRangoFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Introduce el rango:");
 
@@ -88,10 +91,13 @@ public class MeterRangoFrame extends javax.swing.JFrame {
     private void OkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkButtonActionPerformed
         // TODO add your handling code here:
         String entrada = jTextField1.getText();
+        //System.out.println(i + " "+ entrada.length());
+        
         if(entrada != null){
-             ArrayList<Mano> list = trMano.traduceMano(entrada);
+            ArrayList<Mano> list = trMano.traduceMano(entrada);
             ctrl.rangeChanged(list);
-            mainPanel.setVisible(true);
+            //mainPanel.setVisible(true);
+            mainPanel.setEnabled(true);
             dispose();
         }
     }//GEN-LAST:event_OkButtonActionPerformed
