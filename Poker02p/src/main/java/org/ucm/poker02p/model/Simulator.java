@@ -50,6 +50,11 @@ public class Simulator {
             obs.activaRanking(rankingActivado);
 	}
     }
+    public void rankingChanged(java.util.List<Mano> lista){
+        for(Observer obs : so) {
+            obs.onRankingChanged(lista);
+	}
+    }
 
     
 }

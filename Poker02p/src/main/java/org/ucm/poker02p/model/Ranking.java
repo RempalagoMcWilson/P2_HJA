@@ -14,8 +14,11 @@ public class Ranking {
         rankList = new ArrayList();
         generaRankList();
     }
-    public List<Mano> getRankListActual(Double porcentaje){
-        return rankList.subList(0, porcentaje.intValue());
+    public List<Mano> getRankListActual(double porcentaje){
+        //Double pos = (porcentaje/100) * 169;
+        
+        //return rankList.subList(0, pos.intValue());
+        return rankList.subList(0, 6);
     }
     
     

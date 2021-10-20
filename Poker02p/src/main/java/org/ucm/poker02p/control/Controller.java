@@ -37,4 +37,7 @@ public class Controller {
     public void activaRanking(boolean rankingActivado) {
         sim.activaRanking(rankingActivado);
     }
+    public void rankingChanged(java.util.List<Mano> lista){
+        sim.rankingChanged(lista);
+    }
 }

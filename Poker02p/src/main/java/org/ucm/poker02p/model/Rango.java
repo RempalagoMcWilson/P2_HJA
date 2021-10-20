@@ -107,7 +107,7 @@ public class Rango implements Observer{
     }
 
     @Override
-    public void onRankingChanged(ArrayList<Mano> lista) {
+    public void onRankingChanged(java.util.List<Mano> lista) {
         parejas = new ArrayList();
         suited = new ArrayList();
         offSuited = new ArrayList();

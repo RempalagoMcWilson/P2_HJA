@@ -54,6 +54,17 @@ public class Cuadrito extends JButton{
             setColorMio(color);
         }
     }
+    public void actualizaCuadritoRanking(){
+        if(!seleccionado){
+            setBackground(Color.magenta);
+            seleccionado = true;
+        }
+        else{
+            seleccionado = false;
+            setColorMio(color);
+        }
+    }
+    
     
     private void setColorMio(String color){
         switch(color){

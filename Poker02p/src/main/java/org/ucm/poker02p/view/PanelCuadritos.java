@@ -16,12 +16,11 @@ import org.ucm.poker02p.model.Cuadrito;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 
+public class PanelCuadritos extends JPanel implements Observer {
 
-public class PanelCuadritos extends JPanel implements Observer{
-    
     private Cuadrito[][] matrizC;
     private Controller ctrl;
-    
+
     public PanelCuadritos(Controller ctrl) {
         this.ctrl = ctrl;
         ctrl.addObserver(this);
@@ -30,60 +29,55 @@ public class PanelCuadritos extends JPanel implements Observer{
         setBackground(Color.WHITE);
         this.setVisible(true);
         setLocation(5, 5);
-        
+
     }
-    
-    
-    
-    void iniMatriz(){
-        
+
+    void iniMatriz() {
+
         matrizC = new Cuadrito[13][13];
-        for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                if(i == j)
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'p'), "amarillo", ctrl);
-                else if(i < j)
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'s'), "rojo", ctrl);
-                else
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'o'), "azul", ctrl);
-               
-                
-                
-                add(matrizC[i-1][j-1]);
-                
-                matrizC[i-1][j-1].setLocation(520 - 40*i, 520 - 40*j);
-                
+        for (int i = 13; i > 0; i--) {
+            for (int j = 13; j > 0; j--) {
+                if (i == j) {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 'p'), "amarillo", ctrl);
+                } else if (i < j) {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 's'), "rojo", ctrl);
+                } else {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 'o'), "azul", ctrl);
+                }
+
+                add(matrizC[i - 1][j - 1]);
+
+                matrizC[i - 1][j - 1].setLocation(520 - 40 * i, 520 - 40 * j);
+
             }
         }
         //this.updateUI();
     }
-    
-    private void reset(){
-        for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                this.remove(matrizC[i-1][j-1]);               
+
+    private void reset() {
+        for (int i = 13; i > 0; i--) {
+            for (int j = 13; j > 0; j--) {
+                this.remove(matrizC[i - 1][j - 1]);
             }
         }
         matrizC = new Cuadrito[13][13];
-        for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                if(i == j)
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'p'), "amarillo", ctrl);
-                else if(i < j)
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'s'), "rojo", ctrl);
-                else
-                    matrizC[i-1][j-1] = new Cuadrito(new Mano(i+1,j+1,'o'), "azul", ctrl);
-               
-                
-                
-                add(matrizC[i-1][j-1]);
-                
-                matrizC[i-1][j-1].setLocation(520 - 40*i, 520 - 40*j);
-                
+        for (int i = 13; i > 0; i--) {
+            for (int j = 13; j > 0; j--) {
+                if (i == j) {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 'p'), "amarillo", ctrl);
+                } else if (i < j) {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 's'), "rojo", ctrl);
+                } else {
+                    matrizC[i - 1][j - 1] = new Cuadrito(new Mano(i + 1, j + 1, 'o'), "azul", ctrl);
+                }
+
+                add(matrizC[i - 1][j - 1]);
+
+                matrizC[i - 1][j - 1].setLocation(520 - 40 * i, 520 - 40 * j);
+
             }
         }
     }
-    
 
     @Override
     public void onRegister() {
@@ -92,16 +86,17 @@ public class PanelCuadritos extends JPanel implements Observer{
 
     @Override
     public void onReset() {
-        
-        if(!matrizC[0][0].isEnabled()){
+
+        if (!matrizC[0][0].isEnabled()) {
             reset();
-            for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                matrizC[i-1][j-1].setEnabled(false);               
+            for (int i = 13; i > 0; i--) {
+                for (int j = 13; j > 0; j--) {
+                    matrizC[i - 1][j - 1].setEnabled(false);
+                }
             }
+        } else {
+            reset();
         }
-        }
-        else reset();
     }
 
     @Override
@@ -112,8 +107,8 @@ public class PanelCuadritos extends JPanel implements Observer{
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
         reset();
-        for(Mano l : lista){
-            matrizC[l.getCarta1()-2][l.getCarta2()-2].actualizaCuadrito();
+        for (Mano l : lista) {
+            matrizC[l.getCarta1() - 2][l.getCarta2() - 2].actualizaCuadrito();
         }
     }
 
@@ -124,30 +119,32 @@ public class PanelCuadritos extends JPanel implements Observer{
     @Override
     public void activaRanking(boolean activaRanking) {
         reset();
-        if(activaRanking){
-            for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                matrizC[i-1][j-1].setEnabled(false);               
+        if (activaRanking) {
+            for (int i = 13; i > 0; i--) {
+                for (int j = 13; j > 0; j--) {
+                    matrizC[i - 1][j - 1].setEnabled(false);
+                }
+            }
+        } else {
+            for (int i = 13; i > 0; i--) {
+                for (int j = 13; j > 0; j--) {
+                    matrizC[i - 1][j - 1].setEnabled(true);
+                }
             }
         }
-        }
-        else{
-            for(int i = 13; i > 0;i--){
-            for(int j = 13; j > 0; j--){
-                matrizC[i-1][j-1].setEnabled(true);               
-            }
-        }
-        }
-        
+
     }
 
     @Override
-    public void onRankingChanged(ArrayList<Mano> lista) {
+    public void onRankingChanged(java.util.List<Mano> lista) {
         reset();
-        for(Mano l : lista){
-            matrizC[l.getCarta1()-2][l.getCarta2()-2].actualizaCuadrito();
+        for (Mano l : lista) {
+            matrizC[l.getCarta1() - 2][l.getCarta2() - 2].actualizaCuadritoRanking();
+        }
+        for (int i = 13; i > 0; i--) {
+            for (int j = 13; j > 0; j--) {
+                matrizC[i - 1][j - 1].setEnabled(false);
+            }
         }
     }
-    
-    
 }

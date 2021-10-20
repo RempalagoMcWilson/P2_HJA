@@ -75,8 +75,11 @@ public class PanelPorcentaje  extends JTextField implements Observer{
     }
 
     @Override
-    public void onRankingChanged(ArrayList<Mano> lista) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void onRankingChanged(java.util.List<Mano> lista) {
+        actuales = lista.size();
+        porcentaje = (100 * (actuales / TOTAL));
+        porcentaje = Math.floor(porcentaje * 100) / 100;
+        this.setText(porcentaje.toString());
     }
     
 }

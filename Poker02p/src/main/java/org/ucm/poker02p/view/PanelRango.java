@@ -65,7 +65,7 @@ public class PanelRango extends JTextField implements Observer{
     }
 
     @Override
-    public void onRankingChanged(ArrayList<Mano> lista) {
+    public void onRankingChanged(java.util.List<Mano> lista) {
         this.setText(rango.toString());
     }
     
