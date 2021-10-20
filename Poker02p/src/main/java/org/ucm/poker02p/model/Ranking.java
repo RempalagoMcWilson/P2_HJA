@@ -6,7 +6,10 @@ package org.ucm.poker02p.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+RANKING Sklansky-Chubukov sacado de:
+https://www.pokermatematicas.com/rankings/sklansky_chubukov.txt
+*/
 
 public class Ranking {
     ArrayList<Mano> rankList;
@@ -15,10 +18,12 @@ public class Ranking {
         generaRankList();
     }
     public List<Mano> getRankListActual(double porcentaje){
-        //Double pos = (porcentaje/100) * 169;
+        Double pos = (porcentaje/100) * 169;
         
-        //return rankList.subList(0, pos.intValue());
-        return rankList.subList(0, 6);
+        if(pos < rankList.size())
+            return rankList.subList(0, pos.intValue());
+        else
+            return rankList.subList(0, rankList.size());
     }
     
     
@@ -29,32 +34,28 @@ public class Ranking {
         rankList.add(new Mano(12, 12, 'p'));//QQ
         rankList.add(new Mano(13, 14, 'o'));//AKo
         rankList.add(new Mano(11, 11, 'p'));//JJ
+        rankList.add(new Mano(14, 12, 's'));//AQs
+        rankList.add(new Mano(10, 10, 'p'));//TT
+        rankList.add(new Mano(12, 14, 'o'));//AQo
+        rankList.add(new Mano(9, 9, 'p'));//99
+        rankList.add(new Mano(14, 11, 's'));//AJs
+        rankList.add(new Mano(8, 8, 'p'));//88
+        rankList.add(new Mano(14, 10, 's'));//ATs
+        rankList.add(new Mano(11, 14, 'o'));//AJo
+        rankList.add(new Mano(7, 7, 'p'));//77
+        rankList.add(new Mano(6, 6, 'p'));//66
+        rankList.add(new Mano(10, 14, 'o'));//ATo
+        rankList.add(new Mano(14, 9, 's'));//A9s
+        rankList.add(new Mano(5, 5, 'p'));//55
+        rankList.add(new Mano(14, 8, 's'));//A8s
+        rankList.add(new Mano(13, 12, 's'));//KQs
+        rankList.add(new Mano(4, 4, 'p'));//44
+        rankList.add(new Mano(9, 14, 'o'));//A9o
+        rankList.add(new Mano(14, 7, 's'));//A7s
+        
+        
     }
-    /*
-    AA
-KK
-AKs
-QQ
-AK
-JJ
-AQs
-TT
-AQ
-99
-AJs
-88
-ATs
-AJ
-77
-66
-AT
-A9s
-55
-A8s
-KQs
-44
-A9
-A7s
+/*
 KJs
 A5s
 A8

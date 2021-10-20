@@ -8,10 +8,6 @@ import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Simulator;
 import org.ucm.poker02p.view.MainPanel;
 
-/**
- *
- * @author seiya
- */
 public class Main {
     public static void main(String[] args) {
             Simulator sim = new Simulator();
