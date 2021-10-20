@@ -108,7 +108,7 @@ public class PanelBoard extends JPanel implements Observer {
             }
         } else {
             for (int i = 13; i > 0; i--) {
-                for (int j = 13; j > 0; j--) {
+                for (int j = 0; j < 4; j++) {
                     matrizC[i - 1][j].setEnabled(false);
                 }
             }

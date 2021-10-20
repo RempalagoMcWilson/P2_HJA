@@ -10,10 +10,7 @@ import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.TraduceMano;
 
-/**
- *
- * @author seiya
- */
+
 public class MeterRangoFrame extends javax.swing.JFrame {
     private Controller ctrl;
     private TraduceMano trMano;

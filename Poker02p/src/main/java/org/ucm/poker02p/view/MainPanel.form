@@ -37,13 +37,12 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="rangoTextoButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="activaJugadasButton" min="-2" pref="135" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="boardTextoButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="resetButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="ActivaRankingButton" alignment="1" min="-2" pref="135" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="activaJugadasButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="boardTextoButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="resetButton" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ActivaRankingButton" max="32767" attributes="0"/>
+                              <Component id="generaSolucionButton" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel2" alignment="0" pref="235" max="32767" attributes="0"/>
                           <Component id="rangoEnTextoPanel" alignment="0" max="32767" attributes="0"/>
@@ -56,7 +55,7 @@
                       <Component id="porcentajePanel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -81,6 +80,8 @@
                       <Component id="ActivaRankingButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="activaJugadasButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="generaSolucionButton" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="casillasBoardPanel" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -212,5 +213,13 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JButton" name="generaSolucionButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="GENERAR SOLUCION"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generaSolucionButtonActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

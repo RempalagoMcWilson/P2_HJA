@@ -21,6 +21,7 @@ public class MainPanel extends javax.swing.JFrame {
         
         initComponents();
         boardTextoButton.setEnabled(false);
+        generaSolucionButton.setEnabled(false);
         this.setVisible(true);
         PanelCuadritos pC = new PanelCuadritos(cntr);
         PanelRango pR = new PanelRango(cntr);
@@ -61,6 +62,7 @@ public class MainPanel extends javax.swing.JFrame {
         activaJugadasButton = new javax.swing.JButton();
         boardTextoButton = new javax.swing.JButton();
         casillasBoardPanel = new javax.swing.JPanel();
+        generaSolucionButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -152,6 +154,13 @@ public class MainPanel extends javax.swing.JFrame {
             .addGap(0, 530, Short.MAX_VALUE)
         );
 
+        generaSolucionButton.setText("GENERAR SOLUCION");
+        generaSolucionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generaSolucionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,12 +176,12 @@ public class MainPanel extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(rangoTextoButton)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(activaJugadasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(boardTextoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(resetButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ActivaRankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(activaJugadasButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(boardTextoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(resetButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ActivaRankingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(generaSolucionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                             .addComponent(rangoEnTextoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
@@ -180,7 +189,7 @@ public class MainPanel extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(porcentajePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +211,9 @@ public class MainPanel extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(ActivaRankingButton)
                         .addGap(18, 18, 18)
-                        .addComponent(activaJugadasButton))
+                        .addComponent(activaJugadasButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(generaSolucionButton))
                     .addComponent(casillasBoardPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -244,14 +255,21 @@ public class MainPanel extends javax.swing.JFrame {
             jugadasActivado = false;
             boardTextoButton.setEnabled(false);
             ActivaRankingButton.setEnabled(true);
+            generaSolucionButton.setEnabled(false);
         }
         else {
             jugadasActivado = true;
             boardTextoButton.setEnabled(true);
             ActivaRankingButton.setEnabled(false);
+            generaSolucionButton.setEnabled(true);
         }
         cntr.activaJugadas(jugadasActivado);
     }//GEN-LAST:event_activaJugadasButtonActionPerformed
+
+    private void generaSolucionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaSolucionButtonActionPerformed
+        
+        SolucionFrame sF = new SolucionFrame(this);
+    }//GEN-LAST:event_generaSolucionButtonActionPerformed
 
     
 
@@ -261,6 +279,7 @@ public class MainPanel extends javax.swing.JFrame {
     private javax.swing.JButton boardTextoButton;
     private javax.swing.JPanel casillasBoardPanel;
     private javax.swing.JPanel casillasRangoPanel;
+    private javax.swing.JButton generaSolucionButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel porcentajePanel;
     private javax.swing.JPanel rangoEnTextoPanel;
