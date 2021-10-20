@@ -5,6 +5,7 @@
 package org.ucm.poker02p.control;
 
 import java.util.ArrayList;
+import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Simulator;
@@ -39,5 +40,13 @@ public class Controller {
     }
     public void rankingChanged(java.util.List<Mano> lista){
         sim.rankingChanged(lista);
+    }
+
+    public void activaJugadas(boolean jugadasActivado) {
+        sim.activaJugadas(jugadasActivado);
+    }
+
+    public void cuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        sim.cuadritoBoardChanged(carta, seleccionado);
     }
 }

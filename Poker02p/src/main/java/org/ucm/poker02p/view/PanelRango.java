@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import javax.swing.JTextField;
 import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Rango;
@@ -24,7 +25,7 @@ public class PanelRango extends JTextField implements Observer{
         
         rango = new Rango(cntr);
         cntr.addObserver(this);
-        setSize(new Dimension(360, 90));
+        setSize(new Dimension(225, 90));
         setLocation(5, 5);
         setBackground(Color.WHITE);
         this.setVisible(true);
@@ -67,6 +68,16 @@ public class PanelRango extends JTextField implements Observer{
     @Override
     public void onRankingChanged(java.util.List<Mano> lista) {
         this.setText(rango.toString());
+    }
+
+    @Override
+    public void activaJugadas(boolean jugadasActivado) {
+        this.setText(rango.toString());
+    }
+
+    @Override
+    public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        
     }
     
 }

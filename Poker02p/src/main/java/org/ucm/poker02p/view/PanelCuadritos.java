@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Cuadrito;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
@@ -146,5 +147,15 @@ public class PanelCuadritos extends JPanel implements Observer {
                 matrizC[i - 1][j - 1].setEnabled(false);
             }
         }
+    }
+
+    @Override
+    public void activaJugadas(boolean jugadasActivado) {
+        reset();
+    }
+
+    @Override
+    public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        
     }
 }

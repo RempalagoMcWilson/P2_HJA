@@ -115,5 +115,17 @@ public class Rango implements Observer{
             addMano(manos);
         }
     }
+
+    @Override
+    public void activaJugadas(boolean jugadasActivado) {
+        parejas = new ArrayList();
+        suited = new ArrayList();
+        offSuited = new ArrayList();
+    }
+
+    @Override
+    public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        
+    }
     
 }

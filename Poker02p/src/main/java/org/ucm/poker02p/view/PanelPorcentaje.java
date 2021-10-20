@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import javax.swing.JTextField;
 import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 
@@ -80,6 +81,17 @@ public class PanelPorcentaje  extends JTextField implements Observer{
         porcentaje = (100 * (actuales / TOTAL));
         porcentaje = Math.floor(porcentaje * 100) / 100;
         this.setText(porcentaje.toString());
+    }
+
+    @Override
+    public void activaJugadas(boolean jugadasActivado) {
+        porcentaje = 0.0;actuales = 0;
+        this.setText(porcentaje.toString());
+    }
+
+    @Override
+    public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        
     }
     
 }

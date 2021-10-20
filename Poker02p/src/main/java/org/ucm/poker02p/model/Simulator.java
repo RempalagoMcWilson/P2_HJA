@@ -56,5 +56,17 @@ public class Simulator {
 	}
     }
 
+    public void activaJugadas(boolean jugadasActivado) {
+        for(Observer obs : so) {
+            obs.activaJugadas(jugadasActivado);
+	}
+    }
+
+    public void cuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        for(Observer obs : so) {
+            obs.onCuadritoBoardChanged(carta, seleccionado);
+	}
+    }
+
     
 }

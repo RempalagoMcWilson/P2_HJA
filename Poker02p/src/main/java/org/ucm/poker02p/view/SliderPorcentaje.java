@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JSlider;
 import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Ranking;
@@ -84,6 +85,16 @@ public class SliderPorcentaje extends JSlider implements Observer {
             }
         });
         
+        
+    }
+
+    @Override
+    public void activaJugadas(boolean jugadasActivado) {
+        
+    }
+
+    @Override
+    public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
         
     }
 

@@ -11,26 +11,33 @@ import org.ucm.poker02p.control.Controller;
 public class MainPanel extends javax.swing.JFrame {
     private Controller cntr;
     boolean rankingActivado;
+    boolean jugadasActivado;
     /**
      * Creates new form MainPanel
      */
     public MainPanel(Controller cntr) {
         //setLocationRelativeTo(null);
-        this.cntr = cntr;rankingActivado = false;
+        this.cntr = cntr;rankingActivado = false;jugadasActivado = false;
+        
         initComponents();
+        boardTextoButton.setEnabled(false);
         this.setVisible(true);
         PanelCuadritos pC = new PanelCuadritos(cntr);
         PanelRango pR = new PanelRango(cntr);
         PanelPorcentaje pP = new PanelPorcentaje(cntr);
         SliderPorcentaje sP = new SliderPorcentaje(cntr);
-        jPanel2.setBackground(java.awt.Color.black);
-        jPanel2.add(pR);
-        jPanel1.setBackground(java.awt.Color.black);
-        jPanel1.add(pC);
-        jPanel3.setBackground(java.awt.Color.black);
-        jPanel3.add(pP);
-        jPanel4.setBackground(java.awt.Color.black);
-        jPanel4.add(sP);
+        PanelBoard pB = new PanelBoard(cntr);
+        rangoEnTextoPanel.setBackground(java.awt.Color.black);
+        rangoEnTextoPanel.add(pR);
+        
+        casillasRangoPanel.setBackground(java.awt.Color.black);
+        casillasRangoPanel.add(pC);
+        porcentajePanel.setBackground(java.awt.Color.black);
+        porcentajePanel.add(pP);
+        sliderPanel.setBackground(java.awt.Color.black);
+        sliderPanel.add(sP);
+        casillasBoardPanel.setBackground(java.awt.Color.black);
+        casillasBoardPanel.add(pB);
         
     }
 
@@ -43,36 +50,36 @@ public class MainPanel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        rangoTextoButton = new javax.swing.JButton();
+        casillasRangoPanel = new javax.swing.JPanel();
         resetButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
+        rangoEnTextoPanel = new javax.swing.JPanel();
+        porcentajePanel = new javax.swing.JPanel();
+        sliderPanel = new javax.swing.JPanel();
         ActivaRankingButton = new javax.swing.JButton();
+        activaJugadasButton = new javax.swing.JButton();
+        boardTextoButton = new javax.swing.JButton();
+        casillasBoardPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        rangoTextoButton.setText("METE RANGO TEXTO");
+        rangoTextoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                rangoTextoButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Pulsa el botón para seleccionar el rango escribiendo");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout casillasRangoPanelLayout = new javax.swing.GroupLayout(casillasRangoPanel);
+        casillasRangoPanel.setLayout(casillasRangoPanelLayout);
+        casillasRangoPanelLayout.setHorizontalGroup(
+            casillasRangoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 530, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        casillasRangoPanelLayout.setVerticalGroup(
+            casillasRangoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 530, Short.MAX_VALUE)
         );
 
@@ -85,36 +92,36 @@ public class MainPanel extends javax.swing.JFrame {
 
         jLabel2.setText("Este es el rango actual en texto");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
+        javax.swing.GroupLayout rangoEnTextoPanelLayout = new javax.swing.GroupLayout(rangoEnTextoPanel);
+        rangoEnTextoPanel.setLayout(rangoEnTextoPanelLayout);
+        rangoEnTextoPanelLayout.setHorizontalGroup(
+            rangoEnTextoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        rangoEnTextoPanelLayout.setVerticalGroup(
+            rangoEnTextoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout porcentajePanelLayout = new javax.swing.GroupLayout(porcentajePanel);
+        porcentajePanel.setLayout(porcentajePanelLayout);
+        porcentajePanelLayout.setHorizontalGroup(
+            porcentajePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 82, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        porcentajePanelLayout.setVerticalGroup(
+            porcentajePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout sliderPanelLayout = new javax.swing.GroupLayout(sliderPanel);
+        sliderPanel.setLayout(sliderPanelLayout);
+        sliderPanelLayout.setHorizontalGroup(
+            sliderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        sliderPanelLayout.setVerticalGroup(
+            sliderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 37, Short.MAX_VALUE)
         );
 
@@ -125,68 +132,93 @@ public class MainPanel extends javax.swing.JFrame {
             }
         });
 
+        activaJugadasButton.setText("ACTIVA JUGADAS");
+        activaJugadasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                activaJugadasButtonActionPerformed(evt);
+            }
+        });
+
+        boardTextoButton.setText("METE BOARD TEXTO");
+
+        javax.swing.GroupLayout casillasBoardPanelLayout = new javax.swing.GroupLayout(casillasBoardPanel);
+        casillasBoardPanel.setLayout(casillasBoardPanelLayout);
+        casillasBoardPanelLayout.setHorizontalGroup(
+            casillasBoardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        casillasBoardPanelLayout.setVerticalGroup(
+            casillasBoardPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 530, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(casillasRangoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(sliderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(rangoTextoButton)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(activaJugadasButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(boardTextoButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(resetButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ActivaRankingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                            .addComponent(rangoEnTextoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(casillasBoardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(resetButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                            .addComponent(ActivaRankingButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(porcentajePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(casillasRangoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rangoEnTextoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
+                        .addComponent(rangoTextoButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(boardTextoButton)
                         .addGap(18, 18, 18)
                         .addComponent(resetButton)
                         .addGap(18, 18, 18)
-                        .addComponent(ActivaRankingButton)))
+                        .addComponent(ActivaRankingButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(activaJugadasButton))
+                    .addComponent(casillasBoardPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sliderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(porcentajePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void rangoTextoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangoTextoButtonActionPerformed
         
         MeterRangoFrame mRF = new MeterRangoFrame(cntr, this);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_rangoTextoButtonActionPerformed
 
     private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         cntr.reset();
@@ -195,27 +227,45 @@ public class MainPanel extends javax.swing.JFrame {
     private void ActivaRankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivaRankingButtonActionPerformed
         if(rankingActivado) {
             rankingActivado = false;
-            jButton1.setEnabled(true);
+            rangoTextoButton.setEnabled(true);
+            activaJugadasButton.setEnabled(true);
         }
         else {
             rankingActivado = true;
-            jButton1.setEnabled(false);
+            rangoTextoButton.setEnabled(false);
+            activaJugadasButton.setEnabled(false);
         }
         cntr.activaRanking(rankingActivado);
         
     }//GEN-LAST:event_ActivaRankingButtonActionPerformed
 
+    private void activaJugadasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_activaJugadasButtonActionPerformed
+        if(jugadasActivado) {
+            jugadasActivado = false;
+            boardTextoButton.setEnabled(false);
+            ActivaRankingButton.setEnabled(true);
+        }
+        else {
+            jugadasActivado = true;
+            boardTextoButton.setEnabled(true);
+            ActivaRankingButton.setEnabled(false);
+        }
+        cntr.activaJugadas(jugadasActivado);
+    }//GEN-LAST:event_activaJugadasButtonActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActivaRankingButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton activaJugadasButton;
+    private javax.swing.JButton boardTextoButton;
+    private javax.swing.JPanel casillasBoardPanel;
+    private javax.swing.JPanel casillasRangoPanel;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel porcentajePanel;
+    private javax.swing.JPanel rangoEnTextoPanel;
+    private javax.swing.JButton rangoTextoButton;
     private javax.swing.JButton resetButton;
+    private javax.swing.JPanel sliderPanel;
     // End of variables declaration//GEN-END:variables
 }
