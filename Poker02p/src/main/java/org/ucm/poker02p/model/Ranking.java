@@ -52,154 +52,162 @@ public class Ranking {
         rankList.add(new Mano(4, 4, 'p'));//44
         rankList.add(new Mano(9, 14, 'o'));//A9o
         rankList.add(new Mano(14, 7, 's'));//A7s
+        rankList.add(new Mano(14, 7, 's'));//KJs
+        rankList.add(new Mano(14, 7, 's'));//A5s
+        rankList.add(new Mano(14, 7, 's'));//A8
+        rankList.add(new Mano(14, 7, 's'));//A6s
+        rankList.add(new Mano(14, 7, 's'));//A4s
+        rankList.add(new Mano(14, 7, 's'));//33
+        rankList.add(new Mano(14, 7, 's'));//KTs
+        rankList.add(new Mano(14, 7, 's'));//A7
+        rankList.add(new Mano(14, 7, 's'));//A3s
+        rankList.add(new Mano(14, 7, 's'));//KQ
+        rankList.add(new Mano(14, 7, 's'));//A2s
+        rankList.add(new Mano(14, 7, 's'));//A5
+        rankList.add(new Mano(14, 7, 's'));//A6
+        rankList.add(new Mano(14, 7, 's'));//A4
+        rankList.add(new Mano(14, 7, 's'));//KJ
+        rankList.add(new Mano(14, 7, 's'));//QJs
+        rankList.add(new Mano(14, 7, 's'));//A3
+        rankList.add(new Mano(14, 7, 's'));//22
+
+        rankList.add(new Mano(14, 7, 's'));//K9s
+        rankList.add(new Mano(14, 7, 's'));//A2
+        rankList.add(new Mano(14, 7, 's'));//KT
+        rankList.add(new Mano(14, 7, 's'));//QTs
+        rankList.add(new Mano(14, 7, 's'));//K8s
+        rankList.add(new Mano(14, 7, 's'));//K7s
+        rankList.add(new Mano(14, 7, 's'));//JTs
+        rankList.add(new Mano(14, 7, 's'));//K9
+        rankList.add(new Mano(14, 7, 's'));//K6s
+        rankList.add(new Mano(14, 7, 's'));//QJ
+        rankList.add(new Mano(14, 7, 's'));//Q9s
+        rankList.add(new Mano(14, 7, 's'));//K5s
         
+        rankList.add(new Mano(14, 7, 's'));//K8
+        rankList.add(new Mano(14, 7, 's'));//K4s
+        rankList.add(new Mano(14, 7, 's'));//QT
+        rankList.add(new Mano(14, 7, 's'));//K7
+        rankList.add(new Mano(14, 7, 's'));//K3s
+        rankList.add(new Mano(14, 7, 's'));//K2s
+        rankList.add(new Mano(14, 7, 's'));//Q8s
         
+        rankList.add(new Mano(14, 7, 's'));//K6
+        rankList.add(new Mano(14, 7, 's'));//J9s
+        rankList.add(new Mano(14, 7, 's'));//K5
+        rankList.add(new Mano(14, 7, 's'));//Q9
+        rankList.add(new Mano(14, 7, 's'));//JT
+        rankList.add(new Mano(14, 7, 's'));//K4
+        rankList.add(new Mano(14, 7, 's'));//Q7s
+        rankList.add(new Mano(14, 7, 's'));//T9s
+        rankList.add(new Mano(14, 7, 's'));//Q6s
+        rankList.add(new Mano(14, 7, 's'));//K3
+        rankList.add(new Mano(14, 7, 's'));//J8s
+        rankList.add(new Mano(14, 7, 's'));//Q5s
+        rankList.add(new Mano(14, 7, 's'));//K2
+        rankList.add(new Mano(14, 7, 's'));//Q8
+        
+        rankList.add(new Mano(14, 7, 's'));//Q4s
+        rankList.add(new Mano(14, 7, 's'));//J9
+        rankList.add(new Mano(14, 7, 's'));//Q3s
+        rankList.add(new Mano(14, 7, 's'));//T8s
+        rankList.add(new Mano(14, 7, 's'));//J7s
+        rankList.add(new Mano(14, 7, 's'));//Q7
+        rankList.add(new Mano(14, 7, 's'));//Q2s
+        rankList.add(new Mano(14, 7, 's'));//Q6
+        rankList.add(new Mano(14, 7, 's'));//98s
+        rankList.add(new Mano(14, 7, 's'));//Q5
+        rankList.add(new Mano(14, 7, 's'));//J8
+        rankList.add(new Mano(14, 7, 's'));//T9
+        rankList.add(new Mano(14, 7, 's'));//J6s
+        rankList.add(new Mano(14, 7, 's'));//T7s
+        rankList.add(new Mano(14, 7, 's'));//J5s
+        rankList.add(new Mano(14, 7, 's'));//Q4
+        rankList.add(new Mano(14, 7, 's'));//J4s
+        rankList.add(new Mano(14, 7, 's'));//J7
+        
+        rankList.add(new Mano(14, 7, 's'));//Q3
+        rankList.add(new Mano(14, 7, 's'));//97s
+        rankList.add(new Mano(14, 7, 's'));//T8
+        rankList.add(new Mano(14, 7, 's'));//J3s
+        rankList.add(new Mano(14, 7, 's'));//T6s
+        rankList.add(new Mano(14, 7, 's'));//Q2
+        rankList.add(new Mano(14, 7, 's'));//J2s
+        rankList.add(new Mano(14, 7, 's'));//87s
+        rankList.add(new Mano(14, 7, 's'));//J6
+        rankList.add(new Mano(14, 7, 's'));//98
+        rankList.add(new Mano(14, 7, 's'));//T7
+        rankList.add(new Mano(14, 7, 's'));//96s
+        rankList.add(new Mano(14, 7, 's'));//J5
+        rankList.add(new Mano(14, 7, 's'));//T5s
+        rankList.add(new Mano(14, 7, 's'));//T4s
+        rankList.add(new Mano(14, 7, 's'));//86s
+        rankList.add(new Mano(14, 7, 's'));//J4
+        rankList.add(new Mano(14, 7, 's'));//T6
+        rankList.add(new Mano(14, 7, 's'));//97
+        
+        rankList.add(new Mano(14, 7, 's'));//97
+        rankList.add(new Mano(14, 7, 's'));//97
+        rankList.add(new Mano(14, 7, 's'));//97
+        rankList.add(new Mano(14, 7, 's'));//T3s
+        rankList.add(new Mano(14, 7, 's'));//76s
+        rankList.add(new Mano(14, 7, 's'));//95s
+        rankList.add(new Mano(14, 7, 's'));//J3
+        rankList.add(new Mano(14, 7, 's'));//T2s
+        rankList.add(new Mano(14, 7, 's'));//87
+        rankList.add(new Mano(14, 7, 's'));//85s
+        rankList.add(new Mano(14, 7, 's'));//96
+        rankList.add(new Mano(14, 7, 's'));//T5
+        rankList.add(new Mano(14, 7, 's'));//J2
+        rankList.add(new Mano(14, 7, 's'));//75s
+        rankList.add(new Mano(14, 7, 's'));//94s
+        rankList.add(new Mano(14, 7, 's'));//T4
+        rankList.add(new Mano(14, 7, 's'));//65s
+        rankList.add(new Mano(14, 7, 's'));//86
+        rankList.add(new Mano(14, 7, 's'));//93s
+        
+        rankList.add(new Mano(14, 7, 's'));//84s
+        rankList.add(new Mano(14, 7, 's'));//95
+        rankList.add(new Mano(14, 7, 's'));//T3
+        rankList.add(new Mano(14, 7, 's'));//76
+        rankList.add(new Mano(14, 7, 's'));//92s
+        rankList.add(new Mano(14, 7, 's'));//74s
+        rankList.add(new Mano(14, 7, 's'));//54s
+        rankList.add(new Mano(14, 7, 's'));//T2
+        rankList.add(new Mano(14, 7, 's'));//85
+        rankList.add(new Mano(14, 7, 's'));//64s
+        rankList.add(new Mano(14, 7, 's'));//83s
+        rankList.add(new Mano(14, 7, 's'));//94
+        rankList.add(new Mano(14, 7, 's'));//75
+        rankList.add(new Mano(14, 7, 's'));//82s
+        rankList.add(new Mano(14, 7, 's'));//73s
+        rankList.add(new Mano(14, 7, 's'));//93
+        rankList.add(new Mano(14, 7, 's'));//65
+        rankList.add(new Mano(14, 7, 's'));//53s
+        rankList.add(new Mano(14, 7, 's'));//63s
+        rankList.add(new Mano(14, 7, 's'));//84
+        rankList.add(new Mano(14, 7, 's'));//92
+        rankList.add(new Mano(14, 7, 's'));//43s
+        rankList.add(new Mano(14, 7, 's'));//74
+        rankList.add(new Mano(14, 7, 's'));//72s
+        
+        rankList.add(new Mano(14, 7, 's'));//54
+        rankList.add(new Mano(14, 7, 's'));//64
+        rankList.add(new Mano(14, 7, 's'));//52s
+        rankList.add(new Mano(14, 7, 's'));//62s
+        rankList.add(new Mano(14, 7, 's'));//83
+        rankList.add(new Mano(14, 7, 's'));//42s
+        rankList.add(new Mano(14, 7, 's'));//82
+        rankList.add(new Mano(14, 7, 's'));//73
+        rankList.add(new Mano(14, 7, 's'));//53
+        rankList.add(new Mano(14, 7, 's'));//63
+        rankList.add(new Mano(14, 7, 's'));//32s
+        rankList.add(new Mano(14, 7, 's'));//43
+        rankList.add(new Mano(14, 7, 's'));//72
+        rankList.add(new Mano(14, 7, 's'));//52
+        rankList.add(new Mano(14, 7, 's'));//62
+        rankList.add(new Mano(14, 7, 's'));//42
+        rankList.add(new Mano(14, 7, 's'));//32
     }
-/*
-KJs
-A5s
-A8
-A6s
-A4s
-33
-KTs
-A7
-A3s
-KQ
-A2s
-A5
-A6
-A4
-KJ
-QJs
-A3
-22
-K9s
-A2
-KT
-QTs
-K8s
-K7s
-JTs
-K9
-K6s
-QJ
-Q9s
-K5s
-K8
-K4s
-QT
-K7
-K3s
-K2s
-Q8s
-K6
-J9s
-K5
-Q9
-JT
-K4
-Q7s
-T9s
-Q6s
-K3
-J8s
-Q5s
-K2
-Q8
-Q4s
-J9
-Q3s
-T8s
-J7s
-Q7
-Q2s
-Q6
-98s
-Q5
-J8
-T9
-J6s
-T7s
-J5s
-Q4
-J4s
-J7
-Q3
-97s
-T8
-J3s
-T6s
-Q2
-J2s
-87s
-J6
-98
-T7
-96s
-J5
-T5s
-T4s
-86s
-J4
-T6
-97
-T3s
-76s
-95s
-J3
-T2s
-87
-85s
-96
-T5
-J2
-75s
-94s
-T4
-65s
-86
-93s
-84s
-95
-T3
-76
-92s
-74s
-54s
-T2
-85
-64s
-83s
-94
-75
-82s
-73s
-93
-65
-53s
-63s
-84
-92
-43s
-74
-72s
-54
-64
-52s
-62s
-83
-42s
-82
-73
-53
-63
-32s
-43
-72
-52
-62
-42
-32
-    */
+
 }

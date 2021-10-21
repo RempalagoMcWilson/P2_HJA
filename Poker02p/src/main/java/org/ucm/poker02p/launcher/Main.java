@@ -20,12 +20,12 @@ rellenar la lista del ranking
 
 EN EL TRES:
 graficas y sacar soluciones...
-*/
+ */
 public class Main {
+
     public static void main(String[] args) {
-            Simulator sim = new Simulator();
-            Controller cntr = new Controller(sim);
-		MainPanel mP = new MainPanel(cntr);
-        
-	}
+        Simulator sim = new Simulator();
+        Controller cntr = new Controller(sim);
+        MainPanel mP = new MainPanel(cntr);
+    }
 }
