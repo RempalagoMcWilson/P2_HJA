@@ -69,8 +69,9 @@ public class TraduceMano {//Sin Terminar
             //System.out.println(i + " "+ entrada.length());
             aux = entrada.substring(i, i+2);
             
-            if(i+2 < entrada.length()){
+            if(i+2 < entrada.length()){ 
                 if(entrada.charAt(i+2) != ','){
+                    
                     if(entrada.charAt(i+2) != '+'){
                         if(entrada.charAt(i+2) == 's'){
                             //Aqui dentro mirar si hay coma, + o -
@@ -78,6 +79,8 @@ public class TraduceMano {//Sin Terminar
                         }
                         else if(entrada.charAt(i+2) == 'o'){
                             //Aqui dentro mirar si hay coma, + o -
+                            if(entrada.charAt(i+1) ==','){
+                            }
                         }
                         else if(entrada.charAt(i+2) == '-'){//AA-TT
                             aux2 = entrada.substring(i+3, i+5);
@@ -86,21 +89,22 @@ public class TraduceMano {//Sin Terminar
                         }
                     }
                     else{
-                        if(entrada.charAt(i+2) == '+'){//AA+
                             lista.addAll(generaMano(aux, null,'p',true));
                             i = i+4;
                         }
                     }
                 }
                 else{//AA
-                    lista.addAll(generaMano(aux,null,'p',false));
-                    i = i+3;
+                    if(entrada.charAt(i)==entrada.charAt(i+1)){
+                        int par=Integer.parseInt(entrada.substring(i, i+1))+1;
+                        lista.add(new Mano(Integer.parseInt(entrada.substring(i, i+1)), Integer.parseInt(entrada.substring(i+1, i+2)), 'p'));
+                        while(par<15){
+                        lista.add(new Mano(par, par, 'p'));
+                        par++;
+                    }
                 }
             }
-            else{
-                lista.addAll(generaMano(aux,null,'p',false));
-                i = i+3;
-            }
+           
             
         }
         
