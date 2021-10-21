@@ -55,14 +55,17 @@ public class Cuadrito extends JButton{
         }
     }
     public void actualizaCuadritoRanking(){
+        
         if(!seleccionado){
-            setBackground(Color.magenta);
+            setBackground(Color.pink);
             seleccionado = true;
         }
         else{
             seleccionado = false;
             setColorMio(color);
         }
+        //if(mano.getCarta1() == 14 && mano.getCarta2() == 13)
+        //        setBackground(Color.magenta);
     }
     
     

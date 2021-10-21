@@ -6,15 +6,9 @@ package org.ucm.poker02p.view;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author seiya
- */
 public class SolucionFrame extends javax.swing.JFrame {
     private JFrame mainPanel;
-    /**
-     * Creates new form SolucionFrame
-     */
+    
     public SolucionFrame(JFrame mainPanel) {
         this.mainPanel = mainPanel;
         mainPanel.setEnabled(false);

@@ -140,7 +140,7 @@ public class PanelCuadritos extends JPanel implements Observer {
     public void onRankingChanged(java.util.List<Mano> lista) {
         reset();
         for (Mano l : lista) {
-            matrizC[l.getCarta1() - 2][l.getCarta2() - 2].actualizaCuadritoRanking();
+            matrizC[l.getCarta2() - 2][l.getCarta1() - 2].actualizaCuadritoRanking();
         }
         for (int i = 13; i > 0; i--) {
             for (int j = 13; j > 0; j--) {

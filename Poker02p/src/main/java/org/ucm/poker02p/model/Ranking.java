@@ -18,12 +18,15 @@ public class Ranking {
         generaRankList();
     }
     public List<Mano> getRankListActual(double porcentaje){
-        Double pos = (porcentaje/100) * 169;
-        
-        if(pos < rankList.size())
-            return rankList.subList(0, pos.intValue());
-        else
-            return rankList.subList(0, rankList.size());
+        Double posD = (porcentaje/100) * 169;
+        int pos = posD.intValue();
+        if(pos >= rankList.size())
+            pos = rankList.size() - 1;
+        List<Mano> aux = new ArrayList();
+        for(int i = 0; i <= pos; i++){
+            aux.add(rankList.get(i));
+        }
+        return aux;
     }
     
     
@@ -54,66 +57,66 @@ public class Ranking {
         rankList.add(new Mano(14, 7, 's'));//A7s
         rankList.add(new Mano(13, 11, 's'));//KJs
         rankList.add(new Mano(14, 5, 's'));//A5s
-        rankList.add(new Mano(8, 14, 'o'));//A8
+        rankList.add(new Mano(8, 14, 'o'));//A8o
         rankList.add(new Mano(14, 6, 's'));//A6s
         rankList.add(new Mano(14, 4, 's'));//A4s
         rankList.add(new Mano(3, 3, 'p'));//33
-        rankList.add(new Mano(14, 10, 's'));//KTs
-        rankList.add(new Mano(7, 14, 'o'));//A7
+        rankList.add(new Mano(13, 10, 's'));//KTs
+        rankList.add(new Mano(7, 14, 'o'));//A7o
         rankList.add(new Mano(14, 3, 's'));//A3s
-        rankList.add(new Mano(13, 14, 'o'));//KQ
+        rankList.add(new Mano(12, 13, 'o'));//KQo
         rankList.add(new Mano(14, 2, 's'));//A2s
-        rankList.add(new Mano(5, 14, 'o'));//A5
-        rankList.add(new Mano(6, 14, 'o'));//A6
-        rankList.add(new Mano(4, 14, 'o'));//A4
-        rankList.add(new Mano(11, 13, 'o'));//KJ
+        rankList.add(new Mano(5, 14, 'o'));//A5o
+        rankList.add(new Mano(6, 14, 'o'));//A6o
+        rankList.add(new Mano(4, 14, 'o'));//A4o
+        rankList.add(new Mano(11, 13, 'o'));//KJo
         rankList.add(new Mano(12, 11, 's'));//QJs
-        rankList.add(new Mano(3, 14, 'o'));//A3
+        rankList.add(new Mano(3, 14, 'o'));//A3o
         rankList.add(new Mano(2, 2, 'p'));//22
         rankList.add(new Mano(13, 9, 's'));//K9s
-        rankList.add(new Mano(2, 14, 's'));//A2
-        rankList.add(new Mano(10, 14, 's'));//KT
-        rankList.add(new Mano(13, 10, 's'));//QTs
+        rankList.add(new Mano(2, 14, 'o'));//A2o
+        rankList.add(new Mano(10, 13, 'o'));//KTo
+        rankList.add(new Mano(12, 10, 's'));//QTs
         rankList.add(new Mano(13, 8, 's'));//K8s
         rankList.add(new Mano(13, 7, 's'));//K7s
         rankList.add(new Mano(11, 10, 's'));//JTs
-        rankList.add(new Mano(9, 13, 'o'));//K9
+        rankList.add(new Mano(9, 13, 'o'));//K9o
         rankList.add(new Mano(13, 6, 's'));//K6s
-        rankList.add(new Mano(11, 12, 'o'));//QJ
+        rankList.add(new Mano(11, 12, 'o'));//QJo
         rankList.add(new Mano(12, 9, 's'));//Q9s
         rankList.add(new Mano(13, 5, 's'));//K5s
-        rankList.add(new Mano(8, 13, 'o'));//K8
+        rankList.add(new Mano(8, 13, 'o'));//K8o
         rankList.add(new Mano(13, 4, 's'));//K4s
-        rankList.add(new Mano(10, 12, 'o'));//QT
-        rankList.add(new Mano(7, 13, 'o'));//K7
+        rankList.add(new Mano(10, 12, 'o'));//QTo
+        rankList.add(new Mano(7, 13, 'o'));//K7o
         rankList.add(new Mano(13, 3, 's'));//K3s
         rankList.add(new Mano(13, 2, 's'));//K2s
         rankList.add(new Mano(12, 8, 's'));//Q8s
-        rankList.add(new Mano(6, 13, 'o'));//K6
+        rankList.add(new Mano(6, 13, 'o'));//K6o
         rankList.add(new Mano(11, 9, 's'));//J9s
-        rankList.add(new Mano(5, 13, 'o'));//K5
-        rankList.add(new Mano(9, 12, 'o'));//Q9
-        rankList.add(new Mano(10, 11, 'o'));//JT
-        rankList.add(new Mano(4, 13, 'o'));//K4
+        rankList.add(new Mano(5, 13, 'o'));//K5o
+        rankList.add(new Mano(9, 12, 'o'));//Q9o
+        rankList.add(new Mano(10, 11, 'o'));//JTo
+        rankList.add(new Mano(4, 13, 'o'));//K4o
         rankList.add(new Mano(12, 7, 's'));//Q7s
         rankList.add(new Mano(10, 9, 's'));//T9s
         rankList.add(new Mano(12, 6, 's'));//Q6s
-        rankList.add(new Mano(3, 13, 'o'));//K3
+        rankList.add(new Mano(3, 13, 'o'));//K3o
         rankList.add(new Mano(11, 8, 's'));//J8s
         rankList.add(new Mano(12, 5, 's'));//Q5s
-        rankList.add(new Mano(2, 13, 'o'));//K2
-        rankList.add(new Mano(8, 12, 'o'));//Q8
+        rankList.add(new Mano(2, 13, 'o'));//K2o
+        rankList.add(new Mano(8, 12, 'o'));//Q8o
         
         rankList.add(new Mano(12, 4, 's'));//Q4s
         rankList.add(new Mano(9, 11, 'o'));//J9
         rankList.add(new Mano(12, 3, 's'));//Q3s
         rankList.add(new Mano(10, 8, 's'));//T8s
         rankList.add(new Mano(11, 7, 's'));//J7s
-        rankList.add(new Mano(7, 12, 's'));//Q7
+        rankList.add(new Mano(7, 12, 'o'));//Q7
         rankList.add(new Mano(12, 2, 's'));//Q2s
-        rankList.add(new Mano(6, 12, 's'));//Q6
+        rankList.add(new Mano(6, 12, 'o'));//Q6
         rankList.add(new Mano(9, 8, 's'));//98s
-        rankList.add(new Mano(12, 5, 'o'));//Q5
+        rankList.add(new Mano(5, 12, 'o'));//Q5
         rankList.add(new Mano(8, 11, 'o'));//J8
         rankList.add(new Mano(9, 10, 'o'));//T9
         rankList.add(new Mano(11, 6, 's'));//J6s
@@ -121,7 +124,7 @@ public class Ranking {
         rankList.add(new Mano(11, 5, 's'));//J5s
         rankList.add(new Mano(4, 12, 'o'));//Q4
         rankList.add(new Mano(11, 4, 's'));//J4s
-        rankList.add(new Mano(7, 10, 'o'));//J7
+        rankList.add(new Mano(7, 11, 'o'));//J7
         rankList.add(new Mano(3, 12, 'o'));//Q3
         rankList.add(new Mano(9, 7, 's'));//97s
         rankList.add(new Mano(8, 10, 'o'));//T8
@@ -150,7 +153,7 @@ public class Ranking {
         rankList.add(new Mano(8, 5, 's'));//85s
         rankList.add(new Mano(6, 9, 'o'));//96
         rankList.add(new Mano(5, 10, 'o'));//T5
-        rankList.add(new Mano(2, 10, 'o'));//J2
+        rankList.add(new Mano(2, 11, 'o'));//J2
         rankList.add(new Mano(7, 5, 's'));//75s
         rankList.add(new Mano(9, 4, 's'));//94s
         rankList.add(new Mano(4, 10, 'o'));//T4
