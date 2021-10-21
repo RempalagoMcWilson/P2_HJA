@@ -175,7 +175,7 @@ public class Ranking {
         rankList.add(new Mano(3, 9, 'o'));//93
         rankList.add(new Mano(5, 6, 'o'));//65
         rankList.add(new Mano(5, 3, 's'));//53s
-        rankList.add(new Mano(3, 6, 's'));//63s
+        rankList.add(new Mano(6, 3, 's'));//63s
         rankList.add(new Mano(4, 8, 'o'));//84
         rankList.add(new Mano(2, 9, 'o'));//92
         rankList.add(new Mano(4, 3, 's'));//43s
