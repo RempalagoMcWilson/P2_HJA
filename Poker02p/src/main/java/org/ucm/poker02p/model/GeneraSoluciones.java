@@ -55,7 +55,7 @@ public class GeneraSoluciones {
     
     
     private void iniMap(TreeMap<Integer, ArrayList<Solucion>> soluciones){
-        for(int i = 0; i < 20; i++){
+        for(int i = 0; i < 18; i++){
             soluciones.put(i, new ArrayList());
         }
     }

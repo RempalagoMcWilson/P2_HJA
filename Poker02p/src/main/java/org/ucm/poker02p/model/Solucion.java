@@ -19,6 +19,14 @@ public class Solucion implements Comparable<Solucion> {
     public int getJugada(){
         return jugada;
     }
+
+    public int getNumComb() {
+        return numComb;
+    }
+
+    public String getRango() {
+        return rango;
+    }
     
 
     @Override

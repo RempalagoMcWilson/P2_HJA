@@ -33,33 +33,51 @@ public class SolucionCasilla {
     /*
     0. Escalera real
     1. Escalera de color
-    3. Poker
-    4. FullHouse
-    5. Color
-    6. Escalera
-    7. Trio
-    8. Doble Pareja
-    9. OverPair (pareja en mano mejor que la carta mas alta del board)
-    10. TopPair (pareja con la carta mas alta del board)
-    11. pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
-    12. MiddlePair (pareja con la segunda carta mas alta del board)
-    13. WeakPair (otras parejas)
-    14. Ace high
-    15. No made hand
+    2. Poker
+    3. FullHouse
+    4. Color
+    5. Escalera
+    6. Trio
+    7. Doble Pareja
+    8. OverPair (pareja en mano mejor que la carta mas alta del board)
+    9. TopPair (pareja con la carta mas alta del board)
+    10. pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
+    11. MiddlePair (pareja con la segunda carta mas alta del board)
+    12. WeakPair (otras parejas)
+    13. Ace high
+    14. No made hand
+    15. Proyecto color
+    16. proyecto escalera open-ended
+    17. proyecto escalera gutshot
     */
+    /*
+    new Solucion(5, 4, mano.toString());
+    el primer parametro es cual es de lo de arriba, por ej el 6 es trio
     
-    private Solucion parejaSolucion(){
-        Solucion sol = new Solucion(0, 0, "");
+    el segundo es el num combinaciones, por ejemplo AA sin ninguna A en el board es 6(en el pdf explica mas)
+    
+    el tercero poned mano.toString()
+    
+    podeis usar mano.toString() si lo quereis como se escribe en vez de con numeros
+    el board es un ArrayList de tipo Carta.java
+    for(Carta c: board){//asi se usa el for de ArrayList
+    
+    }
+    
+    en el github lo he dejado en la version 1.3.3 seguid por la .4
+    */
+    private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
+        Solucion sol = new Solucion(5, 4, mano.toString());
         return sol;
     }
     
-    private Solucion suitedSolucion(){
-        Solucion sol = new Solucion(0, 0, "");
+    private Solucion suitedSolucion(){//aqui ya sabeis si es suited
+        Solucion sol = new Solucion(12, 4, mano.toString());
         return sol;
     }
     
-    private Solucion offSuitedSolucion(){
-        Solucion sol = new Solucion(0, 0, "");
+    private Solucion offSuitedSolucion(){/// y aqui offsuited
+        Solucion sol = new Solucion(7, 4, mano.toString());
         return sol;
     }
     
