@@ -34,6 +34,10 @@ public class PanelBoard extends JPanel implements Observer {
 
     }
 
+    public Board getBoard() {
+        return board;
+    }
+    
     void iniMatriz() {
 
         matrizC = new CuadritoBoard[13][4];

@@ -4,18 +4,27 @@
  */
 package org.ucm.poker02p.view;
 
+import java.util.ArrayList;
+import java.util.TreeMap;
 import org.ucm.poker02p.control.Controller;
+import org.ucm.poker02p.model.GeneraSoluciones;
+import org.ucm.poker02p.model.Solucion;
 //import org.ucm.poker02p.model.Simulator;
 
 
 public class MainPanel extends javax.swing.JFrame {
     private Controller cntr;
-    boolean rankingActivado;
-    boolean jugadasActivado;
+    private boolean rankingActivado;
+    private boolean jugadasActivado;
+    private PanelRango pR;
+    private GeneraSoluciones gS;
+    private PanelBoard pB;
+    
     /**
      * Creates new form MainPanel
      */
     public MainPanel(Controller cntr) {
+        gS = new GeneraSoluciones();
         //setLocationRelativeTo(null);
         this.cntr = cntr;rankingActivado = false;jugadasActivado = false;
         
@@ -24,10 +33,10 @@ public class MainPanel extends javax.swing.JFrame {
         generaSolucionButton.setEnabled(false);
         this.setVisible(true);
         PanelCuadritos pC = new PanelCuadritos(cntr);
-        PanelRango pR = new PanelRango(cntr);
+        pR = new PanelRango(cntr);
         PanelPorcentaje pP = new PanelPorcentaje(cntr);
         SliderPorcentaje sP = new SliderPorcentaje(cntr);
-        PanelBoard pB = new PanelBoard(cntr);
+        pB = new PanelBoard(cntr);
         rangoEnTextoPanel.setBackground(java.awt.Color.black);
         rangoEnTextoPanel.add(pR);
         
@@ -266,10 +275,16 @@ public class MainPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_activaJugadasButtonActionPerformed
 
     private void generaSolucionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generaSolucionButtonActionPerformed
-        
-        SolucionFrame sF = new SolucionFrame(this);
+        if(pB.getBoard().getNumCart() >2 && pB.getBoard().getNumCart() < 6){
+            gS.generaSolucion(pR.getRango(), pB.getBoard());
+            SolucionFrame sF = new SolucionFrame(this , gS.getSoluciones());
+        }
     }//GEN-LAST:event_generaSolucionButtonActionPerformed
 
+    
+    
+
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

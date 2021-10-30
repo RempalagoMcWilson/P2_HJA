@@ -7,10 +7,7 @@ package org.ucm.poker02p.model;
 import java.util.ArrayList;
 import org.ucm.poker02p.control.Controller;
 
-/**
- *
- * @author seiya
- */
+
 public class Rango implements Observer{
     ArrayList<Mano> parejas;
     ArrayList<Mano> suited;
@@ -21,6 +18,18 @@ public class Rango implements Observer{
         parejas = new ArrayList();
         suited = new ArrayList();
         offSuited = new ArrayList();
+    }
+
+    public ArrayList<Mano> getParejas() {
+        return parejas;
+    }
+
+    public ArrayList<Mano> getSuited() {
+        return suited;
+    }
+
+    public ArrayList<Mano> getOffSuited() {
+        return offSuited;
     }
     
     private void addMano(Mano mano){

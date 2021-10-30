@@ -4,12 +4,17 @@
  */
 package org.ucm.poker02p.view;
 
+import java.util.ArrayList;
+import java.util.TreeMap;
 import javax.swing.JFrame;
+import org.ucm.poker02p.model.Solucion;
 
 public class SolucionFrame extends javax.swing.JFrame {
     private JFrame mainPanel;
+    TreeMap<Integer, ArrayList<Solucion>> soluciones;
     
-    public SolucionFrame(JFrame mainPanel) {
+    public SolucionFrame(JFrame mainPanel, TreeMap<Integer, ArrayList<Solucion>> soluciones) {
+        this.soluciones = soluciones;
         this.mainPanel = mainPanel;
         mainPanel.setEnabled(false);
         //this.ctrl = ctrl;

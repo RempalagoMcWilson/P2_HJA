@@ -34,6 +34,10 @@ public class PanelRango extends JTextField implements Observer{
     }
     
     
+    public Rango getRango(){
+        return rango;
+    }
+    
     @Override
     public void onRegister() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

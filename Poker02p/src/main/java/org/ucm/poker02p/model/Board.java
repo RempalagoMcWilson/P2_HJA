@@ -13,6 +13,10 @@ public class Board {
     public Board() {
         lista = new ArrayList();
     }
+    
+    public int getNumCart(){
+        return lista.size();
+    }
     public void addCarta(Carta carta){
         lista.add(carta);
     }
