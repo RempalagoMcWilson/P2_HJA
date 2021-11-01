@@ -19,6 +19,46 @@ public class Board {
     public Board() {
         lista = new ArrayList();
     }
+
+    public TreeMap<Integer, ArrayList<Carta>> getRepeticiones() {
+        return repeticiones;
+    }
+
+    public int getColH() {
+        return colH;
+    }
+
+    public int getColD() {
+        return colD;
+    }
+
+    public int getColC() {
+        return colC;
+    }
+
+    public int getColS() {
+        return colS;
+    }
+
+    public int getPoker() {
+        return poker;
+    }
+
+    public int getTrio() {
+        return trio;
+    }
+
+    public int getPareja1() {
+        return pareja1;
+    }
+
+    public int getPareja2() {
+        return pareja2;
+    }
+
+    public ArrayList<Carta> getListaOrdenada() {
+        return listaOrdenada;
+    }
     
     public int getNumCart(){
         return lista.size();
@@ -65,8 +105,7 @@ public class Board {
             ArrayList<Carta> va = r.getValue();
             for(Carta c : va){
                 listaOrdenada.add(c);
-            }
-                                 
+            }                    
             switch (va.size()) {
                 case 2:
                     if(ke > pareja1){
