@@ -68,6 +68,51 @@ public class SolucionCasilla {
     */
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
         Solucion sol = new Solucion(5, 4, mano.toString());
+        if(board.getNumCart() > 3){
+            
+            // Comprobamos posible escalera real
+            if(mano.getCarta1() >= 10){
+                if(board.getColH() == 4 || board.getColS() == 4|| board.getColC() == 4 || board.getColD() == 4){
+                    // Escalera Real con 4 cartas
+                    if(board.getNumCart() == 4){
+                        if(board.getTrio() == 0 && board.getPareja1() == 0 && board.getPoker() == 0){
+                            //Mira si hay Guthshot
+                            if(board.getListaOrdenada().get(0).getNum() == 10 || board.getListaOrdenada().get(0).getNum() == 11){
+                                if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
+                                    if(board.getListaOrdenada().get(1).getNum() == 11 && board.getListaOrdenada().get(2).getNum() == 12 && mano.getCarta1() == 13){
+                                        sol = new Solucion(0,1, mano.toString());
+                                    }
+                                    if(board.getListaOrdenada().get(1).getNum() == 12 && board.getListaOrdenada().get(2).getNum() == 13 && mano.getCarta1() == 11){
+                                        sol = new Solucion(0,1, mano.toString());
+                                    }
+                                    if(board.getListaOrdenada().get(1).getNum() == 11 && board.getListaOrdenada().get(2).getNum() == 13 && mano.getCarta1() == 12){
+                                        sol = new Solucion(0,1, mano.toString());
+                                    }
+                                }
+                            }
+                            //Mira si hay Open-ended
+                            if(board.getListaOrdenada().get(0).getNum() == 10 || board.getListaOrdenada().get(0).getNum() == 11){
+                                if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
+                                    if(board.getListaOrdenada().get(0).getNum() == 10 && mano.getCarta1() == 14){
+                                        sol = new Solucion(0,1, mano.toString());
+                                    }
+                                    if(board.getListaOrdenada().get(4).getNum() == 14 && mano.getCarta1() == 10){
+                                        sol = new Solucion(0,1, mano.toString());
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //Escalera Real con 5 cartas
+                    if(board.getNumCart() == 5){
+                        if(board.getTrio() == 0 && board.getPoker() == 0){
+                            if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() == 4 || board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(1).getNum() == 4){
+                            }
+                        }
+                    }
+                }
+            }
+        }
         return sol;
     }
     
