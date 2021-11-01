@@ -73,7 +73,7 @@ public class PanelGraficas extends JPanel{
         }
     }
     
-    private void dibujaSoluciones(){//probar si funciona
+    private void dibujaSoluciones(){
         for(Map.Entry<Integer, ArrayList<Solucion>>  s : soluciones.entrySet()){
             Integer ke = s.getKey();
             ArrayList<Solucion> va = s.getValue();

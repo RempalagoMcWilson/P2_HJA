@@ -68,6 +68,7 @@ public class SolucionCasilla {
     */
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
         Solucion sol = new Solucion(5, 4, mano.toString());
+        
         return sol;
     }
     

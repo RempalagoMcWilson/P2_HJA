@@ -27,9 +27,10 @@ public class GeneraSoluciones {
     public void generaSolucion(Rango rango, Board board){
         SolucionCasilla sC;
         soluciones = new TreeMap<>();
-        
+        board.preparaBoard();
         iniMap(soluciones);
         ArrayList<Mano> aux;ArrayList<Solucion> aux2;
+        
         aux = rango.getParejas();
         for(Mano a :aux){
             sC = new SolucionCasilla(a,board);
@@ -37,6 +38,7 @@ public class GeneraSoluciones {
             aux2.add(sC.getSolucion());
             soluciones.put(sC.getSolucion().getJugada(), aux2);
         }
+        
         aux = rango.getOffSuited();
         for(Mano a :aux){
             sC = new SolucionCasilla(a,board);
@@ -44,6 +46,7 @@ public class GeneraSoluciones {
             aux2.add(sC.getSolucion());
             soluciones.put(sC.getSolucion().getJugada(), aux2);
         }
+        
         aux = rango.getSuited();
         for(Mano a :aux){
             sC = new SolucionCasilla(a,board);
