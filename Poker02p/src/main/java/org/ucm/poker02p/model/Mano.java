@@ -94,19 +94,17 @@ public class Mano implements Comparable<Mano> {
 
     @Override
     public int compareTo(Mano o) {
-        /*if(tipo == 'p'){
-            if(this.jugada > o.getJugada()) return 1;
-            else if(this.jugada == o.getJugada())
-                return 0;
-            else
-                return -1;
-        }
         
-        if(this.jugada > o.getJugada()) return 1;
-        else if(this.jugada == o.getJugada())
-            return 0;
-        else
-            return -1;*/
-        return 0;
+       if(this.carta1 > o.getCarta1()) return 1; //mayor
+            else if(this.carta1 < o.getCarta1()) return -1; //menor             
+            else {
+                if(tipo=='p')return 0;
+                else{
+                    if(this.carta2 > o.getCarta2()) return 1; //mayor por la 2 carta
+            else if(this.carta2 < o.getCarta2()) return -1; //menor por la 2 carta           
+            else return -1; //igual ambas cartas
+                }
+            }
     }
+    
 }
