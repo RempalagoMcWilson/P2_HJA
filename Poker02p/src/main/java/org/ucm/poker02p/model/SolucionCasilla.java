@@ -64,10 +64,10 @@ public class SolucionCasilla {
     
     }
     
+    en el github lo he dejado en la version 1.3.3 seguid por la .4
     */
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
         Solucion sol = new Solucion(5, 4, mano.toString());
-        
         return sol;
     }
     

@@ -5,7 +5,7 @@
 package org.ucm.poker02p.model;
 
 
-public class Mano {
+public class Mano implements Comparable<Mano> {
     private int carta1;
     private int carta2;
     private char tipo;
@@ -90,5 +90,23 @@ public class Mano {
     @Override
     public String toString(){
         return escrito;
+    }
+
+    @Override
+    public int compareTo(Mano o) {
+        /*if(tipo == 'p'){
+            if(this.jugada > o.getJugada()) return 1;
+            else if(this.jugada == o.getJugada())
+                return 0;
+            else
+                return -1;
+        }
+        
+        if(this.jugada > o.getJugada()) return 1;
+        else if(this.jugada == o.getJugada())
+            return 0;
+        else
+            return -1;*/
+        return 0;
     }
 }
