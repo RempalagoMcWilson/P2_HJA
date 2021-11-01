@@ -14,15 +14,17 @@ import org.ucm.poker02p.model.Carta;
 import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Rango;
+import org.ucm.poker02p.model.TraduceMano;
 
 
 public class PanelRango extends JTextField implements Observer{
 
     private Rango rango;
     private Controller cntr;
+    private TraduceMano tM;
     public PanelRango(Controller cntr) {
         
-        
+        tM = new TraduceMano();
         rango = new Rango(cntr);
         cntr.addObserver(this);
         setSize(new Dimension(225, 90));
@@ -45,12 +47,12 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onReset() {
-        this.setText(rango.toString());
+        this.setText("");
     }
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
-        this.setText(rango.toString());
+        this.setText(tM.tablaToTexto(rango));//rango.toString()
         
     }
 
@@ -61,22 +63,22 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onCuadritoChanged(Mano mano, boolean seleccionado) {
-        this.setText(rango.toString());
+        this.setText(tM.tablaToTexto(rango));//rango.toString()
     }
 
     @Override
     public void activaRanking(boolean activaRanking) {
-        this.setText(rango.toString());
+        this.setText("");
     }
 
     @Override
     public void onRankingChanged(java.util.List<Mano> lista) {
-        this.setText(rango.toString());
+        this.setText(tM.tablaToTexto(rango));
     }
 
     @Override
     public void activaJugadas(boolean jugadasActivado) {
-        this.setText(rango.toString());
+        this.setText("");
     }
 
     @Override
