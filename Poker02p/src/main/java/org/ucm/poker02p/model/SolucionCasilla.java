@@ -350,7 +350,7 @@ public class SolucionCasilla {
                                     }
                                     if(proyecto == 5){
                                         if(cartaQueFalta == mano.getCarta1()){
-                                            sol = new Solucion(1,1,mano.toString());
+                                            sol = new Solucion(5,1,mano.toString());
                                             solucionActual = 1;
                                         }
                                     }
@@ -377,8 +377,8 @@ public class SolucionCasilla {
                                     }
                                     if(proyecto < 4){
                                         if(cartaQueFalta == mano.getCarta1()){
-                                            sol = new Solucion(1,1,mano.toString());
-                                            solucionActual = 1;
+                                            sol = new Solucion(5,1,mano.toString());
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
@@ -394,8 +394,8 @@ public class SolucionCasilla {
                                     }
                                     if(proyecto < 4){
                                         if(cartaQueFalta == mano.getCarta1()){
-                                            sol = new Solucion(1,1,mano.toString());
-                                            solucionActual = 1;
+                                            sol = new Solucion(5,1,mano.toString());
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
@@ -412,8 +412,8 @@ public class SolucionCasilla {
                                     }
                                     if(proyecto == 5){
                                         if(cartaQueFalta == mano.getCarta1()){
-                                            sol = new Solucion(1,1,mano.toString());
-                                            solucionActual = 1;
+                                            sol = new Solucion(5,1,mano.toString());
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
@@ -432,12 +432,12 @@ public class SolucionCasilla {
                                     if(proyecto < 4){
                                         if(cartaQueFalta == mano.getCarta1()){
                                             if(solucionActual == 1){
-                                                sol = new Solucion(1,2,mano.toString());
+                                                sol = new Solucion(5,2,mano.toString());
                                             }
                                             else{
-                                                sol = new Solucion(1,1,mano.toString());
+                                                sol = new Solucion(5,1,mano.toString());
                                             }
-                                            solucionActual = 1;
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
@@ -454,12 +454,12 @@ public class SolucionCasilla {
                                     if(proyecto < 4){
                                         if(cartaQueFalta == mano.getCarta1()){
                                             if(solucionActual == 1){
-                                                sol = new Solucion(1,2,mano.toString());
+                                                sol = new Solucion(5,2,mano.toString());
                                             }
                                             else{
-                                                sol = new Solucion(1,1,mano.toString());
+                                                sol = new Solucion(5,1,mano.toString());
                                             }
-                                            solucionActual = 1;
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
@@ -476,8 +476,8 @@ public class SolucionCasilla {
                                     }
                                     if(proyecto == 5){
                                         if(cartaQueFalta == mano.getCarta1()){
-                                            sol = new Solucion(1,1,mano.toString());
-                                            solucionActual = 1;
+                                            sol = new Solucion(5,1,mano.toString());
+                                            solucionActual = 5;
                                         }
                                     }
                                 }
