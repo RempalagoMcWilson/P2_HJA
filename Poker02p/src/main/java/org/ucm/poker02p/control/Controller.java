@@ -10,10 +10,7 @@ import org.ucm.poker02p.model.Mano;
 import org.ucm.poker02p.model.Observer;
 import org.ucm.poker02p.model.Simulator;
 
-/**
- *
- * @author seiya
- */
+
 public class Controller {
     private Simulator sim;
 
@@ -48,5 +45,9 @@ public class Controller {
 
     public void cuadritoBoardChanged(Carta carta, boolean seleccionado) {
         sim.cuadritoBoardChanged(carta, seleccionado);
+    }
+
+    public void boardChanged(ArrayList<Carta> list) {
+        sim.boardChanged(list);
     }
 }

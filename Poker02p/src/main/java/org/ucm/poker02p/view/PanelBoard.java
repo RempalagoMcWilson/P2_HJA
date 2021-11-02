@@ -37,7 +37,7 @@ public class PanelBoard extends JPanel implements Observer {
     public Board getBoard() {
         return board;
     }
-    
+
     void iniMatriz() {
 
         matrizC = new CuadritoBoard[13][4];
@@ -121,14 +121,16 @@ public class PanelBoard extends JPanel implements Observer {
 
     @Override
     public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
-        if(seleccionado)
+        if (seleccionado) {
             board.addCarta(carta);
-        else
+        } else {
             board.removeCarta(carta);
-        
+        }
+
     }
 
     private void reset() {
+        board.reset();
         for (int i = 13; i > 0; i--) {
             for (int j = 0; j < 4; j++) {
                 this.remove(matrizC[i - 1][j]);
@@ -150,6 +152,36 @@ public class PanelBoard extends JPanel implements Observer {
                 add(matrizC[i - 1][j]);
                 matrizC[i - 1][j].setLocation(40 * j, 520 - 40 * i);
                 matrizC[i - 1][j].setEnabled(false);
+            }
+        }
+    }
+
+    @Override
+    public void onBoardChanged(ArrayList<Carta> lista) {
+        reset();
+        for (Carta c : lista) {
+            board.addCarta(c);
+            switch (c.getPalo()) {
+                case 'h':
+                    matrizC[c.getNum() - 2][0].actualizaCuadrito();
+                    break;
+                case 'c':
+                    matrizC[c.getNum() - 2][1].actualizaCuadrito();
+                    break;
+                case 'd':
+                    matrizC[c.getNum() - 2][2].actualizaCuadrito();
+                    break;
+                case 's':
+                    matrizC[c.getNum() - 2][3].actualizaCuadrito();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        for (int i = 13; i > 0; i--) {
+            for (int j = 0; j < 4; j++) {
+                matrizC[i - 1][j].setEnabled(true);
             }
         }
     }

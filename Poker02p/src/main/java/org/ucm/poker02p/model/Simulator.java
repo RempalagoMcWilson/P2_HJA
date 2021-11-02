@@ -68,5 +68,11 @@ public class Simulator {
 	}
     }
 
+    public void boardChanged(ArrayList<Carta> list) {
+        for(Observer obs : so) {
+            obs.onBoardChanged(list);
+	}
+    }
+
     
 }

@@ -136,5 +136,10 @@ public class Rango implements Observer{
     public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
         
     }
+
+    @Override
+    public void onBoardChanged(ArrayList<Carta> lista) {
+        
+    }
     
 }

@@ -13,6 +13,7 @@ public interface Observer {
     public void activaRanking(boolean rankingActivado);
     public void activaJugadas(boolean jugadasActivado);
     public void onRankingChanged(java.util.List<Mano> lista);
+    public void onBoardChanged(ArrayList<Carta> lista);
     public void onRangeChanged(ArrayList<Mano> lista);
     public void onAdvance();
     public void onCuadritoChanged(Mano mano, boolean seleccionado);

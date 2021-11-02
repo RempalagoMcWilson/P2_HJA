@@ -65,6 +65,7 @@ public class TraduceMano {//Sin Terminar
 
     }
 
+    /*
     public ArrayList<Mano> traduceMano(String entrada) {
         ArrayList<Mano> lista = new ArrayList();
         int i = 0;
@@ -109,6 +110,60 @@ public class TraduceMano {//Sin Terminar
 
         return lista;
 
+    }*/
+
+    public ArrayList<Mano> traduceMano(String entrada) {
+        ArrayList<Mano> lista = new ArrayList();
+        int i = 0;
+        while (i < entrada.length()) {
+            if (i + 2 < entrada.length()) {
+                if (entrada.charAt(i + 2) == ',') {//Si es una pareja suelta
+                    lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
+                    i += 3;
+                } else if ((entrada.charAt(i + 2) == 'o') || (entrada.charAt(i + 2) == 's')) {//es un par "s" o "o"
+                    if (entrada.charAt(i + 3) == '-') {//Nos encontramos un rango
+                        for (int j = 0; j <= entrada.charAt(i + 1) - entrada.charAt(i + 5); j++) {//Hay que comprobar si la resta funciona con ascii o con int
+                            if (entrada.charAt(i + 2) == 's') {
+                                lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 5)) + j, entrada.charAt(i + 2)));
+                            } else {
+                                lista.add(new Mano(charACarta(entrada.charAt(i + 5)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
+                            }
+                        }
+                        i += 7;
+
+                    } else if (entrada.charAt(i + 3) == ',') {//un par de cartas suelto suited o offsuited
+                        if (entrada.charAt(i + 2) == 's') {//                                                      + j
+                            lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), entrada.charAt(i + 2)));
+                        } else {
+                            lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
+                        }
+                        i += 3;
+                    } else if ((entrada.charAt(i + 3) == '+')) {//aÃ±ade con el + de offsuited y suited
+                        for (int j = 0; j + charACarta(entrada.charAt(i + 1)) < charACarta(entrada.charAt(i)); j++) {
+                            if (entrada.charAt(i + 2) == 's') {
+                                lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)) + j, entrada.charAt(i + 2)));
+                            } else {
+                                lista.add(new Mano(charACarta(entrada.charAt(i + 1)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
+                            }
+                        }
+                        i += 4;
+                    }
+                } else if (entrada.charAt(i + 2) == '+') {
+                    int par = Integer.parseInt(entrada.substring(i, i + 1)) + 1;
+                    lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
+                    while (par < 15) {
+                        lista.add(new Mano(par, par, 'p'));
+                        par++;
+                    }
+                }
+
+            } else {//AA
+                lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
+                i += 2;
+            }
+
+        }
+        return lista;
     }
 
     public String tablaToTexto(Rango rango) {

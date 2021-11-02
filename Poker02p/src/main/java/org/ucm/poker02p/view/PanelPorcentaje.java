@@ -93,5 +93,10 @@ public class PanelPorcentaje  extends JTextField implements Observer{
     public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
         
     }
+
+    @Override
+    public void onBoardChanged(ArrayList<Carta> lista) {
+        
+    }
     
 }
