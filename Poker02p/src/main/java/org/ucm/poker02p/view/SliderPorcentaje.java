@@ -98,4 +98,9 @@ public class SliderPorcentaje extends JSlider implements Observer {
         
     }
 
+    @Override
+    public void onBoardChanged(ArrayList<Carta> lista) {
+        
+    }
+
 }

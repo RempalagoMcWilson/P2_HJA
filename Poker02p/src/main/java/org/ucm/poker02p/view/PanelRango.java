@@ -27,11 +27,11 @@ public class PanelRango extends JTextField implements Observer{
         tM = new TraduceMano();
         rango = new Rango(cntr);
         cntr.addObserver(this);
-        setSize(new Dimension(225, 90));
+        setSize(new Dimension(973, 30));//40 983
         setLocation(5, 5);
         setBackground(Color.WHITE);
         this.setVisible(true);
-        this.setText(rango.toString());
+        this.setText("");
         
     }
     
@@ -83,6 +83,11 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onCuadritoBoardChanged(Carta carta, boolean seleccionado) {
+        
+    }
+
+    @Override
+    public void onBoardChanged(ArrayList<Carta> lista) {
         
     }
     

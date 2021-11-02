@@ -72,7 +72,7 @@ public class Board {
     }
     
     public void preparaBoard(){
-        repeticiones = new TreeMap<>();
+        repeticiones = new TreeMap<>();listaOrdenada = new ArrayList();
         colH = 0; colD = 0; colC = 0; colS = 0;poker = 0; trio = 0;pareja1 = 0; pareja2= 0;
         
         for(Carta c: lista){
@@ -124,6 +124,10 @@ public class Board {
                     break;
             }
         }
+    }
+
+    public void reset() {
+        lista = new ArrayList();
     }
     
     
