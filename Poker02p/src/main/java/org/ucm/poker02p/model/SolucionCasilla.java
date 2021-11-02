@@ -75,7 +75,7 @@ public class SolucionCasilla {
             // Comprobamos posible escalera real
             if(mano.getCarta1() >= 10){
                 if(board.getColH() == 4 || board.getColS() == 4|| board.getColC() == 4 || board.getColD() == 4){
-                    // Escalera Real con 4 cartas
+                    // Escalera Real con 4 cartas en board
                     if(board.getNumCart() == 4){
                         if(board.getTrio() == 0 && board.getPareja1() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
@@ -96,7 +96,7 @@ public class SolucionCasilla {
                             }
                         }
                     }
-                    //Escalera Real con 5 cartas
+                    //Escalera Real con 5 cartas en board
                     if(board.getNumCart() == 5){
                         if(board.getTrio() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
@@ -127,7 +127,7 @@ public class SolucionCasilla {
             // Escalera de Color
             if(solucionActual > 1){
                 if(board.getColH() == 4 || board.getColS() == 4|| board.getColC() == 4 || board.getColD() == 4){
-                    // Escalera Color con 4 cartas
+                    // Escalera Color con 4 cartas en board
                     if(board.getNumCart() == 4){
                         if(board.getTrio() == 0 && board.getPareja1() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
@@ -135,7 +135,7 @@ public class SolucionCasilla {
                             // En caso de que la primera carta no sea la de la mano
                             if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
                                 if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                    for(int i = 10; i <15;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -153,7 +153,7 @@ public class SolucionCasilla {
                             }
                             // En caso de que la primera carta sea de la mano
                             else{
-                                if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
+                                if(board.getListaOrdenada().get(3).getNum() - mano.getCarta1() == 4){
                                     for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
@@ -169,29 +169,129 @@ public class SolucionCasilla {
                             }
                         }
                     }
-                    //Escalera Color con 5 cartas
+                    //Escalera Color con 5 cartas en board
                     if(board.getNumCart() == 5){
-                        if(board.getTrio() == 0 && board.getPoker() == 0){
+                        if(board.getTrio() == 0 && board.getPareja2() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
                             int cartaQueFalta = 0;
-                            for(int i = 10; i <15;i++){
-                                if(board.getRepeticiones().get(i).size() > 0){
-                                    proyecto++;
+                            // En caso de que la primera carta no sea la de la mano
+                            if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
+                                // La escalera esta en el board
+                                if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                        else{
+                                            cartaQueFalta = i;
+                                        }
+                                    }
+                                    if(proyecto < 4){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(1,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
                                 }
-                                else{
-                                    cartaQueFalta = i;
+                                // Si la carta de la mano esta en medio o al final
+                                if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                        else{
+                                            cartaQueFalta = i;
+                                        }
+                                    }
+                                    if(proyecto < 4){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(1,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
+                                }
+                              
+                            }
+
+                            // En caso de que la primera carta sea de la mano
+                            else{
+                                if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
+                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                    }
+                                    if(proyecto == 5){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(1,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
                                 }
                             }
-                            if(proyecto >= 4){
-                                if(cartaQueFalta == 0){ //Escalera Real en el board
-                                    sol = new Solucion(0,1,mano.toString());
-                                    solucionActual = 0;
+                            if(mano.getCarta1() > board.getListaOrdenada().get(1).getNum()){
+                                // La escalera esta en el board
+                                if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                        else{
+                                            cartaQueFalta = i;
+                                        }
+                                    }
+                                    if(proyecto < 4){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            if(solucionActual == 1){
+                                                sol = new Solucion(1,2,mano.toString());
+                                            }
+                                            else{
+                                                sol = new Solucion(1,1,mano.toString());
+                                            }
+                                            solucionActual = 1;
+                                        }
+                                    }
                                 }
-                                if(cartaQueFalta == mano.getCarta1()){
-                                    sol = new Solucion(0,1,mano.toString());
-                                    solucionActual = 0;
+                                // Si la carta de la mano esta en medio o al final
+                                if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                        else{
+                                            cartaQueFalta = i;
+                                        }
+                                    }
+                                    if(proyecto < 4){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            if(solucionActual == 1){
+                                                sol = new Solucion(1,2,mano.toString());
+                                            }
+                                            else{
+                                                sol = new Solucion(1,1,mano.toString());
+                                            }
+                                            solucionActual = 1;
+                                        }
+                                    }
                                 }
+                              
                             }
+
+                            // En caso de que la primera carta sea de la mano
+                            else{
+                                if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
+                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                    }
+                                    if(proyecto == 5){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(1,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
+                                }
                         }
                     }
                 }
