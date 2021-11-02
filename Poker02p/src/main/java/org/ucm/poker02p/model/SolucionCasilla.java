@@ -69,6 +69,7 @@ public class SolucionCasilla {
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
         Solucion sol = new Solucion(5, 4, mano.toString());
         int solucionActual = 14;
+        // Para las escaleras y el color se necesitan más de tres cartas pq con una pareja no hay opción de conseguirlo con menos
         if(board.getNumCart() > 3){
             
             // Comprobamos posible escalera real
@@ -96,6 +97,79 @@ public class SolucionCasilla {
                         }
                     }
                     //Escalera Real con 5 cartas
+                    if(board.getNumCart() == 5){
+                        if(board.getTrio() == 0 && board.getPoker() == 0){
+                            int proyecto = 0;
+                            int cartaQueFalta = 0;
+                            for(int i = 10; i <15;i++){
+                                if(board.getRepeticiones().get(i).size() > 0){
+                                    proyecto++;
+                                }
+                                else{
+                                    cartaQueFalta = i;
+                                }
+                            }
+                            if(proyecto >= 4){
+                                if(cartaQueFalta == 0){ //Escalera Real en el board
+                                    sol = new Solucion(0,1,mano.toString());
+                                    solucionActual = 0;
+                                }
+                                if(cartaQueFalta == mano.getCarta1()){
+                                    sol = new Solucion(0,1,mano.toString());
+                                    solucionActual = 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Escalera de Color
+            if(solucionActual > 1){
+                if(board.getColH() == 4 || board.getColS() == 4|| board.getColC() == 4 || board.getColD() == 4){
+                    // Escalera Color con 4 cartas
+                    if(board.getNumCart() == 4){
+                        if(board.getTrio() == 0 && board.getPareja1() == 0 && board.getPoker() == 0){
+                            int proyecto = 0;
+                            int cartaQueFalta = 0;
+                            // En caso de que la primera carta no sea la de la mano
+                            if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
+                                if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
+                                    for(int i = 10; i <15;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                        else{
+                                            cartaQueFalta = i;
+                                        }
+                                    }
+                                    if(proyecto < 4){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(0,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
+                                }
+                            }
+                            // En caso de que la primera carta sea de la mano
+                            else{
+                                if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
+                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        if(board.getRepeticiones().get(i).size() > 0){
+                                            proyecto++;
+                                        }
+                                    }
+                                    if(proyecto == 5){
+                                        if(cartaQueFalta == mano.getCarta1()){
+                                            sol = new Solucion(1,1,mano.toString());
+                                            solucionActual = 1;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //Escalera Color con 5 cartas
                     if(board.getNumCart() == 5){
                         if(board.getTrio() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
