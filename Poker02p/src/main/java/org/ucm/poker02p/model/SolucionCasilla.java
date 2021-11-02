@@ -298,11 +298,21 @@ public class SolucionCasilla {
                 }
             }
             
+            //Poker
+            if(solucionActual > 1){
+                
+            }
             
+            //Full House
+            if(solucionActual > 2){
+                
+            }
             
+            //Color
             
-            
-            
+            if(solucionActual > 3){
+                
+            }
             
             // Escalera
             if(solucionActual > 4){
