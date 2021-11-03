@@ -499,7 +499,26 @@ public class SolucionCasilla {
                         }
                     }
             }
+            
+            // Trio
             if(solucionActual > 5){
+                if(board.getRepeticiones().get(mano.getCarta1()) != null){
+                    sol = new Solucion(6,6,mano.toString());
+                }
+            }
+            
+            // Doble Pareja
+            if(solucionActual > 6){
+                
+            }
+            
+            // OverPair
+            if(solucionActual > 7){
+                
+            }
+            
+            // TopPair
+            if(solucionActual > 8){
                 
             }
         }
