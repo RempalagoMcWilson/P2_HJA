@@ -66,6 +66,8 @@ public class SolucionCasilla {
     
     en el github lo he dejado en la version 1.3.3 seguid por la .4
     */
+    
+    // No estoy seguro de como tienen q ser los returns preguntar a JUANMA
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
         Solucion sol = new Solucion(5, 4, mano.toString());
         int solucionActual = 14;
@@ -309,13 +311,22 @@ public class SolucionCasilla {
             
             //Full House
             if(solucionActual > 2){
-                
+                if(board.getPareja1() != 0 || board.getTrio() != 0){ // Si en el board no hay un trio o una pareja no puede haber full 
+                    
+                }
             }
             
             //Color
             
             if(solucionActual > 3){
-                
+                if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
+                    if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
+                        sol = new Solucion(4,6,mano.toString());
+                    }
+                    else{
+                        sol = new Solucion(4,3,mano.toString());
+                    }
+                }
             }
             
             // Escalera
