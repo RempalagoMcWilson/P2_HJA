@@ -300,7 +300,11 @@ public class SolucionCasilla {
             
             //Poker
             if(solucionActual > 1){
-                
+                if(board.getPareja1() != 0 || board.getPareja2() != 0){
+                    if(board.getPareja1() == mano.getCarta1() || board.getPareja2() == mano.getCarta1()){
+                        sol = new Solucion(2,1,mano.toString());
+                    }
+                }
             }
             
             //Full House
