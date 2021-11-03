@@ -317,7 +317,6 @@ public class SolucionCasilla {
             }
             
             //Color
-            
             if(solucionActual > 3){
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
                     if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
@@ -499,6 +498,8 @@ public class SolucionCasilla {
                             }
                         }
                     }
+            }
+            if(solucionActual > 5){
                 
             }
         }
