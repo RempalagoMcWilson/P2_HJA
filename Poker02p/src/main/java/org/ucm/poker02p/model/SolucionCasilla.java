@@ -555,11 +555,158 @@ public class SolucionCasilla {
     
     private Solucion suitedSolucion(){ //aqui ya sabeis si es suited
         Solucion sol = new Solucion(12, 4, mano.toString());
+        int solucionActual = 14;        
+        
+        // Escalera real
+        // Escalera de color
+        if(solucionActual > 1){
+        
+        }
+        // Poker
+        if(solucionActual > 2){
+        
+        }
+        
+        //3. FullHouse
+        if(solucionActual > 3){
+        
+        }
+        
+        //Color
+        if(solucionActual > 4){
+        
+        }
+        
+        //Escalera
+        if(solucionActual > 5){
+        
+        }
+        
+        // Trio
+        if(solucionActual > 6){
+        
+        }
+        
+        // Doble Pareja
+        if(solucionActual > 7){
+        
+        }
+        
+        // OverPair (pareja en mano mejor que la carta mas alta del board)
+        if(solucionActual > 8){
+        
+        }
+        
+        // TopPair (pareja con la carta mas alta del board)
+        if(solucionActual > 9){
+        
+        }
+        
+        // pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
+        if(solucionActual > 10){
+        
+        }
+        
+        // MiddlePair (pareja con la segunda carta mas alta del board)
+        if(solucionActual > 11){
+        
+        }
+        
+        // WeakPair (otras parejas)
+        if(solucionActual > 12){
+        
+        }
+        
+        // Ace high
+        if(solucionActual > 13){
+        
+        }
+        
+        // No made hand
+        if(solucionActual > 14){
+        
+        }
+        
+        // Proyecto color       
+        // proyecto escalera open-ended
+        // proyecto escalera gutshot
+        
         return sol;
     }
     
     private Solucion offSuitedSolucion(){/// y aqui offsuited
-        Solucion sol = new Solucion(7, 4, mano.toString());
+        Solucion sol = new Solucion(12, 4, mano.toString());
+        int solucionActual = 14;        
+        
+        // Escalera real
+        // Escalera de color
+        if(solucionActual > 1){
+        
+        }
+        // Poker
+        if(solucionActual > 2){
+        
+        }
+        
+        //3. FullHouse
+        if(solucionActual > 3){
+        
+        }
+        
+        //Color
+        if(solucionActual > 4){
+        
+        }
+        
+        //Escalera
+        if(solucionActual > 5){
+        
+        }
+        
+        // Trio
+        if(solucionActual > 6){
+        
+        }
+        
+        // Doble Pareja
+        if(solucionActual > 7){
+        
+        }
+        
+        // OverPair (pareja en mano mejor que la carta mas alta del board)
+        if(solucionActual > 8){
+        
+        }
+        
+        // TopPair (pareja con la carta mas alta del board)
+        if(solucionActual > 9){
+        
+        }
+        
+        // pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
+        if(solucionActual > 10){
+        
+        }
+        
+        // MiddlePair (pareja con la segunda carta mas alta del board)
+        if(solucionActual > 11){
+        
+        }
+        
+        // WeakPair (otras parejas)
+        if(solucionActual > 12){
+        
+        }
+        
+        // Ace high
+        if(solucionActual > 13){
+        
+        }
+        
+        // No made hand
+        if(solucionActual > 14){
+        
+        }
         return sol;
     }   
 }
