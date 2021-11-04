@@ -25,8 +25,8 @@ public class SliderPorcentaje extends JSlider implements Observer {
         rank = new Ranking();
         this.ctrl = ctrl;
         ctrl.addObserver(this);
-        setSize(new Dimension(510, 33));//37 520
-        setLocation(5, 4);
+        setSize(new Dimension(510, 27));//37 520
+        setLocation(5, 5);
         setBackground(Color.WHITE);
         this.setVisible(true);
         this.setValue(0);

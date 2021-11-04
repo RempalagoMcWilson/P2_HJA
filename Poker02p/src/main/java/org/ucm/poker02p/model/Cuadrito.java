@@ -72,19 +72,19 @@ public class Cuadrito extends JButton{
     private void setColorMio(String color){
         switch(color){
                 case "rojo":{
-                    setBackground(Color.red);
+                    setBackground(new Color(255, 125, 125));
                 }
                 break;
                 case "amarillo":{
-                    setBackground(Color.yellow);
+                    setBackground(new Color(255, 255, 125));
                 }
                 break;
                 case "azul":{
-                    setBackground(Color.blue);
+                    setBackground(new Color(125, 225, 255));
                 }
                 break;
                 case "verde":{
-                    setBackground(Color.green);
+                    setBackground(new Color(130, 255, 125));
                 }
                 break;
         }
