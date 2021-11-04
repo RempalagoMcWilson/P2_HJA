@@ -115,6 +115,7 @@ public class TraduceMano {//Sin Terminar
     }*/
 
     public ArrayList<Mano> traduceMano(String entrada) {
+        entrada = entrada.replace(" ", "");
         ArrayList<Mano> lista = new ArrayList();
         int i = 0;
         while (i < entrada.length()) 	{
