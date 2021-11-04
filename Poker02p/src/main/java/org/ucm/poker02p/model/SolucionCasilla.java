@@ -574,7 +574,15 @@ public class SolucionCasilla {
         
         //Color
         if(solucionActual > 4){
-        
+            if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
+                sol = new Solucion(4,4,mano.toString());
+            }
+            if(board.getColC() == 4 || board.getColS() == 4 || board.getColH() == 4 || board.getColD() == 4){
+                sol = new Solucion(4,1,mano.toString());
+            }
+            if(board.getColC() == 3 || board.getColS() == 3 || board.getColH() == 3 || board.getColD() == 3){
+                sol = new Solucion(4,1,mano.toString());
+            }
         }
         
         //Escalera
@@ -696,7 +704,14 @@ public class SolucionCasilla {
         
         //Color
         if(solucionActual > 4){
-        
+            if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
+                if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
+                    sol = new Solucion(4,16,mano.toString());
+                }
+                else{
+                    sol = new Solucion(4,4,mano.toString());
+                }
+            }
         }
         
         //Escalera
