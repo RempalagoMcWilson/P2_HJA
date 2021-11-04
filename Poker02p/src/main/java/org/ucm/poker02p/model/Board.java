@@ -15,13 +15,17 @@ public class Board {
     private TreeMap<Integer,ArrayList<Carta>> repeticiones;
     private int colH, colD , colC , colS ,poker , trio ,pareja1, pareja2;
     private ArrayList<Carta> listaOrdenada;
-
+    private ArrayList<Integer> nRepeticiones;
     public Board() {
         lista = new ArrayList();
     }
 
     public TreeMap<Integer, ArrayList<Carta>> getRepeticiones() {
         return repeticiones;
+    }
+
+    public ArrayList<Integer> getNRepeticiones() {
+        return nRepeticiones;
     }
 
     public int getColH() {
@@ -72,6 +76,10 @@ public class Board {
     }
     
     public void preparaBoard(){
+        nRepeticiones = new ArrayList(12);
+        for(Integer i : nRepeticiones){
+            i = 0;
+        }
         repeticiones = new TreeMap<>();listaOrdenada = new ArrayList();
         colH = 0; colD = 0; colC = 0; colS = 0;poker = 0; trio = 0;pareja1 = 0; pareja2= 0;
         
@@ -79,6 +87,7 @@ public class Board {
             ArrayList<Carta> aux1 = new ArrayList<>();
             aux1.add(c);
             aux1 = repeticiones.putIfAbsent(c.getNum(), aux1);
+            
             if(aux1 != null){
                 aux1.add(c);
                 repeticiones.put(c.getNum(), aux1);
@@ -106,6 +115,7 @@ public class Board {
             for(Carta c : va){
                 listaOrdenada.add(c);
             }                    
+            nRepeticiones.set(ke - 2, va.size());
             switch (va.size()) {
                 case 2:
                     if(ke > pareja1){
