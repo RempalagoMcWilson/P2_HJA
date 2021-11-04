@@ -4,8 +4,10 @@
  */
 package org.ucm.poker02p.view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.TreeMap;
+import javax.swing.JPanel;
 import org.ucm.poker02p.control.Controller;
 import org.ucm.poker02p.model.GeneraSoluciones;
 import org.ucm.poker02p.model.Solucion;
@@ -29,6 +31,7 @@ public class MainPanel extends javax.swing.JFrame {
         this.cntr = cntr;rankingActivado = false;jugadasActivado = false;
         
         initComponents();
+        
         boardTextoButton.setEnabled(false);
         generaSolucionButton.setEnabled(false);
         this.setVisible(true);
@@ -37,18 +40,18 @@ public class MainPanel extends javax.swing.JFrame {
         PanelPorcentaje pP = new PanelPorcentaje(cntr);
         SliderPorcentaje sP = new SliderPorcentaje(cntr);
         pB = new PanelBoard(cntr);
-        rangoEnTextoPanel.setBackground(java.awt.Color.black);
+        rangoEnTextoPanel.setBackground(new Color(195,195,195));
         rangoEnTextoPanel.add(pR);
         
-        casillasRangoPanel.setBackground(java.awt.Color.black);
+        casillasRangoPanel.setBackground(new Color(195,195,195));
         casillasRangoPanel.add(pC);
-        porcentajePanel.setBackground(java.awt.Color.black);
+        porcentajePanel.setBackground(new Color(195,195,195));
         porcentajePanel.add(pP);
-        sliderPanel.setBackground(java.awt.Color.black);
+        sliderPanel.setBackground(new Color(195,195,195));
         sliderPanel.add(sP);
-        casillasBoardPanel.setBackground(java.awt.Color.black);
+        casillasBoardPanel.setBackground(new Color(195,195,195));
         casillasBoardPanel.add(pB);
-        
+        //this.setBackground(new Color(225,225,183));//
     }
 
     /**
@@ -74,6 +77,7 @@ public class MainPanel extends javax.swing.JFrame {
         generaSolucionButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(225, 225, 183));
         setResizable(false);
 
         rangoTextoButton.setText("METE RANGO TEXTO");

@@ -76,9 +76,10 @@ public class Board {
     }
     
     public void preparaBoard(){
-        nRepeticiones = new ArrayList(12);
-        for(Integer i : nRepeticiones){
-            i = 0;
+        nRepeticiones = new ArrayList<>();
+        
+        for(int i = 0; i < 13; i++){
+            nRepeticiones.add(0);
         }
         repeticiones = new TreeMap<>();listaOrdenada = new ArrayList();
         colH = 0; colD = 0; colC = 0; colS = 0;poker = 0; trio = 0;pareja1 = 0; pareja2= 0;
