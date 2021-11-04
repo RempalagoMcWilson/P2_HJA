@@ -82,7 +82,8 @@ public class SolucionCasilla {
                         if(board.getTrio() == 0 && board.getPareja1() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
                             int cartaQueFalta = 0;
-                            for(int i = 10; i <15;i++){
+                            
+                            for(int i = 8; i <13;i++){
                                 if(board.getRepeticiones().get(i).size() > 0){
                                     proyecto++;
                                 }
@@ -103,7 +104,7 @@ public class SolucionCasilla {
                         if(board.getTrio() == 0 && board.getPoker() == 0){
                             int proyecto = 0;
                             int cartaQueFalta = 0;
-                            for(int i = 10; i <15;i++){
+                            for(int i = 8; i <13;i++){
                                 if(board.getRepeticiones().get(i).size() > 0){
                                     proyecto++;
                                 }
@@ -137,7 +138,7 @@ public class SolucionCasilla {
                             // En caso de que la primera carta no sea la de la mano
                             if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
                                 if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -156,7 +157,7 @@ public class SolucionCasilla {
                             // En caso de que la primera carta sea de la mano
                             else{
                                 if(board.getListaOrdenada().get(3).getNum() - mano.getCarta1() == 4){
-                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                    for(int i = mano.getCarta1() - 2; i < mano.getCarta1()+3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -180,7 +181,7 @@ public class SolucionCasilla {
                             if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
                                 // La escalera esta en el board
                                 if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
-                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() - 2  ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -197,7 +198,7 @@ public class SolucionCasilla {
                                 }
                                 // Si la carta de la mano esta en medio o al final
                                 if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -218,7 +219,7 @@ public class SolucionCasilla {
                             // En caso de que la primera carta sea de la mano
                             else{
                                 if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
-                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                    for(int i = mano.getCarta1() - 2; i < mano.getCarta1()+3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -234,7 +235,7 @@ public class SolucionCasilla {
                             if(mano.getCarta1() > board.getListaOrdenada().get(1).getNum()){
                                 // La escalera esta en el board
                                 if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
-                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -256,7 +257,7 @@ public class SolucionCasilla {
                                 }
                                 // Si la carta de la mano esta en medio o al final
                                 if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                    for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                    for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -282,7 +283,7 @@ public class SolucionCasilla {
                             // En caso de que la primera carta sea de la mano
                             else{
                                 if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
-                                    for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                    for(int i = mano.getCarta1() - 2 ; i < mano.getCarta1()+3;i++){
                                         if(board.getRepeticiones().get(i).size() > 0){
                                             proyecto++;
                                         }
@@ -345,7 +346,7 @@ public class SolucionCasilla {
                                 // En caso de que la primera carta no sea la de la mano
                                 if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
                                     if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                        for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -364,7 +365,7 @@ public class SolucionCasilla {
                                 // En caso de que la primera carta sea de la mano
                                 else{
                                     if(board.getListaOrdenada().get(3).getNum() - mano.getCarta1() == 4){
-                                        for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        for(int i = mano.getCarta1() - 2; i < mano.getCarta1()+3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -388,7 +389,7 @@ public class SolucionCasilla {
                                 if(mano.getCarta1() > board.getListaOrdenada().get(0).getNum()){
                                     // La escalera esta en el board
                                     if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
-                                        for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -405,7 +406,7 @@ public class SolucionCasilla {
                                     }
                                     // Si la carta de la mano esta en medio o al final
                                     if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                        for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -426,7 +427,7 @@ public class SolucionCasilla {
                                 // En caso de que la primera carta sea de la mano
                                 else{
                                     if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
-                                        for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        for(int i = mano.getCarta1() - 2; i < mano.getCarta1()+3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -442,7 +443,7 @@ public class SolucionCasilla {
                                 if(mano.getCarta1() > board.getListaOrdenada().get(1).getNum()){
                                     // La escalera esta en el board
                                     if(board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum() == 4){
-                                        for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        for(int i = board.getListaOrdenada().get(0).getNum() - 2; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -464,7 +465,7 @@ public class SolucionCasilla {
                                     }
                                     // Si la carta de la mano esta en medio o al final
                                     if(board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum() >= 3){
-                                        for(int i = board.getListaOrdenada().get(0).getNum() ; i < board.getListaOrdenada().get(0).getNum()+ 5;i++){
+                                        for(int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
@@ -490,7 +491,7 @@ public class SolucionCasilla {
                                 // En caso de que la primera carta sea de la mano
                                 else{
                                     if(board.getListaOrdenada().get(4).getNum() - mano.getCarta1() == 4){
-                                        for(int i = mano.getCarta1(); i < mano.getCarta1()+5;i++){
+                                        for(int i = mano.getCarta1() - 2; i < mano.getCarta1()+3;i++){
                                             if(board.getRepeticiones().get(i).size() > 0){
                                                 proyecto++;
                                             }
