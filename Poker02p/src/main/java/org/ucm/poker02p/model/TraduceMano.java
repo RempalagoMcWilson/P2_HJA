@@ -2,6 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+
+
 package org.ucm.poker02p.model;
 
 import java.util.ArrayList;
@@ -115,11 +117,11 @@ public class TraduceMano {//Sin Terminar
     public ArrayList<Mano> traduceMano(String entrada) {
         ArrayList<Mano> lista = new ArrayList();
         int i = 0;
-        while (i < entrada.length()) {
+        while (i < entrada.length()) 	{
             if (i + 2 < entrada.length()) {
-                if (entrada.charAt(i + 2) == ',') {//Si es una pareja suelta
+                if (entrada.charAt(i + 2) == ',') {//es una pareja suelta
                     lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
-                    i += 3;
+                    i += 4;
                 } else if ((entrada.charAt(i + 2) == 'o') || (entrada.charAt(i + 2) == 's')) {//es un par "s" o "o"
                     if (entrada.charAt(i + 3) == '-') {//Nos encontramos un rango
                         for (int j = 0; j <= entrada.charAt(i + 1) - entrada.charAt(i + 5); j++) {//Hay que comprobar si la resta funciona con ascii o con int
@@ -129,7 +131,7 @@ public class TraduceMano {//Sin Terminar
                                 lista.add(new Mano(charACarta(entrada.charAt(i + 5)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
                             }
                         }
-                        i += 7;
+                        i += 8;
 
                     } else if (entrada.charAt(i + 3) == ',') {//un par de cartas suelto suited o offsuited
                         if (entrada.charAt(i + 2) == 's') {//                                                      + j
@@ -138,7 +140,7 @@ public class TraduceMano {//Sin Terminar
                             lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
                         }
                         i += 3;
-                    } else if ((entrada.charAt(i + 3) == '+')) {//aÃ±ade con el + de offsuited y suited
+                    } else if ((entrada.charAt(i + 3) == '+')) {//añade con el + de offsuited y suited
                         for (int j = 0; j + charACarta(entrada.charAt(i + 1)) < charACarta(entrada.charAt(i)); j++) {
                             if (entrada.charAt(i + 2) == 's') {
                                 lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)) + j, entrada.charAt(i + 2)));
@@ -146,20 +148,26 @@ public class TraduceMano {//Sin Terminar
                                 lista.add(new Mano(charACarta(entrada.charAt(i + 1)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
                             }
                         }
-                        i += 4;
-                    }
+                        i += 5;
+                    } 
                 } else if (entrada.charAt(i + 2) == '+') {
-                    int par = Integer.parseInt(entrada.substring(i, i + 1)) + 1;
+                    int par = charACarta(entrada.charAt(i)) + 1;
                     lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
                     while (par < 15) {
                         lista.add(new Mano(par, par, 'p'));
                         par++;
                     }
+                    i += 4;
+                } else if (entrada.charAt(i + 2) == '-') {
+                	for (int j = 0; charACarta(entrada.charAt(i + 3)) + j <= charACarta(entrada.charAt(i)); j++) {          
+                		lista.add(new Mano(charACarta(entrada.charAt(i + 3)) + j, charACarta(entrada.charAt(i + 3)) + j, 'p'));
+                    }
+                    i += 6;
                 }
 
             } else {//AA
                 lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
-                i += 2;
+                i += 3;
             }
 
         }
