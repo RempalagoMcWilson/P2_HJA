@@ -517,19 +517,39 @@ public class SolucionCasilla {
             
             // Doble Pareja
             if(solucionActual > 6){
-                
+                if(board.getPareja1() != 0){ //Basta con que tenga una aunque la otra pueda ser mejor
+                    sol = new Solucion(7,6,mano.toString());
+                }
             }
             
             // OverPair
             if(solucionActual > 7){
-                
+                if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                    sol = new Solucion(8,6,mano.toString());
+                }
             }
             
             // TopPair
-            if(solucionActual > 8){
-                
+            // No puede tener Top Pair pq al ser una pareja no puede hacer una pareja con una carta del board
+            
+            //Pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
+            if(solucionActual > 9){
+                if(mano.getCarta1()+1 == board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                    sol = new Solucion(10,6,mano.toString());
+                }
             }
-        
+            
+            // MiddlePair
+            // No puede tener Middle Pair pq al ser una pareja no puede hacer una pareja con una carta del board
+            //12. WeakPair (otras parejas)
+            
+            if(solucionActual > 11){
+                if(mano.getCarta1()+1 < board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                    sol = new Solucion(12,6,mano.toString());
+                }
+            }
+            
+            //No hace falta hacer más comprobaciones porque como mínimo tiene pareja siempre
         return sol;
     }
     
