@@ -524,7 +524,7 @@ public class SolucionCasilla {
             
             // OverPair
             if(solucionActual > 7){
-                if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
                     sol = new Solucion(8,6,mano.toString());
                 }
             }
@@ -534,7 +534,7 @@ public class SolucionCasilla {
             
             //Pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
             if(solucionActual > 9){
-                if(mano.getCarta1()+1 == board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(10,6,mano.toString());
                 }
             }
@@ -544,7 +544,7 @@ public class SolucionCasilla {
             //12. WeakPair (otras parejas)
             
             if(solucionActual > 11){
-                if(mano.getCarta1()+1 < board.getListaOrdenada().get(board.getNumCart()).getNum()){
+                if(board.getPareja1() != 0 && mano.getCarta1() < board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(12,6,mano.toString());
                 }
             }
@@ -593,38 +593,79 @@ public class SolucionCasilla {
         }
         
         // OverPair (pareja en mano mejor que la carta mas alta del board)
-        if(solucionActual > 8){
-        
-        }
+        // No puede haber over pair pq no tienes una pareja en mano
         
         // TopPair (pareja con la carta mas alta del board)
         if(solucionActual > 9){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(4).getNum() || mano.getCarta2() == board.getListaOrdenada().get(4).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
         }
         
         // pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
-        if(solucionActual > 10){
-        
-        }
+        // No puede haber pocket pair pq no tienes pareja en mano
         
         // MiddlePair (pareja con la segunda carta mas alta del board)
         if(solucionActual > 11){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
         }
         
         // WeakPair (otras parejas)
         if(solucionActual > 12){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(0).getNum() || mano.getCarta2() == board.getListaOrdenada().get(0).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
+            
         }
         
         // Ace high
         if(solucionActual > 13){
-        
+            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
+                sol = new Solucion(14,6,mano.toString());
+            }
         }
         
         // No made hand
         if(solucionActual > 14){
-        
+            
         }
         
         // Proyecto color       
@@ -648,7 +689,7 @@ public class SolucionCasilla {
         
         }
         
-        //3. FullHouse
+        // FullHouse
         if(solucionActual > 3){
         
         }
@@ -674,39 +715,85 @@ public class SolucionCasilla {
         }
         
         // OverPair (pareja en mano mejor que la carta mas alta del board)
-        if(solucionActual > 8){
-        
-        }
+        // No puede haber over pair pq no tienes una pareja en mano
         
         // TopPair (pareja con la carta mas alta del board)
         if(solucionActual > 9){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(4).getNum() || mano.getCarta2() == board.getListaOrdenada().get(4).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
         }
         
         // pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
-        if(solucionActual > 10){
-        
-        }
+        // No puede haber pocket pair pq no tienes pareja en mano
         
         // MiddlePair (pareja con la segunda carta mas alta del board)
         if(solucionActual > 11){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
         }
         
         // WeakPair (otras parejas)
         if(solucionActual > 12){
-        
+            if(board.getNumCart() == 3){
+                if(mano.getCarta1() == board.getListaOrdenada().get(0).getNum() || mano.getCarta2() == board.getListaOrdenada().get(0).getNum()){
+                    sol = new Solucion(13,6,mano.toString());
+                }
+                if(board.getNumCart() == 4){
+                    if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
+                        sol = new Solucion(13,6,mano.toString());
+                    }
+                    if(board.getNumCart() == 5){
+                        if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
+                            sol = new Solucion(13,6,mano.toString());
+                        }  
+                    }
+                }
+            }
+            
         }
         
         // Ace high
         if(solucionActual > 13){
-        
+            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
+                sol = new Solucion(14,6,mano.toString());
+            }
         }
         
         // No made hand
         if(solucionActual > 14){
         
         }
+        
+        // Proyecto color       
+        // proyecto escalera open-ended
+        // proyecto escalera gutshot
+        
         return sol;
     }   
 }
