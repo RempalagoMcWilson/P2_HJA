@@ -305,7 +305,7 @@ public class SolucionCasilla {
             if(solucionActual > 1){
                 if(board.getPareja1() != 0 || board.getPareja2() != 0){
                     if(board.getPareja1() == mano.getCarta1() || board.getPareja2() == mano.getCarta1()){
-                        sol = new Solucion(2,1,mano.toString());
+                        sol = new Solucion(2,6,mano.toString());
                     }
                 }
             }
@@ -313,7 +313,12 @@ public class SolucionCasilla {
             //Full House
             if(solucionActual > 2){
                 if(board.getPareja1() != 0 || board.getTrio() != 0){ // Si en el board no hay un trio o una pareja no puede haber full 
-                    
+                    if(board.getTrio() != 0){
+                        sol = new Solucion(3,6,mano.toString());
+                    }
+                    if(board.getPareja1() != 0 && board.getRepeticiones().get(mano.getCarta1()) != null){
+                        sol = new Solucion(3,6,mano.toString());
+                    }
                 }
             }
             
