@@ -125,7 +125,7 @@ public class TraduceMano {//Sin Terminar
                 } else if ((entrada.charAt(i + 2) == 'o') || (entrada.charAt(i + 2) == 's')) {//es un par "s" o "o"
                     if (entrada.charAt(i + 3) == '-') {//Nos encontramos un rango
                         for (int j = 0; j <= entrada.charAt(i + 1) - entrada.charAt(i + 5); j++) {//Hay que comprobar si la resta funciona con ascii o con int
-                            if (entrada.charAt(i + 2) == 's') {
+                            if (entrada.charAt(i + 2) == 'o') {
                                 lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 5)) + j, entrada.charAt(i + 2)));
                             } else {
                                 lista.add(new Mano(charACarta(entrada.charAt(i + 5)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
@@ -134,7 +134,7 @@ public class TraduceMano {//Sin Terminar
                         i += 8;
 
                     } else if (entrada.charAt(i + 3) == ',') {//un par de cartas suelto suited o offsuited
-                        if (entrada.charAt(i + 2) == 's') {//                                                      + j
+                        if (entrada.charAt(i + 2) == 'o') {//                                                      + j
                             lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), entrada.charAt(i + 2)));
                         } else {
                             lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
@@ -142,7 +142,7 @@ public class TraduceMano {//Sin Terminar
                         i += 3;
                     } else if ((entrada.charAt(i + 3) == '+')) {//añade con el + de offsuited y suited
                         for (int j = 0; j + charACarta(entrada.charAt(i + 1)) < charACarta(entrada.charAt(i)); j++) {
-                            if (entrada.charAt(i + 2) == 's') {
+                            if (entrada.charAt(i + 2) == 'o') {
                                 lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)) + j, entrada.charAt(i + 2)));
                             } else {
                                 lista.add(new Mano(charACarta(entrada.charAt(i + 1)) + j, charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
