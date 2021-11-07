@@ -531,7 +531,7 @@ public class SolucionCasilla {
             
             // OverPair
             if(solucionActual > 7){
-                if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
+                if(board.getPareja1() == 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
                     sol = new Solucion(8,6,mano.toString());
                     solucionActual = 8;
                 }
@@ -542,7 +542,7 @@ public class SolucionCasilla {
             
             //Pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
             if(solucionActual > 9){
-                if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
+                if(board.getPareja1() == 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(10,6,mano.toString());
                     solucionActual = 10;
                 }
@@ -553,7 +553,7 @@ public class SolucionCasilla {
             //12. WeakPair (otras parejas)
             
             if(solucionActual > 11){
-                if(board.getPareja1() != 0 && mano.getCarta1() < board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
+                if(board.getPareja1() == 0 && mano.getCarta1() < board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(12,6,mano.toString());
                     solucionActual = 12;
                 }

@@ -262,11 +262,13 @@ public class MainPanel extends javax.swing.JFrame {
     private void ActivaRankingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivaRankingButtonActionPerformed
         if(rankingActivado) {
             rankingActivado = false;
+            
             rangoTextoButton.setEnabled(true);
             activaJugadasButton.setEnabled(true);
         }
         else {
             rankingActivado = true;
+            
             rangoTextoButton.setEnabled(false);
             activaJugadasButton.setEnabled(false);
         }
@@ -278,11 +280,13 @@ public class MainPanel extends javax.swing.JFrame {
         if(jugadasActivado) {
             jugadasActivado = false;
             boardTextoButton.setEnabled(false);
+            
             ActivaRankingButton.setEnabled(true);
             generaSolucionButton.setEnabled(false);
         }
         else {
             jugadasActivado = true;
+            
             boardTextoButton.setEnabled(true);
             ActivaRankingButton.setEnabled(false);
             generaSolucionButton.setEnabled(true);
