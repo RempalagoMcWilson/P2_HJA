@@ -300,7 +300,7 @@ public class SolucionCasilla {
                 }
             }
         
-            
+        }       
             //Poker
             if(solucionActual > 1){
                 if(board.getPareja1() != 0 || board.getPareja2() != 0){
@@ -310,7 +310,7 @@ public class SolucionCasilla {
                     }
                 }
             }
-        }    
+        
             //Full House
             if(solucionActual > 2){
                 if(board.getPareja1() != 0 || board.getTrio() != 0){ // Si en el board no hay un trio o una pareja no puede haber full 
