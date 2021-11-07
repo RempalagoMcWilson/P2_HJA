@@ -91,104 +91,15 @@ public class TraduceMano {//Sin Terminar
         Collections.sort(parejas);
         Collections.sort(offSuited);
         Collections.sort(suited);
-        int seguidos = 0;
-        int baja = 0;
+        
         for (int i = 0; i < parejas.size(); i++) {
-            if (seguidos == 0) {//empiezas una posible secuencia de continuas
-                baja = i;
-                seguidos++;
-            } else if (parejas.get(i).getCarta1() == parejas.get(i - 1).getCarta1() + 1) {//sigues la "escalera"
-                seguidos++;
-            } else { //rompes la "escalera" por lo tanto guardas y reseteas la cuenta
-                if (seguidos > 1) {
-                    sol += parejas.get(baja).toString() + '-' + parejas.get(i - 1).toString() + ',';
-                } else {
-                    sol += parejas.get(i - 1).toString() + ',';
-                }
-                i--;
-                seguidos = 0;
-            }
-            if (parejas.get(i).getCarta1() == 14) {
-                sol += parejas.get(baja).toString() + '+';//Estaria ya al final y es la unica posibilidad del +
-            }
+            sol += parejas.get(i).toString() + ',';
         }
-        //reseteamos parametros
-        baja = 0;
-        seguidos = 0;
-        int pilar;
-        if (!offSuited.isEmpty()) {
-            pilar = offSuited.get(0).getCarta1();
-            sol += '\n';
-            for (int i = 0; i < offSuited.size(); i++) {
-                if (seguidos == 0) {
-                    baja = i;
-                    pilar = offSuited.get(i).getCarta1();
-                    seguidos++;
-                } else if (offSuited.get(i).getCarta1() == pilar) {//Carta mayor es igual
-                    if (pilar == offSuited.get(i).getCarta2() + 1) {//Tope para el +
-                        sol += offSuited.get(baja).toString() + "+, ";
-                        seguidos = 0;
-                    } else if (offSuited.get(i).getCarta2() == offSuited.get(i - 1).getCarta2() + 1) {//continua la escalera
-                        seguidos++;
-                    } else { //rompe la escalera
-                        if (seguidos > 1) {
-                            sol += offSuited.get(baja).toString() + '-' + offSuited.get(i - 1).toString() + ',';
-                        } else {
-                            sol += offSuited.get(i - 1).toString() + ',';
-                        }
-                        i--;
-                        seguidos = 0;
-                    }
-                } else {//Carta mayor no igual
-                    //Guardas lo anterior
-                    if (seguidos > 1) {
-                        sol += offSuited.get(baja).toString() + '-' + offSuited.get(i - 1).toString() + ',';
-                    } else {
-                        sol += offSuited.get(i - 1).toString() + ',';
-                    }
-                    seguidos = 0;
-                    i--;
-                }
-            }
+          for (int i = 0; i < offSuited.size(); i++) {
+            sol += offSuited.get(i).toString() + ',';
         }
-
-        baja = 0;
-        seguidos = 0;
-        if (!suited.isEmpty()) {
-            pilar = suited.get(0).getCarta1();
-            sol += '\n';
             for (int i = 0; i < suited.size(); i++) {
-                if (seguidos == 0) {
-                    baja = i;
-                    pilar = suited.get(i).getCarta1();
-                    seguidos++;
-                } else if (suited.get(i).getCarta1() == pilar) {//Carta mayor es igual
-                    if (pilar == suited.get(i).getCarta2() + 1) {//Tope para el +
-                        sol += suited.get(baja).toString() + "+, ";
-                        seguidos = 0;
-                    } else if (suited.get(i).getCarta2() == suited.get(i - 1).getCarta2() + 1) {//continua la escalera
-                        seguidos++;
-                    } else { //rompe la escalera
-                        if (seguidos > 1) {
-                            sol += suited.get(baja).toString() + '-' + suited.get(i - 1).toString() + ',';
-                        } else {
-                            sol += suited.get(i - 1).toString() + ',';
-                        }
-                        i--;
-                        seguidos = 0;
-                    }
-                } else {//Carta mayor no igual
-                    //Guardas lo anterior
-                    if (seguidos > 1) {
-                        sol += suited.get(baja).toString() + '-' + suited.get(i - 1).toString() + ',';
-                    } else {
-                        sol += suited.get(i - 1).toString() + ',';
-                    }
-                    seguidos = 0;
-                    i--;
-                }
-
-            }
+            sol += suited.get(i).toString() + ',';
         }
 
         return sol;
