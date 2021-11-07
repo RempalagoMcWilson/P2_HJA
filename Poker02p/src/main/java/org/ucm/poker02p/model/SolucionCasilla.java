@@ -69,10 +69,10 @@ public class SolucionCasilla {
     
     // No estoy seguro de como tienen q ser los returns preguntar a JUANMA
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
-        Solucion sol = new Solucion(15, 4, mano.toString());
-        int solucionActual = 14;
+        Solucion sol = new Solucion(12, 6, mano.toString());
+        int solucionActual = 12;
         // Para las escaleras y el color se necesitan más de tres cartas pq con una pareja no hay opción de conseguirlo con menos
-        if(board.getNumCart() > 3){
+        
             
             // Comprobamos posible escalera real
             if(mano.getCarta1() >= 10){
@@ -300,24 +300,27 @@ public class SolucionCasilla {
                 }
             }
         
-            
+               
             //Poker
             if(solucionActual > 1){
                 if(board.getPareja1() != 0 || board.getPareja2() != 0){
                     if(board.getPareja1() == mano.getCarta1() || board.getPareja2() == mano.getCarta1()){
                         sol = new Solucion(2,6,mano.toString());
+                        solucionActual = 2;
                     }
                 }
             }
-        }    
+        
             //Full House
             if(solucionActual > 2){
                 if(board.getPareja1() != 0 || board.getTrio() != 0){ // Si en el board no hay un trio o una pareja no puede haber full 
                     if(board.getTrio() != 0){
                         sol = new Solucion(3,6,mano.toString());
+                        solucionActual = 3;
                     }
                     if(board.getPareja1() != 0 && board.getRepeticiones().get(mano.getCarta1()) != null){
                         sol = new Solucion(3,6,mano.toString());
+                        solucionActual = 3;
                     }
                 }
             }
@@ -327,9 +330,11 @@ public class SolucionCasilla {
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
                     if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
                         sol = new Solucion(4,6,mano.toString());
+                        solucionActual = 4;
                     }
                     else{
                         sol = new Solucion(4,3,mano.toString());
+                        solucionActual = 4;
                     }
                 }
             }
@@ -356,7 +361,7 @@ public class SolucionCasilla {
                                         if(proyecto < 4){
                                             if(cartaQueFalta == mano.getCarta1()){
                                                 sol = new Solucion(0,1,mano.toString());
-                                                solucionActual = 1;
+                                                solucionActual = 5;
                                             }
                                         }
                                     }
@@ -372,7 +377,7 @@ public class SolucionCasilla {
                                         if(proyecto == 5){
                                             if(cartaQueFalta == mano.getCarta1()){
                                                 sol = new Solucion(5,1,mano.toString());
-                                                solucionActual = 1;
+                                                solucionActual = 5;
                                             }
                                         }
                                     }
@@ -512,6 +517,7 @@ public class SolucionCasilla {
             if(solucionActual > 5){
                 if(board.getRepeticiones().get(mano.getCarta1()) != null){
                     sol = new Solucion(6,6,mano.toString());
+                    solucionActual = 6;
                 }
             }
             
@@ -519,6 +525,7 @@ public class SolucionCasilla {
             if(solucionActual > 6){
                 if(board.getPareja1() != 0){ //Basta con que tenga una aunque la otra pueda ser mejor
                     sol = new Solucion(7,6,mano.toString());
+                    solucionActual = 7;
                 }
             }
             
@@ -526,6 +533,7 @@ public class SolucionCasilla {
             if(solucionActual > 7){
                 if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
                     sol = new Solucion(8,6,mano.toString());
+                    solucionActual = 8;
                 }
             }
             
@@ -536,6 +544,7 @@ public class SolucionCasilla {
             if(solucionActual > 9){
                 if(board.getPareja1() != 0 && mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(10,6,mano.toString());
+                    solucionActual = 10;
                 }
             }
             
@@ -546,6 +555,7 @@ public class SolucionCasilla {
             if(solucionActual > 11){
                 if(board.getPareja1() != 0 && mano.getCarta1() < board.getListaOrdenada().get(board.getNumCart()-2).getNum()){
                     sol = new Solucion(12,6,mano.toString());
+                    solucionActual = 12;
                 }
             }
             
