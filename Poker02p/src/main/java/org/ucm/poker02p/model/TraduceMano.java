@@ -2,8 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
 package org.ucm.poker02p.model;
 
 import java.util.ArrayList;
@@ -113,25 +111,25 @@ public class TraduceMano {//Sin Terminar
         return lista;
 
     }*/
-
     public ArrayList<Mano> traduceMano(String entrada) {
         entrada = entrada.replace(" ", "");
         ArrayList<Mano> lista = new ArrayList();
         int i = 0;
-        while (i < entrada.length()) 	{
+        while (i < entrada.length()) {
             if (i + 2 < entrada.length()) {
                 if (entrada.charAt(i + 2) == ',') {//es una pareja suelta
                     lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
                     i += 4;
                 } else if ((entrada.charAt(i + 2) == 'o') || (entrada.charAt(i + 2) == 's')) {//es un par "s" o "o"
-                    if (entrada.charAt(i + 3) >= entrada.length()){
+                    if (i + 3 >= entrada.length()) {
                         if (entrada.charAt(i + 2) == 'o') {
-                                lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), entrada.charAt(i + 2)));
-                            } else {
-                                lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
-                            }
+                            lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), entrada.charAt(i + 2)));
+                        } else {
+                            lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
+                        }
+                        i += 4;
                     } else if (entrada.charAt(i + 3) == '-') {//Nos encontramos un rango
-                        for (int j = 0; j <= entrada.charAt(i + 1) - entrada.charAt(i + 5); j++) {//Hay que comprobar si la resta funciona con ascii o con int
+                        for (int j = 0; j <= charACarta(entrada.charAt(i + 1)) - charACarta(entrada.charAt(i + 5)); j++) {
                             if (entrada.charAt(i + 2) == 'o') {
                                 lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 5)) + j, entrada.charAt(i + 2)));
                             } else {
@@ -146,7 +144,7 @@ public class TraduceMano {//Sin Terminar
                         } else {
                             lista.add(new Mano(charACarta(entrada.charAt(i + 1)), charACarta(entrada.charAt(i)), entrada.charAt(i + 2)));
                         }
-                        i += 3;
+                        i += 4;
                     } else if ((entrada.charAt(i + 3) == '+')) {//añade con el + de offsuited y suited
                         for (int j = 0; j + charACarta(entrada.charAt(i + 1)) < charACarta(entrada.charAt(i)); j++) {
                             if (entrada.charAt(i + 2) == 'o') {
@@ -156,7 +154,7 @@ public class TraduceMano {//Sin Terminar
                             }
                         }
                         i += 5;
-                    } 
+                    }
                 } else if (entrada.charAt(i + 2) == '+') {
                     int par = charACarta(entrada.charAt(i)) + 1;
                     lista.add(new Mano(charACarta(entrada.charAt(i)), charACarta(entrada.charAt(i + 1)), 'p'));
@@ -166,8 +164,8 @@ public class TraduceMano {//Sin Terminar
                     }
                     i += 4;
                 } else if (entrada.charAt(i + 2) == '-') {
-                	for (int j = 0; charACarta(entrada.charAt(i + 3)) + j <= charACarta(entrada.charAt(i)); j++) {          
-                		lista.add(new Mano(charACarta(entrada.charAt(i + 3)) + j, charACarta(entrada.charAt(i + 3)) + j, 'p'));
+                    for (int j = 0; charACarta(entrada.charAt(i + 3)) + j <= charACarta(entrada.charAt(i)); j++) {
+                        lista.add(new Mano(charACarta(entrada.charAt(i + 3)) + j, charACarta(entrada.charAt(i + 3)) + j, 'p'));
                     }
                     i += 6;
                 }
