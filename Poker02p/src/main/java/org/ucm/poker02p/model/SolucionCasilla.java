@@ -69,10 +69,10 @@ public class SolucionCasilla {
     
     // No estoy seguro de como tienen q ser los returns preguntar a JUANMA
     private Solucion parejaSolucion(){//aqui ya sabeis si es pareja
-        Solucion sol = new Solucion(15, 4, mano.toString());
-        int solucionActual = 14;
+        Solucion sol = new Solucion(12, 6, mano.toString());
+        int solucionActual = 12;
         // Para las escaleras y el color se necesitan más de tres cartas pq con una pareja no hay opción de conseguirlo con menos
-        if(board.getNumCart() > 3){
+        
             
             // Comprobamos posible escalera real
             if(mano.getCarta1() >= 10){
@@ -300,7 +300,7 @@ public class SolucionCasilla {
                 }
             }
         
-        }       
+               
             //Poker
             if(solucionActual > 1){
                 if(board.getPareja1() != 0 || board.getPareja2() != 0){
