@@ -452,7 +452,7 @@ public class SolucionCasilla {
                 int proyectoEscalera = 0;
                 int cartaQueFalta = 0;
                 int resta = board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum();
-                if( resta == 4 || resta == 3 ){ // Si la carta de nuestra mano esta al final o a mitad de escalera
+                if( resta == 4 || (resta == 3 && board.getListaOrdenada().get(0).getNum() > mano.getCarta1())){ // Si la carta de nuestra mano esta al final o a mitad de escalera
                     // Recorre 4 cartas, desde la primera a la 4
                     for (int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 2; i++ ){
                         if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
