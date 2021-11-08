@@ -83,7 +83,7 @@ public class TraduceMano {//Sin Terminar
 
     public String tablaToTexto(Rango rango) {
         String sol = "", antS = "";
-        int cont = 0, ant = 0;
+        int cont = 0;
         ArrayList<Mano> parejas = rango.getParejas();
         ArrayList<Mano> offSuited = rango.getOffSuited();
         ArrayList<Mano> suited = rango.getSuited();
@@ -113,14 +113,11 @@ public class TraduceMano {//Sin Terminar
                         if (i == parejas.size() - 1) {
                             sol += ", " +  parejas.get(i).toString();
                         }
-                        ant = parejas.get(i).getCarta1();
                         antS = parejas.get(i).toString();
                         cont = 1;
                     } else {
-                        ant = parejas.get(i).getCarta1();
                         antS = parejas.get(i).toString();
                         sol += "," + parejas.get(i - 1).toString();
-                        
                         if (i == parejas.size() - 1)
                             sol += "," +antS;
                         cont = 1;
@@ -131,10 +128,13 @@ public class TraduceMano {//Sin Terminar
             antS = parejas.get(0).toString();
             sol += antS;
         }
+        
+        cont = 1;
 
         for (int i = 0; i < offSuited.size(); i++) {
             sol += offSuited.get(i).toString() + ',';
         }
+        cont = 1;
         for (int i = 0; i < suited.size(); i++) {
             sol += suited.get(i).toString() + ',';
         }
