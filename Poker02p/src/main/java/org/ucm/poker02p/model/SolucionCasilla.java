@@ -75,7 +75,7 @@ public class SolucionCasilla {
         
             
             // Comprobamos posible escalera real
-            if(mano.getCarta1() >= 10){
+            if(mano.getCarta1() >= 8){
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
                     // Escalera Real con 4 cartas en board
                     sol = resuelveEscaleraPareja();
@@ -580,7 +580,7 @@ public class SolucionCasilla {
                 int resta = board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(1).getNum();
                 if( resta == 4 || resta == 3 ){ // Si la carta de nuestra mano esta al final o a mitad de escalera
                     // Recorre 4 cartas, desde la primera a la 4
-                    for (int i = board.getListaOrdenada().get(1).getNum() - 2 ; i < board.getListaOrdenada().get(1).getNum()+ 3; i++ ){
+                    for (int i = board.getListaOrdenada().get(1).getNum() - 2 ; i < board.getListaOrdenada().get(1).getNum()+ 2; i++ ){
                         if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
                             proyectoEscalera++;
                         }
