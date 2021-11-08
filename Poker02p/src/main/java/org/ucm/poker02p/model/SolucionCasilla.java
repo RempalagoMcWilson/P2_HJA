@@ -75,7 +75,7 @@ public class SolucionCasilla {
         
             
             // Comprobamos posible escalera real
-            if(mano.getCarta1() >= 10){
+            if(mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10)){
                 
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
                     // Escalera Real con 4 cartas en board
@@ -89,7 +89,7 @@ public class SolucionCasilla {
             }
             
             // Escalera de Color
-            if(solucionActual > 1){
+            if(solucionActual > 0){
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
                     sol = resuelveEscaleraPareja();
                     if(sol.getJugada() == 5){
@@ -494,6 +494,7 @@ public class SolucionCasilla {
             int proyectoEscalera = 0;
             int cartaQueFalta = 0;
             boolean yaHayUnaRepeticion = false;
+            boolean solucionado = false;
             if(mano.getCarta1() >= board.getListaOrdenada().get(0).getNum()-1){ //La escalera puede tener la primera carta del board
                 int resta1 = board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum();
                 int resta2 = board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum();
@@ -513,29 +514,33 @@ public class SolucionCasilla {
                             }
                         }
                         else{
-                            if(!yaHayUnaRepeticion){
+                            if(yaHayUnaRepeticion){
                                 if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
                                 proyectoEscalera++;
                                 }
+                                if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
+                                    proyectoEscalera++;
+                                    yaHayUnaRepeticion = true;
+                                }
+                                if(board.getNRepeticiones().get(i) == 0){
+                                    cartaQueFalta = i + 2;
+                                }
                             }
-                            if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
-                                proyectoEscalera++;
-                                yaHayUnaRepeticion = true;
-                            }
-                            if(board.getNRepeticiones().get(i) == 0){
-                                cartaQueFalta = i + 2;
-                            }
+                            
                             
                         }
                     }
                     if(proyectoEscalera == 3){
                         if(cartaQueFalta == mano.getCarta1()){
                             sol = new Solucion(5,6,mano.toString());
+                            solucionado = true;
                             //Hay que actualizar solucion actual
                         }
                     }  
                 }
-                else{ // Si la carta de la mano es menor que la menor del board
+                if(!solucionado){ // Si la carta de la mano es menor que la menor del board
+                	proyectoEscalera = 0;
+                	yaHayUnaRepeticion = false;
                     if(board.getListaOrdenada().get(3).getNum() - mano.getCarta1() == 4){
                       // Recorre las 4 cartas siguientes a la mano es "mano.getCarta - 1" pq el valor de esa carta es "mano.getCarta - 2" y estamos mirando desde la siguiente
                         for(int i = mano.getCarta1() - 1; i < mano.getCarta1()+5;i++){
