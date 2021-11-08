@@ -76,7 +76,7 @@ public class SolucionCasilla {
             
             // Comprobamos posible escalera real
             if(mano.getCarta1() >= 10){
-                if(board.getColH() == 4 || board.getColS() == 4|| board.getColC() == 4 || board.getColD() == 4){
+                if(board.getColH() == 3 || board.getColS() == 3|| board.getColC() == 3 || board.getColD() == 3){
                     // Escalera Real con 4 cartas en board
                     sol = resuelveEscaleraPareja();
                     if(sol.getJugada() == 5){ // Por defecto va a devolver que la jugada va a ser 5
@@ -89,7 +89,7 @@ public class SolucionCasilla {
             
             // Escalera de Color
             if(solucionActual > 1){
-                if(board.getColC() == 4||board.getColD() == 4||board.getColH() == 4||board.getColS() == 4){
+                if(board.getColH() == 3 || board.getColS() == 3|| board.getColC() == 3 || board.getColD() == 3){
                     sol = resuelveEscaleraPareja();
                     if(sol.getJugada() == 5){
                         sol = new Solucion(2,3,mano.toString());
@@ -125,15 +125,9 @@ public class SolucionCasilla {
             
             //Color
             if(solucionActual > 3){
-                if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
-                    if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
-                        sol = new Solucion(4,6,mano.toString());
-                        solucionActual = 4;
-                    }
-                    else{
-                        sol = new Solucion(4,3,mano.toString());
-                        solucionActual = 4;
-                    }
+                if(board.getColH() == 3 || board.getColS() == 3|| board.getColC() == 3 || board.getColD() == 3){
+                    sol = new Solucion(4,3,mano.toString());
+                    solucionActual = 4;
                 }
             }
             
@@ -218,14 +212,13 @@ public class SolucionCasilla {
         
         //Color
         if(solucionActual > 4){
-            if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
-                sol = new Solucion(4,4,mano.toString());
-            }
-            if(board.getColC() == 4 || board.getColS() == 4 || board.getColH() == 4 || board.getColD() == 4){
-                sol = new Solucion(4,1,mano.toString());
-            }
             if(board.getColC() == 3 || board.getColS() == 3 || board.getColH() == 3 || board.getColD() == 3){
                 sol = new Solucion(4,1,mano.toString());
+                solucionActual = 4;
+            }
+            if(board.getColC() == 2 || board.getColS() == 2 || board.getColH() == 2 || board.getColD() == 2){
+                sol = new Solucion(4,1,mano.toString());
+                solucionActual = 4;
             }
         }
         
@@ -349,12 +342,8 @@ public class SolucionCasilla {
         //Color
         if(solucionActual > 4){
             if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4 ){
-                if(board.getColC() == 5 || board.getColS() == 5 || board.getColH() == 5 || board.getColD() == 5 ){
-                    sol = new Solucion(4,16,mano.toString());
-                }
-                else{
-                    sol = new Solucion(4,4,mano.toString());
-                }
+                sol = new Solucion(4,4,mano.toString());
+                solucionActual = 4;
             }
         }
         
