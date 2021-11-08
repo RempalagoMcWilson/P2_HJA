@@ -52,6 +52,7 @@ public class PanelRango extends JTextField implements Observer{
 
     @Override
     public void onRangeChanged(ArrayList<Mano> lista) {
+        
         this.setText(tM.tablaToTexto(rango));//rango.toString()
         
     }

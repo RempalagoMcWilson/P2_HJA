@@ -13,7 +13,6 @@ public class TraduceMano {//Sin Terminar
 
     }
 
-    
     public ArrayList<Mano> traduceMano(String entrada) {
         entrada = entrada.replace(" ", "");
         ArrayList<Mano> lista = new ArrayList();
@@ -83,7 +82,8 @@ public class TraduceMano {//Sin Terminar
     }
 
     public String tablaToTexto(Rango rango) {
-        String sol = "";
+        String sol = "", antS = "";
+        int cont = 0, ant = 0;
         ArrayList<Mano> parejas = rango.getParejas();
         ArrayList<Mano> offSuited = rango.getOffSuited();
         ArrayList<Mano> suited = rango.getSuited();
@@ -91,17 +91,51 @@ public class TraduceMano {//Sin Terminar
         Collections.sort(parejas);
         Collections.sort(offSuited);
         Collections.sort(suited);
+
         
-        for (int i = 0; i < parejas.size(); i++) {
-            
-            
-            sol += parejas.get(i).toString() + ',';
-            
+        cont++;
+        
+        if (parejas.size() > 1) {
+            antS = parejas.get(0).toString();
+            for (int i = 1; i < parejas.size(); i++) {
+                if (parejas.get(i).getCarta1() - parejas.get(i - 1).getCarta1() == 1) {
+                    cont++;
+                    if (i == parejas.size() - 1) {
+                        if (parejas.get(i).getCarta1() == 14) {
+                            sol += "," + antS + "+";
+                        } else {
+                            sol += ", " + antS + "-" + parejas.get(i).toString();
+                        }
+                    }
+                } else {
+                    if (cont > 1) {
+                        sol += ", " + antS + "-" + parejas.get(i - 1).toString();
+                        if (i == parejas.size() - 1) {
+                            sol += ", " +  parejas.get(i).toString();
+                        }
+                        ant = parejas.get(i).getCarta1();
+                        antS = parejas.get(i).toString();
+                        cont = 1;
+                    } else {
+                        ant = parejas.get(i).getCarta1();
+                        antS = parejas.get(i).toString();
+                        sol += "," + parejas.get(i - 1).toString();
+                        
+                        if (i == parejas.size() - 1)
+                            sol += "," +antS;
+                        cont = 1;
+                    }
+                }
+            }
+        } else {
+            antS = parejas.get(0).toString();
+            sol += antS;
         }
-          for (int i = 0; i < offSuited.size(); i++) {
+
+        for (int i = 0; i < offSuited.size(); i++) {
             sol += offSuited.get(i).toString() + ',';
         }
-            for (int i = 0; i < suited.size(); i++) {
+        for (int i = 0; i < suited.size(); i++) {
             sol += suited.get(i).toString() + ',';
         }
 
