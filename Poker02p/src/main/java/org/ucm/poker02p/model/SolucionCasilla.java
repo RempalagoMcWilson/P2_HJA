@@ -193,7 +193,7 @@ public class SolucionCasilla {
     }
     
     private Solucion suitedSolucion(){ //aqui ya sabeis si es suited
-        Solucion sol = new Solucion(12, 4, mano.toString());
+        Solucion sol = new Solucion(14, 6, mano.toString());
         int solucionActual = 14;        
         
         // Escalera real
@@ -203,12 +203,51 @@ public class SolucionCasilla {
         }
         // Poker
         if(solucionActual > 2){
-        
+        	if(board.getTrio() == mano.getCarta1() || board.getTrio() == mano.getCarta2()) {
+        		sol = new Solucion(2,1,mano.toString());
+        		solucionActual = 2;
+        	}
         }
         
         //3. FullHouse
         if(solucionActual > 3){
-        
+        	if(board.getTrio() != 0) {
+        		if(board.getNRepeticiones().get(mano.getCarta1() - 2) != 0 || board.getNRepeticiones().get(mano.getCarta2() - 2) != 0) {
+        			sol = new Solucion(3,3,mano.toString());
+        			solucionActual = 3;
+            		if(board.getNRepeticiones().get(mano.getCarta1() - 2) != 0 && board.getNRepeticiones().get(mano.getCarta2() - 2) != 0) {
+            			sol = new Solucion(3,6,mano.toString());
+            		}
+        		}
+        	}
+        	if(board.getPareja1() != 0) {
+        		
+        		if(mano.getCarta1() == board.getPareja1() && board.getNRepeticiones().get(mano.getCarta2()-2) == 1) {
+        			sol = new Solucion(3,6,mano.toString());
+        			solucionActual = 3;
+        		}	
+        		if(mano.getCarta2() == board.getPareja1() && board.getNRepeticiones().get(mano.getCarta1()-2) == 1) {
+        			sol = new Solucion(3,6,mano.toString());
+        			solucionActual = 3;
+        		}
+        		if(board.getPareja2() != 0) {
+        			if(mano.getCarta1() == board.getPareja1() || mano.getCarta1() == board.getPareja2()) {
+        				sol = new Solucion(3,3,mano.toString());
+        				if(mano.getCarta2() == board.getPareja1() || mano.getCarta2() == board.getPareja2()){
+            				sol = new Solucion(3,3,mano.toString());
+        				}
+        				solucionActual = 3;
+        			}
+        			
+        			if(mano.getCarta2() == board.getPareja1() || mano.getCarta2() == board.getPareja2()) {
+        				sol = new Solucion(3,3,mano.toString());
+        				if(mano.getCarta1() == board.getPareja1() || mano.getCarta1() == board.getPareja2()){
+            				sol = new Solucion(3,3,mano.toString());
+        				}
+        				solucionActual = 3;
+        			}
+            	}
+        	} 
         }
         
         //Color
@@ -309,10 +348,6 @@ public class SolucionCasilla {
             }
         }
         
-        // No made hand
-        if(solucionActual > 14){
-            
-        }
         
         // Proyecto color       
         // proyecto escalera open-ended
@@ -322,7 +357,7 @@ public class SolucionCasilla {
     }
     
     private Solucion offSuitedSolucion(){/// y aqui offsuited
-        Solucion sol = new Solucion(12, 4, mano.toString());
+        Solucion sol = new Solucion(14, 6, mano.toString());
         int solucionActual = 14;        
         
         // Escalera real
@@ -432,11 +467,6 @@ public class SolucionCasilla {
             if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
                 sol = new Solucion(14,6,mano.toString());
             }
-        }
-        
-        // No made hand
-        if(solucionActual > 14){
-        
         }
         
         // Proyecto color       
