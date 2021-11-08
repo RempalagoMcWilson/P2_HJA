@@ -93,7 +93,10 @@ public class TraduceMano {//Sin Terminar
         Collections.sort(suited);
         
         for (int i = 0; i < parejas.size(); i++) {
+            
+            
             sol += parejas.get(i).toString() + ',';
+            
         }
           for (int i = 0; i < offSuited.size(); i++) {
             sol += offSuited.get(i).toString() + ',';

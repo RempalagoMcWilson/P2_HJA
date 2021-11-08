@@ -75,13 +75,14 @@ public class SolucionCasilla {
         
             
             // Comprobamos posible escalera real
-            if(mano.getCarta1() >= 8){
+            if(mano.getCarta1() >= 10){
+                
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
                     // Escalera Real con 4 cartas en board
                     sol = resuelveEscaleraPareja();
                     if(sol.getJugada() == 5){ // Por defecto va a devolver que la jugada va a ser 5
-                        sol = new Solucion(1,3,mano.toString());
-                        solucionActual = 1;
+                        sol = new Solucion(0,3,mano.toString());
+                        solucionActual = 0;
                     }
                     
                 }
@@ -92,8 +93,8 @@ public class SolucionCasilla {
                 if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
                     sol = resuelveEscaleraPareja();
                     if(sol.getJugada() == 5){
-                        sol = new Solucion(2,3,mano.toString());
-                        solucionActual = 2;
+                        sol = new Solucion(1,3,mano.toString());
+                        solucionActual = 1;
                     }
                 }
             }
