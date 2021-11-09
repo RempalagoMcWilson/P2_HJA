@@ -197,10 +197,16 @@ public class SolucionCasilla {
         int solucionActual = 14;        
         
         // Escalera real
+        
+        if(mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10) || mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10)){
+            
+        }
+        
         // Escalera de color
         if(solucionActual > 1){
         
         }
+        
         // Poker
         if(solucionActual > 2){
         	if(board.getTrio() == mano.getCarta1() || board.getTrio() == mano.getCarta2()) {
@@ -380,9 +386,31 @@ public class SolucionCasilla {
         int solucionActual = 14;        
         
         // Escalera real
+        
+        if(mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10) || mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10)){
+            
+            if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
+                // Escalera Real con 4 cartas en board
+                sol = resuelveEscaleraRealyColorOffsuited();
+                if(sol.getJugada() == 5){ // Por defecto va a devolver que la jugada va a ser 5
+                    sol = new Solucion(0,3,mano.toString());
+                    solucionActual = 0;
+                }
+                
+            }
+        }
+        
         // Escalera de color
         if(solucionActual > 1){
-        
+        	if(board.getColC() >= 4 || board.getColS() >= 4 || board.getColH() >= 4 || board.getColD() >= 4){
+                // Escalera Real con 4 cartas en board
+                sol = resuelveEscaleraRealyColorOffsuited();
+                if(sol.getJugada() == 5){ // Por defecto va a devolver que la jugada va a ser 5
+                    sol = new Solucion(0,3,mano.toString());
+                    solucionActual = 0;
+                }
+                
+            }
         }
         
         // Poker
@@ -444,7 +472,7 @@ public class SolucionCasilla {
         
         //Escalera
         if(solucionActual > 5){
-        
+        	
         }
         
         // Trio
@@ -731,5 +759,146 @@ public class SolucionCasilla {
             }
         }
         return sol;
+    }
+    
+    public Solucion resuelveEscaleraRealyColorOffsuited() {
+        Solucion sol = new Solucion(14, 6, mano.toString());
+        
+        //Con la llamada a este método hace una llamada a resolver pareja para resolver la primera carta
+        sol = resuelveEscaleraPareja();
+        
+        //Mira si hay escalera con la segunda carta
+    	if(sol.getJugada() != 5) {
+    		int proyectoEscalera = 0;
+            int cartaQueFalta = 0;
+            boolean yaHayUnaRepeticion = false;
+            boolean solucionado = false;
+            if(mano.getCarta2() >= board.getListaOrdenada().get(0).getNum()-1){ //La escalera puede tener la primera carta del board
+                int resta1 = board.getListaOrdenada().get(3).getNum() - board.getListaOrdenada().get(0).getNum();
+                int resta2 = board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(0).getNum();
+                if( resta1 == 4 || resta1 == 3 || resta2 == 4 || resta2 == 3){ // Si la carta de nuestra mano esta al final o a mitad de escalera
+                    // Recorre 4 cartas, desde la primera a la 4
+                    for (int i = board.getListaOrdenada().get(0).getNum() - 2 ; i < board.getListaOrdenada().get(0).getNum()+ 4; i++ ){
+                        if(i != board.getListaOrdenada().get(0).getNum()+ 3){
+                            if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
+                                proyectoEscalera++;
+                            }
+                            if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
+                               proyectoEscalera++;
+                               yaHayUnaRepeticion = true;
+                            }
+                            if(board.getNRepeticiones().get(i) == 0){
+                                cartaQueFalta = i + 2;
+                            }
+                        }
+                        else{
+                            if(yaHayUnaRepeticion){
+                                if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
+                                proyectoEscalera++;
+                                }
+                                if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
+                                    proyectoEscalera++;
+                                    yaHayUnaRepeticion = true;
+                                }
+                                if(board.getNRepeticiones().get(i) == 0){
+                                    cartaQueFalta = i + 2;
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                    if(proyectoEscalera == 3){
+                        if(cartaQueFalta == mano.getCarta2()){
+                            sol = new Solucion(5,6,mano.toString());
+                            solucionado = true;
+                            //Hay que actualizar solucion actual
+                        }
+                    }  
+                }
+                if(!solucionado){ // Si la carta de la mano es menor que la menor del board
+                	proyectoEscalera = 0;
+                	yaHayUnaRepeticion = false;
+                    if(board.getListaOrdenada().get(3).getNum() - mano.getCarta2() == 4){
+                      // Recorre las 4 cartas siguientes a la mano es "mano.getCarta - 1" pq el valor de esa carta es "mano.getCarta - 2" y estamos mirando desde la siguiente
+                        for(int i = mano.getCarta2() - 1; i < mano.getCarta2()+5;i++){
+                            if(i != mano.getCarta2()+5){
+                                if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
+                                    proyectoEscalera++;
+                                }
+                                if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
+                                   proyectoEscalera++;
+                                   yaHayUnaRepeticion = true;
+                                }
+                                if(board.getNRepeticiones().get(i) == 0){
+                                    cartaQueFalta = i + 2;
+                                }
+                            }
+                            else{
+                                if(!yaHayUnaRepeticion){
+                                    if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
+                                    proyectoEscalera++;
+                                    }
+                                }
+                                if(board.getNRepeticiones().get(i) == 2){ //Con 4 cartas no puede haber ninguna repetida
+                                    proyectoEscalera++;
+                                    yaHayUnaRepeticion = true;
+                                }
+                                if(board.getNRepeticiones().get(i) == 0){
+                                    cartaQueFalta = i + 2;
+                                }
+                            }
+                        }
+                        if(proyectoEscalera == 4){
+                            if(cartaQueFalta == mano.getCarta2()){
+                                sol = new Solucion(5,6,mano.toString());
+                                //Hay que actualizar solucionActual
+                            }
+                        }
+                    }
+                }
+            }
+            
+            
+            if(mano.getCarta2() >= board.getListaOrdenada().get(1).getNum()-1){ //La escalera puede tener la primera carta del board
+                int resta = board.getListaOrdenada().get(4).getNum() - board.getListaOrdenada().get(1).getNum();
+                if( resta == 4 || resta == 3 ){ // Si la carta de nuestra mano esta al final o a mitad de escalera
+                    // Recorre 4 cartas, desde la primera a la 4
+                    for (int i = board.getListaOrdenada().get(1).getNum() - 2 ; i < board.getListaOrdenada().get(1).getNum()+ 2; i++ ){
+                        if(board.getNRepeticiones().get(i) == 1){ //Con 4 cartas no puede haber ninguna repetida
+                            proyectoEscalera++;
+                        }
+                        else{
+                            cartaQueFalta = i + 2;
+                        }
+                    }
+                    if(proyectoEscalera == 3){
+                        if(cartaQueFalta == mano.getCarta2()){
+                            sol = new Solucion(5,6,mano.toString());
+                            //Hay que actualizar solucion actual
+                        }
+                    }
+                }
+                
+                else{ // Si la carta de la mano es menor que la menor del board
+                    if(board.getListaOrdenada().get(4).getNum() - mano.getCarta2() == 4){
+                        // Recorre las 4 cartas siguientes a la mano es "mano.getCarta - 1" pq el valor de esa carta es "mano.getCarta - 2" y estamos mirando desde la siguiente
+                        for(int i = mano.getCarta2() - 1; i < mano.getCarta2()+4;i++){
+                            if(board.getNRepeticiones().get(i) == 1){
+                                proyectoEscalera++;
+                            }
+                        }
+                        if(proyectoEscalera == 4){
+                            if(cartaQueFalta == mano.getCarta2()){
+                                sol = new Solucion(5,6,mano.toString());
+                                //Hay que actualizar solucionActual
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    	
+		return sol;    	
     }
 }
