@@ -45,11 +45,13 @@ public class SolucionCasilla {
     10. pocket pair below top pair(pareja en mano con cartas menores que la mas alta del board pero que no es débil)
     11. MiddlePair (pareja con la segunda carta mas alta del board)
     12. WeakPair (otras parejas)
-    13. Ace high
-    14. No made hand
-    15. Proyecto color
-    16. proyecto escalera open-ended
-    17. proyecto escalera gutshot
+    13. Proyecto color
+    14. proyecto escalera open-ended
+    15. proyecto escalera gutshot
+    
+    16. Ace high
+    17. No made hand
+    
     */
     /*
     new Solucion(5, 4, mano.toString());
