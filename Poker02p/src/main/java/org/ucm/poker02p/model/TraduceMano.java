@@ -159,7 +159,7 @@ public class TraduceMano {//Sin Terminar
                                 cont = 1;
                             }
                         }
-                    } //hasta aqui funciona
+                    } 
                     else {
 
                         if (i == offSuited.size() - 1) {
@@ -199,14 +199,12 @@ public class TraduceMano {//Sin Terminar
                     cont = 1;
                 }
             }
-            //}
+            
 
         } else if (offSuited.size() == 1) {
             antS = offSuited.get(0).toString();
             sol += antS;
         }
-        
-        //FALTA MIRAR PORQUE LO ORDENA MAL
         if (suited.size() > 1) {
             antS = suited.get(0).toString();
             
