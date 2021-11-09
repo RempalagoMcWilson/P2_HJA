@@ -391,10 +391,22 @@ public class SolucionCasilla {
         
         
         
-        // Proyecto color       
+        // Proyecto color     
+        
+        if(solucionActual > 13){
+            if(board.getColC() == 3 || board.getColS() == 3 || board.getColH() == 3 || board.getColD() == 3){
+                sol = new Solucion(13,1,mano.toString());
+                solucionActual = 13;
+            }
+            if(board.getColC() == 2 || board.getColS() == 2 || board.getColH() == 2 || board.getColD() == 2){
+                sol = new Solucion(13,1,mano.toString());
+                solucionActual = 13;
+            }
+        }
+        
         
         // proyecto escalera open-ended
-        if(solucionActual > 13){
+        if(solucionActual > 14){
             boolean[] vb = new boolean[15];
             Integer[] vi = new Integer[15];
             for(int i = 0; i < board.getNumCart(); i++){
@@ -430,21 +442,20 @@ public class SolucionCasilla {
             }
             for(int i = 2 + inicio; i < 15; i++){
 		if(vb[i]){
-			if(vb[i-1]){
-				cont++;
-			}else cont = 0;
+			cont++;
 			if(cont == 4){
-				sol = new Solucion(14, (4-(vi[mano.getCarta1()]-1))*(4-(vi[mano.getCarta2()]-1)), mano.toString());
+                            sol = new Solucion(14, (4-(vi[mano.getCarta1()]-1))*(4-(vi[mano.getCarta2()]-1)), mano.toString());
+                            solucionActual = 14;
 			}
 		}else {
-			cont = 0;
+                    cont = 0;
 		}
 	
             }
 	
         }
         // proyecto escalera gutshot
-        if(solucionActual > 14){
+        if(solucionActual > 15){
             boolean[] vb = new boolean[15];
             Integer[] vi = new Integer[15];
             for(int i = 0; i < board.getNumCart(); i++){
@@ -484,9 +495,10 @@ public class SolucionCasilla {
 		if(vb[i]){
 			if(vb[i-1]){
 				cont++;
-			}
+			}else cont = 1;
 			if(cont == 5){
 				sol = new Solucion(15, (4-vi[mano.getCarta1()]-1)*(4-vi[mano.getCarta2()]-1), mano.toString());
+                                solucionActual = 15;
 			}
 		}else if(!hueco){
 			cont = 0;
@@ -500,9 +512,10 @@ public class SolucionCasilla {
         }
         
         // Ace high
-        if(solucionActual > 15){
+        if(solucionActual > 16){
             if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
                 sol = new Solucion(16,6,mano.toString());
+                solucionActual = 16;
             }
         }
         
@@ -703,14 +716,14 @@ public class SolucionCasilla {
             
         }
         
-        // Ace high
+        // Proyecto color     
         if(solucionActual > 13){
-            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
-                sol = new Solucion(13,6,mano.toString());
+            if(board.getColC() >= 3 || board.getColS() >= 3 || board.getColH() >= 3 || board.getColD() >= 3 ){
+                sol = new Solucion(13,4,mano.toString());
+                solucionActual = 13;
             }
         }
         
-        // Proyecto color       
         // proyecto escalera open-ended
         if(solucionActual > 14){
             boolean[] vb = new boolean[15];
@@ -749,9 +762,10 @@ public class SolucionCasilla {
 		if(vb[i]){
 			if(vb[i-1]){
 				cont++;
-			}else cont = 0;
+			}else cont = 1;
 			if(cont == 4){
 				sol = new Solucion(14, (4-(vi[mano.getCarta1()]-1))*(4-(vi[mano.getCarta2()]-1)), mano.toString());
+                                solucionActual = 14;
 			}
 		}else {
 			cont = 0;
@@ -802,9 +816,10 @@ public class SolucionCasilla {
 		if(vb[i]){
 			if(vb[i-1]){
 				cont++;
-			}
+			}else cont = 1;
 			if(cont == 5){
 				sol = new Solucion(15, (4-vi[mano.getCarta1()]-1)*(4-vi[mano.getCarta2()]-1), mano.toString());
+                                solucionActual = 15;
 			}
 		}else if(!hueco){
 			cont = 0;
@@ -813,6 +828,13 @@ public class SolucionCasilla {
 			hueco=true;
 		}
 	
+            }
+        }
+        // Ace high
+        if(solucionActual > 16){
+            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
+                sol = new Solucion(16,6,mano.toString());
+                solucionActual = 16;
             }
         }
         
