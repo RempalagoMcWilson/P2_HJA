@@ -209,7 +209,7 @@ public class SolucionCasilla {
         	}
         }
         
-        //3. FullHouse
+        // FullHouse
         if(solucionActual > 3){
         	if(board.getTrio() != 0) {
         		if(board.getNRepeticiones().get(mano.getCarta1() - 2) != 0 || board.getNRepeticiones().get(mano.getCarta2() - 2) != 0) {
@@ -269,12 +269,24 @@ public class SolucionCasilla {
         
         // Trio
         if(solucionActual > 6){
-        
+        	if(board.getPareja1() == mano.getCarta1() || board.getPareja1() == mano.getCarta2() ||board.getPareja2() == mano.getCarta1() ||board.getPareja2() == mano.getCarta2()) {
+        		sol = new Solucion(6,3,mano.toString());
+        		solucionActual = 6;
+        	}
         }
         
         // Doble Pareja
         if(solucionActual > 7){
-        
+        	if(board.getPareja1() != 0) {
+        		if(board.getNRepeticiones().get(mano.getCarta1() - 2) == 1 || board.getNRepeticiones().get(mano.getCarta2() - 2) == 1) {
+        			sol = new Solucion(7,6,mano.toString());
+        			solucionActual = 7;
+        		}
+        	}
+        	if(board.getNRepeticiones().get(mano.getCarta1() - 2) == 1 && board.getNRepeticiones().get(mano.getCarta2() - 2) == 1) {
+    			sol = new Solucion(7,6,mano.toString());
+    			solucionActual = 7;
+    		}
         }
         
         // OverPair (pareja en mano mejor que la carta mas alta del board)
@@ -284,15 +296,18 @@ public class SolucionCasilla {
         if(solucionActual > 9){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(9,6,mano.toString());
+                    solucionActual = 9;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
+                        sol = new Solucion(9,6,mano.toString());
+                        solucionActual = 9;
                     }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(4).getNum() || mano.getCarta2() == board.getListaOrdenada().get(4).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                            sol = new Solucion(9,6,mano.toString());
+                            solucionActual = 9;
                         }  
                     }
                 }
@@ -306,15 +321,17 @@ public class SolucionCasilla {
         if(solucionActual > 11){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(11,6,mano.toString());
+                    solucionActual = 11;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
-                    }
+                    	sol = new Solucion(11,6,mano.toString());
+                        solucionActual = 11;                    }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                        	sol = new Solucion(11,6,mano.toString());
+                            solucionActual = 11;
                         }  
                     }
                 }
@@ -325,15 +342,17 @@ public class SolucionCasilla {
         if(solucionActual > 12){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(0).getNum() || mano.getCarta2() == board.getListaOrdenada().get(0).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(12,6,mano.toString());
+                    solucionActual = 12;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
-                    }
+                        sol = new Solucion(12,6,mano.toString());
+                        solucionActual = 12;                    }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                            sol = new Solucion(12,6,mano.toString());
+                            solucionActual = 12;
                         }  
                     }
                 }
@@ -365,14 +384,54 @@ public class SolucionCasilla {
         if(solucionActual > 1){
         
         }
+        
         // Poker
         if(solucionActual > 2){
-        
+        	if(board.getTrio() == mano.getCarta1() || board.getTrio() == mano.getCarta2()) {
+        		sol = new Solucion(2,1,mano.toString());
+        		solucionActual = 2;
+        	}
         }
         
         // FullHouse
         if(solucionActual > 3){
-        
+        	if(board.getTrio() != 0) {
+        		if(board.getNRepeticiones().get(mano.getCarta1() - 2) != 0 || board.getNRepeticiones().get(mano.getCarta2() - 2) != 0) {
+        			sol = new Solucion(3,3,mano.toString());
+        			solucionActual = 3;
+            		if(board.getNRepeticiones().get(mano.getCarta1() - 2) != 0 && board.getNRepeticiones().get(mano.getCarta2() - 2) != 0) {
+            			sol = new Solucion(3,6,mano.toString());
+            		}
+        		}
+        	}
+        	if(board.getPareja1() != 0) {
+        		
+        		if(mano.getCarta1() == board.getPareja1() && board.getNRepeticiones().get(mano.getCarta2()-2) == 1) {
+        			sol = new Solucion(3,6,mano.toString());
+        			solucionActual = 3;
+        		}	
+        		if(mano.getCarta2() == board.getPareja1() && board.getNRepeticiones().get(mano.getCarta1()-2) == 1) {
+        			sol = new Solucion(3,6,mano.toString());
+        			solucionActual = 3;
+        		}
+        		if(board.getPareja2() != 0) {
+        			if(mano.getCarta1() == board.getPareja1() || mano.getCarta1() == board.getPareja2()) {
+        				sol = new Solucion(3,3,mano.toString());
+        				if(mano.getCarta2() == board.getPareja1() || mano.getCarta2() == board.getPareja2()){
+            				sol = new Solucion(3,3,mano.toString());
+        				}
+        				solucionActual = 3;
+        			}
+        			
+        			if(mano.getCarta2() == board.getPareja1() || mano.getCarta2() == board.getPareja2()) {
+        				sol = new Solucion(3,3,mano.toString());
+        				if(mano.getCarta1() == board.getPareja1() || mano.getCarta1() == board.getPareja2()){
+            				sol = new Solucion(3,3,mano.toString());
+        				}
+        				solucionActual = 3;
+        			}
+            	}
+        	} 
         }
         
         //Color
@@ -390,12 +449,24 @@ public class SolucionCasilla {
         
         // Trio
         if(solucionActual > 6){
-        
+        	if(board.getPareja1() == mano.getCarta1() || board.getPareja1() == mano.getCarta2() ||board.getPareja2() == mano.getCarta1() ||board.getPareja2() == mano.getCarta2()) {
+        		sol = new Solucion(6,3,mano.toString());
+        		solucionActual = 6;
+        	}
         }
         
         // Doble Pareja
         if(solucionActual > 7){
-        
+        	if(board.getPareja1() != 0) {
+        		if(board.getNRepeticiones().get(mano.getCarta1() - 2) == 1 || board.getNRepeticiones().get(mano.getCarta2() - 2) == 1) {
+        			sol = new Solucion(7,6,mano.toString());
+        			solucionActual = 7;
+        		}
+        	}
+        	if(board.getNRepeticiones().get(mano.getCarta1() - 2) == 1 && board.getNRepeticiones().get(mano.getCarta2() - 2) == 1) {
+    			sol = new Solucion(7,6,mano.toString());
+    			solucionActual = 7;
+    		}
         }
         
         // OverPair (pareja en mano mejor que la carta mas alta del board)
@@ -405,15 +476,18 @@ public class SolucionCasilla {
         if(solucionActual > 9){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(9,6,mano.toString());
+                    solucionActual = 9;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
+                        sol = new Solucion(9,6,mano.toString());
+                        solucionActual = 9;
                     }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(4).getNum() || mano.getCarta2() == board.getListaOrdenada().get(4).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                            sol = new Solucion(9,6,mano.toString());
+                            solucionActual = 9;
                         }  
                     }
                 }
@@ -427,15 +501,18 @@ public class SolucionCasilla {
         if(solucionActual > 11){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(11,6,mano.toString());
+                    solucionActual = 11;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
+                        sol = new Solucion(11,6,mano.toString());
+                        solucionActual = 11;
                     }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(3).getNum() || mano.getCarta2() == board.getListaOrdenada().get(3).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                            sol = new Solucion(11,6,mano.toString());
+                            solucionActual = 11;
                         }  
                     }
                 }
@@ -446,15 +523,18 @@ public class SolucionCasilla {
         if(solucionActual > 12){
             if(board.getNumCart() == 3){
                 if(mano.getCarta1() == board.getListaOrdenada().get(0).getNum() || mano.getCarta2() == board.getListaOrdenada().get(0).getNum()){
-                    sol = new Solucion(13,6,mano.toString());
+                    sol = new Solucion(12,6,mano.toString());
+                    solucionActual = 12;
                 }
                 if(board.getNumCart() == 4){
                     if(mano.getCarta1() == board.getListaOrdenada().get(1).getNum() || mano.getCarta2() == board.getListaOrdenada().get(1).getNum()){
-                        sol = new Solucion(13,6,mano.toString());
+                        sol = new Solucion(12,6,mano.toString());
+                        solucionActual = 12;
                     }
                     if(board.getNumCart() == 5){
                         if(mano.getCarta1() == board.getListaOrdenada().get(2).getNum() || mano.getCarta2() == board.getListaOrdenada().get(2).getNum()){
-                            sol = new Solucion(13,6,mano.toString());
+                            sol = new Solucion(12,6,mano.toString());
+                            solucionActual = 12;
                         }  
                     }
                 }
@@ -465,7 +545,7 @@ public class SolucionCasilla {
         // Ace high
         if(solucionActual > 13){
             if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
-                sol = new Solucion(14,6,mano.toString());
+                sol = new Solucion(13,6,mano.toString());
             }
         }
         
