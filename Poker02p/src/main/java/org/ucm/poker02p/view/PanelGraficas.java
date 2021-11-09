@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package org.ucm.poker02p.view;
 
 import java.awt.Dimension;
@@ -148,15 +145,15 @@ public class PanelGraficas extends JPanel{
             }
             break;
             case 13:{
-                lab.setText("Pro. Open-ended");
+                lab.setText("Proyecto color   ");
             }
             break;
             case 14:{
-                lab.setText("Pro. Gutshot     ");
+                lab.setText("Pro. Open-ended");
             }
             break;
             case 15:{
-                lab.setText("Proyecto color   ");
+                lab.setText("Pro. Gutshot     ");
             }
             break;
             case 16:{
