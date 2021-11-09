@@ -21,13 +21,7 @@ public class PanelGraficas extends JPanel{
     private ArrayList<JLabel> nombres;
     private ArrayList<Integer> numC;
     private int total;
-    /*
-    setSize(new Dimension(160, 520));
-        iniMatriz();
-        setBackground(Color.WHITE);
-        this.setVisible(true);
-        setLocation(5, 5);
-    */
+    
 
     public PanelGraficas(TreeMap<Integer, ArrayList<Solucion>> soluciones) {
         total = 0;
@@ -154,11 +148,11 @@ public class PanelGraficas extends JPanel{
             }
             break;
             case 13:{
-                lab.setText("Ace high         ");
+                lab.setText("Pro. Open-ended");
             }
             break;
             case 14:{
-                lab.setText("No made hand     ");
+                lab.setText("Pro. Gutshot     ");
             }
             break;
             case 15:{
@@ -166,11 +160,13 @@ public class PanelGraficas extends JPanel{
             }
             break;
             case 16:{
-                lab.setText("Pro. Open-ended  ");
+                
+                lab.setText("Ace high         ");
             }
             break;
             case 17:{
-                lab.setText("Pro. Gutshot     ");
+                
+                lab.setText("No made hand     ");
             }
             break;
             
