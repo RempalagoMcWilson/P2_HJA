@@ -197,7 +197,7 @@ public class SolucionCasilla {
     
     private Solucion suitedSolucion(){ //aqui ya sabeis si es suited
         Solucion sol = new Solucion(14, 6, mano.toString());
-        int solucionActual = 14;        
+        int solucionActual = 17;        
         
         if(mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10) || mano.getCarta1() >= 10 && (board.getListaOrdenada().get(0).getNum() >= 10 || board.getListaOrdenada().get(1).getNum() >= 10)){
             
@@ -389,18 +389,12 @@ public class SolucionCasilla {
             
         }
         
-        // Ace high
-        if(solucionActual > 13){
-            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
-                sol = new Solucion(14,6,mano.toString());
-            }
-        }
         
         
         // Proyecto color       
         
         // proyecto escalera open-ended
-        if(solucionActual > 14){
+        if(solucionActual > 13){
             boolean[] vb = new boolean[15];
             Integer[] vi = new Integer[15];
             for(int i = 0; i < board.getNumCart(); i++){
@@ -451,7 +445,7 @@ public class SolucionCasilla {
 	
         }
         // proyecto escalera gutshot
-        if(solucionActual > 15){
+        if(solucionActual > 14){
             boolean[] vb = new boolean[15];
             Integer[] vi = new Integer[15];
             for(int i = 0; i < board.getNumCart(); i++){
@@ -503,6 +497,14 @@ public class SolucionCasilla {
 			hueco=true;
 		}
 	
+            }
+            
+        }
+        
+        // Ace high
+        if(solucionActual > 15){
+            if(mano.getCarta1() > board.getListaOrdenada().get(board.getNumCart()-1).getNum()){
+                sol = new Solucion(16,6,mano.toString());
             }
         }
         
