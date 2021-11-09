@@ -398,8 +398,113 @@ public class SolucionCasilla {
         
         
         // Proyecto color       
+        
         // proyecto escalera open-ended
+        if(solucionActual > 14){
+            boolean[] vb = new boolean[15];
+            Integer[] vi = new Integer[15];
+            for(int i = 0; i < board.getNumCart(); i++){
+		if(vb[board.getListaOrdenada().get(i).getNum()]){
+			vi[board.getListaOrdenada().get(i).getNum()]++;
+		}else{
+			vb[board.getListaOrdenada().get(i).getNum()] = true;
+			vi[board.getListaOrdenada().get(i).getNum()] = 1;
+		
+		}
+            }
+            vb[mano.getCarta1()] = true;
+            vb[mano.getCarta2()] = true;
+            if(vb[mano.getCarta1()]){
+		vi[mano.getCarta1()]++;
+            } else{
+		vb[mano.getCarta1()] = true;
+		vi[mano.getCarta1()] = 1;
+		
+            }
+            if(vb[mano.getCarta2()]){
+		vi[mano.getCarta2()]++;
+            } else{
+		vb[mano.getCarta2()] = true;
+		vi[mano.getCarta2()] = 1;
+		
+            }
+            int cont = 0;
+            int inicio = 0;
+            //Miramos manualmente para la posible escalera usando el as como 1
+            if(vb[14] && vb[2]){
+		cont = 1;
+		inicio = 1;
+            }
+            for(int i = 2 + inicio; i < 15; i++){
+		if(vb[i]){
+			if(vb[i-1]){
+				cont++;
+			}else cont = 0;
+			if(cont == 4){
+				sol = new Solucion(14, (4-(vi[mano.getCarta1()]-1))*(4-(vi[mano.getCarta2()]-1)), mano.toString());
+			}
+		}else {
+			cont = 0;
+		}
+	
+            }
+	
+        }
         // proyecto escalera gutshot
+        if(solucionActual > 15){
+            boolean[] vb = new boolean[15];
+            Integer[] vi = new Integer[15];
+            for(int i = 0; i < board.getNumCart(); i++){
+		if(vb[board.getListaOrdenada().get(i).getNum()]){
+			vi[board.getListaOrdenada().get(i).getNum()]++;
+		}
+		vb[board.getListaOrdenada().get(i).getNum()] = true;
+		vi[board.getListaOrdenada().get(i).getNum()] = 1;
+		
+            }
+            vb[mano.getCarta1()] = true;
+            vb[mano.getCarta2()] = true;
+            if(vb[mano.getCarta1()]){
+		vi[mano.getCarta1()]++;
+            } else{
+		vb[mano.getCarta1()] = true;
+		vi[mano.getCarta1()] = 1;		
+            }
+            if(vb[mano.getCarta2()]){
+		vi[mano.getCarta2()]++;
+            } else {
+		vb[mano.getCarta2()] = true;
+		vi[mano.getCarta2()] = 1;		
+            }
+            int cont = 0;
+            int inicio = 0;
+            boolean hueco = false;
+            //Miramos manualmente para la posible escalera usando el as como 1
+            if(vb[14]){
+		cont = 2;
+		inicio = 1;
+		if(vb[2]){
+		cont++;
+		hueco = true;
+		}
+            }
+            for(int i = 2 + inicio; i < 15; i++){
+		if(vb[i]){
+			if(vb[i-1]){
+				cont++;
+			}
+			if(cont == 5){
+				sol = new Solucion(15, (4-vi[mano.getCarta1()]-1)*(4-vi[mano.getCarta2()]-1), mano.toString());
+			}
+		}else if(!hueco){
+			cont = 0;
+		}else {
+			cont++;
+			hueco=true;
+		}
+	
+            }
+        }
         
         return sol;
     }
@@ -607,7 +712,112 @@ public class SolucionCasilla {
         
         // Proyecto color       
         // proyecto escalera open-ended
+        if(solucionActual > 14){
+            boolean[] vb = new boolean[15];
+            Integer[] vi = new Integer[15];
+            for(int i = 0; i < board.getNumCart(); i++){
+		if(vb[board.getListaOrdenada().get(i).getNum()]){
+			vi[board.getListaOrdenada().get(i).getNum()]++;
+		}else{
+			vb[board.getListaOrdenada().get(i).getNum()] = true;
+			vi[board.getListaOrdenada().get(i).getNum()] = 1;
+		
+		}
+            }
+            vb[mano.getCarta1()] = true;
+            vb[mano.getCarta2()] = true;
+            if(vb[mano.getCarta1()]){
+		vi[mano.getCarta1()]++;
+            } else{
+		vb[mano.getCarta1()] = true;
+		vi[mano.getCarta1()] = 1;
+		
+            }
+            if(vb[mano.getCarta2()]){
+		vi[mano.getCarta2()]++;
+            } else{
+		vb[mano.getCarta2()] = true;
+		vi[mano.getCarta2()] = 1;
+		
+            }
+            int cont = 0;
+            int inicio = 0;
+            //Miramos manualmente para la posible escalera usando el as como 1
+            if(vb[14] && vb[2]){
+		cont = 1;
+		inicio = 1;
+            }
+            for(int i = 2 + inicio; i < 15; i++){
+		if(vb[i]){
+			if(vb[i-1]){
+				cont++;
+			}else cont = 0;
+			if(cont == 4){
+				sol = new Solucion(14, (4-(vi[mano.getCarta1()]-1))*(4-(vi[mano.getCarta2()]-1)), mano.toString());
+			}
+		}else {
+			cont = 0;
+		}
+	
+            }
+	
+        }
+        
         // proyecto escalera gutshot
+        if(solucionActual > 15){
+            boolean[] vb = new boolean[15];
+            Integer[] vi = new Integer[15];
+            for(int i = 0; i < board.getNumCart(); i++){
+		if(vb[board.getListaOrdenada().get(i).getNum()]){
+			vi[board.getListaOrdenada().get(i).getNum()]++;
+		}
+		vb[board.getListaOrdenada().get(i).getNum()] = true;
+		vi[board.getListaOrdenada().get(i).getNum()] = 1;
+		
+            }
+            vb[mano.getCarta1()] = true;
+            vb[mano.getCarta2()] = true;
+            if(vb[mano.getCarta1()]){
+		vi[mano.getCarta1()]++;
+            } else{
+		vb[mano.getCarta1()] = true;
+		vi[mano.getCarta1()] = 1;		
+            }
+            if(vb[mano.getCarta2()]){
+		vi[mano.getCarta2()]++;
+            } else {
+		vb[mano.getCarta2()] = true;
+		vi[mano.getCarta2()] = 1;		
+            }
+            int cont = 0;
+            int inicio = 0;
+            boolean hueco = false;
+            //Miramos manualmente para la posible escalera usando el as como 1
+            if(vb[14]){
+		cont = 2;
+		inicio = 1;
+		if(vb[2]){
+		cont++;
+		hueco = true;
+		}
+            }
+            for(int i = 2 + inicio; i < 15; i++){
+		if(vb[i]){
+			if(vb[i-1]){
+				cont++;
+			}
+			if(cont == 5){
+				sol = new Solucion(15, (4-vi[mano.getCarta1()]-1)*(4-vi[mano.getCarta2()]-1), mano.toString());
+			}
+		}else if(!hueco){
+			cont = 0;
+		}else {
+			cont++;
+			hueco=true;
+		}
+	
+            }
+        }
         
         return sol;
     }
