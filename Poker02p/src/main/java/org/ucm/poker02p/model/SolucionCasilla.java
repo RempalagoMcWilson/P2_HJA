@@ -406,8 +406,7 @@ public class SolucionCasilla {
 		
 		}
             }
-            vb[mano.getCarta1()] = true;
-            vb[mano.getCarta2()] = true;
+            
             if(vb[mano.getCarta1()]){
 		vi[mano.getCarta1()]++;
             } else{
@@ -456,8 +455,7 @@ public class SolucionCasilla {
 		vi[board.getListaOrdenada().get(i).getNum()] = 1;
 		
             }
-            vb[mano.getCarta1()] = true;
-            vb[mano.getCarta2()] = true;
+
             if(vb[mano.getCarta1()]){
 		vi[mano.getCarta1()]++;
             } else{
@@ -726,8 +724,6 @@ public class SolucionCasilla {
 		
 		}
             }
-            vb[mano.getCarta1()] = true;
-            vb[mano.getCarta2()] = true;
             if(vb[mano.getCarta1()]){
 		vi[mano.getCarta1()]++;
             } else{
@@ -777,8 +773,7 @@ public class SolucionCasilla {
 		vi[board.getListaOrdenada().get(i).getNum()] = 1;
 		
             }
-            vb[mano.getCarta1()] = true;
-            vb[mano.getCarta2()] = true;
+
             if(vb[mano.getCarta1()]){
 		vi[mano.getCarta1()]++;
             } else{
